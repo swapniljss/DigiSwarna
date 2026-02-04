@@ -1,0 +1,15 @@
+import * as React from 'react';
+import SvgIcon from '@mui/material/SvgIcon';
+
+export default function AnalyticsIcon(props) {
+    return (
+        <SvgIcon {...props} viewBox="0 0 24 24" fontSize="inherit">
+            <g transform="translate(-635 3)">
+                <g transform="translate(635 -3)">
+                    <path d="M0,0H24V24H0Z" fill="none" />
+                </g>
+                <path d="M13,20H1a1,1,0,0,1-1-1V6.5a2,2,0,0,1,2-2H6V2A2,2,0,0,1,8,0h4a2,2,0,0,1,2,2V9h4a2,2,0,0,1,2,2v8a1,1,0,0,1-1,1Zm5-2V11H14v7ZM8,18h4V11q0-.03,0-.059V2H8ZM2,18H6V6.5H2Z" transform="translate(637 -1)" fill="#7e84a3" />
+            </g>
+        </SvgIcon>
+    );
+}

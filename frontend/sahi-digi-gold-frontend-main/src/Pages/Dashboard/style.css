@@ -1,0 +1,258 @@
+.BBPDashboardPage {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: auto;
+}
+
+.BBPDashboardPage .BBPDPTitle {
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+    line-height: normal;
+    padding-bottom: 16px;
+}
+
+.BBPDashboardPage .BBPDPCharts {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 15px;
+    row-gap: 15px;
+}
+
+.BBPAreaChart {
+    width: calc(25% - 12.5px);
+    border-radius: 6px;
+    background: #fff;
+    box-shadow: 0px 1px 4px rgba(21, 34, 50, 0.08);
+    padding: 20px;
+}
+
+.BBPAreaChart .BBPACMTitle {
+    font-size: 14px;
+    line-height: normal;
+    color: #7e84a3;
+    margin-bottom: 15px;
+}
+
+.BBPAreaChart .BBPACInfo {
+    display: flex;
+}
+
+.BBPAreaChart .BBPACInfo .BBPACIDet {
+    width: 50%;
+    align-self: flex-end;
+}
+
+.BBPAreaChart .BBPACInfo .BBPACIDet .BBPACIDTitle {
+    color: #131523;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.BBPAreaChart .BBPACInfo .BBPACIDet  .BBPACIDSubTitle {
+    display: flex;
+    align-items: center;
+}
+
+.BBPAreaChart .BBPACInfo .BBPACIDet .BBPACIDSubTitle .BBPACIDPer {
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    line-height: normal; 
+}
+
+.BBPAreaChart .BBPACInfo .BBPACIDet .BBPACIDSubTitle .BBPACIDPTitle {
+    font-size: 12px;
+    color: #7e84a3;
+    line-height: normal;
+    padding-left: 3px;
+}
+
+.BBPAreaChart .BBPACInfo  .BBPACIChart {
+    width: 50%;
+}
+ 
+.BBPDashboardPage .BBPDPLineChart {
+    margin: 15px 0;
+    padding: 20px;
+    border-radius: 6px;
+    background: #fff;
+    box-shadow: 0px 1px 4px rgba(21, 34, 50, 0.08);
+}
+
+.BBPDashboardPage .BBPDPLineChart .BBPDPlCHead {
+    display: flex;
+    align-items: center;
+    padding-bottom: 15px;
+}
+
+.BBPDashboardPage .BBPDPLineChart .BBPDPlCHead .BBPDPlCHTitle {
+    flex: 1;
+    font-size: 16px;
+    font-weight: 600;
+    color: #131523;
+}
+
+.BBPDashboardPage .BBPDPLineChart .BBPDPlCChart .recharts-cartesian-axis-tick {    
+    font-size: 12px;
+    font-weight: 500;
+} 
+
+.BBPDashboardPage .BBPDPLineChart .BBPDPlCChart .recharts-cartesian-axis-tick text.recharts-text { 
+    fill: #7E84A3;
+}
+ 
+.BBPDashboardPage .BBPDPLineChart .BBPDPlCChart .recharts-cartesian-axis-tick line.recharts-cartesian-axis-tick-line,
+.BBPDashboardPage .BBPDPLineChart .BBPDPlCChart .recharts-cartesian-axis line.recharts-cartesian-axis-line {
+    display: none;
+}
+
+.BBPDashboardPage .BBPDPLineChart .BBPDPlCChart .recharts-surface .recharts-tooltip-cursor {
+    stroke: #5891FF;
+    transition: all ease .10s;
+}
+    
+.BBPCustomTooltip {
+    background-color: #fff;
+    border: 1px solid #ededed;
+    padding: 5px;
+    padding-bottom: 0;
+    border-radius: 4px;
+}
+
+.BBPCustomTooltip .BBPCTitle {
+    font-size: 14px;
+    line-height: normal;
+    font-weight: 600; 
+    color: #000;
+    text-transform: capitalize;
+}
+
+.BBPCustomTooltip .BBPCList {
+    font-size: 12px;
+    line-height: normal;
+    padding: 4px 0;    
+    color: #7E84A3;
+}
+
+.BBPCustomTooltip .BBPCList strong {
+    color: #000;
+    margin-right: 7px;
+    font-weight: 500;
+}
+
+.BBPCustomTooltip .BBPCList span {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 100%;
+    margin-right: 7px;
+}
+
+.BBPDashboardPage .BBPDPLineChart .BBPDPlCChart .recharts-wrapper ul.recharts-default-legend {
+    font-size: 16px;
+    line-height: normal;
+}
+
+.BBPDashboardPage .BBPDPLineChart .BBPDPlCChart .recharts-wrapper ul.recharts-default-legend li.recharts-legend-item span.recharts-legend-item-text {
+    color: #5A607F!important;
+}
+
+.BBPDashboardPage .BBPDPLineChart .BBPDPlCChart .recharts-wrapper ul.recharts-default-legend li.recharts-legend-item svg.recharts-surface {
+    width: 8px;
+    height: 8px;
+}
+
+.BBPDashboardPage .BBPDPBarCharts {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 15px;
+    row-gap: 15px;
+}
+
+.BBPDPBarCharts .BBPBarChart {
+    width: 100%;
+    border-radius: 6px;
+    background: #fff;
+    box-shadow: 0px 1px 4px rgba(21, 34, 50, 0.08);
+    padding: 20px;
+}
+
+.BBPDPBarCharts .BBPBarChart .BBPBCHead {
+    display: flex;
+    padding-bottom: 10px;
+}
+
+.BBPDPBarCharts .BBPBarChart .BBPBCHead .BBPBCHTitle {
+    flex: 1;
+    font-size: 16px;
+    font-weight: 600;
+    color: #131523;
+}
+
+.BBPDPBarCharts .BBPBarChart .BBPBCHead .BBPBCHBtn {
+    display: flex;
+}
+
+.BBPDPBarCharts .BBPBarChart .BBPBCHead .BBPBCHBtn button {
+    color: #5A607F;
+    border-color: #D7DBEC;
+    text-transform: capitalize;
+    font-size: 14px;
+}
+
+.BBPDPBarCharts .BBPBarChart .BBPBCChart {
+    overflow: auto;
+    height: 425px;
+}
+ 
+.BBPDPBarCharts .BBPBarChart .recharts-wrapper ul.recharts-default-legend {
+    font-size: 16px;
+    line-height: normal;
+}
+
+.BBPDPBarCharts .BBPBarChart .recharts-wrapper ul.recharts-default-legend li.recharts-legend-item span.recharts-legend-item-text {
+    color: #5A607F!important;
+}
+
+.BBPDPBarCharts .BBPBarChart .recharts-wrapper ul.recharts-default-legend li.recharts-legend-item svg.recharts-surface {
+    width: 8px;
+    height: 8px;
+}
+
+.BBPDPBarCharts .BBPBarChart .recharts-cartesian-axis-tick {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.BBPDPBarCharts .BBPBarChart .recharts-cartesian-axis-tick text.recharts-text { 
+    fill: #7E84A3;
+    text-transform: capitalize;
+}
+ 
+.BBPDPBarCharts .BBPBarChart .recharts-cartesian-axis-tick line.recharts-cartesian-axis-tick-line,
+.BBPDPBarCharts .BBPBarChart .recharts-cartesian-axis line.recharts-cartesian-axis-line {
+    display: none;
+}
+
+.BBPDPBarCharts .BBPBarChart .recharts-surface .recharts-tooltip-cursor {
+    stroke: #5891FF;
+    transition: all ease .10s;
+    fill: transparent;
+}
+
+.BBPDashboardPage .BBPDPLineChart .BBPDPlCHead .BBPDPlCHFilter {
+    display: flex;
+}
+
+.BBPDashboardPage .BBPDPLineChart .BBPDPlCHead .BBPDPlCHFilter button {
+    line-height: normal;
+    text-transform: capitalize;
+    font-weight: 500;
+    color: #fff;
+    background-color: #175783;
+    box-shadow: 0px 3px 6px rgb(0 0 0 / 16%);
+}

@@ -1,0 +1,113 @@
+.BBPRangePicker {
+    position: relative;
+}
+
+.BBPRangePicker button.BBPRPDate { 
+    font-weight: normal;
+    font-size: 14px;
+    letter-spacing: 0em;
+    line-height: normal;
+    text-align: left;
+    color: #fff;
+    border-radius: 10px;
+    background-color: #175783;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+    padding: 7px 15px;
+    text-decoration: none;
+    border: 2px solid #175783;
+    min-width: 125px;
+    justify-content: space-between;
+}
+
+.BBPRangePicker button.BBPRPReset {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    color: #fff;
+    background-color: #175783;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+.BBPRPCal {
+    z-index: 999;
+    padding-top: 20px;
+}
+
+.BBPRPCal .BBPRPCOuter { 
+    position: relative;
+}
+
+.BBPRPCal .BBPRPCOuter::before {
+    content: '';
+    position: absolute;
+    top: -7px;
+    right: 15px;
+    background-color: #fff;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+    width: 15px;
+    height: 15px;
+    transform: rotate(45deg);
+    border-radius: 4px;
+}
+
+.BBPRPCal .BBPRPCOuter .BBPRPCInner {
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+    background-color: #fff;
+    border-radius: 4px;
+    position: relative;
+}
+
+.BBPRPCal .BBPRPCOuter .BBPRPCInner .rdrCalendarWrapper .rdrMonthAndYearWrapper {
+    padding-top: 0;
+    height: 45px;
+}
+
+.BBPRPCal .BBPRPCOuter .BBPRPCInner .rdrCalendarWrapper .rdrMonths .rdrMonth {
+    padding: 0 0.833em 0.833em 0.833em;
+}
+
+.BBPRPCal .BBPRPCOuter .BBPRPCInner .BBPRPCIBtn {
+    display: flex;
+}
+
+.BBPRPCal .BBPRPCOuter .BBPRPCInner .BBPRPCIBtn button {
+    flex: 1;
+    border-radius: 0;
+    outline: 0;
+    border: 0;
+    box-shadow: unset;
+    padding: 10px 10px 7px;
+    background-color: #d32f2f;
+}
+
+.BBPRPCal .BBPRPCOuter .BBPRPCInner .BBPRPCIBtn button:first-child { 
+    background-color: #175783;
+}
+
+.BBPRPCal .BBPRPCOuter .BBPRPCInner .rdrDefinedRangesWrapper .rdrInputRanges {
+    padding: 23px 0;
+}
+
+.BBPRPCal .BBPRPCOuter .BBPRPCInner .BBPRPCISRBtn {
+    position: absolute;
+    bottom: 0;
+    width: 226px;
+    left: 0;
+    display: flex;
+}
+
+.BBPRPCal .BBPRPCOuter .BBPRPCInner .BBPRPCISRBtn button {
+    flex: 1 1;
+    border-radius: 0;
+    outline: 0;
+    border: 0;
+    box-shadow: unset;
+    padding: 10px 10px 7px;
+    background-color: #d32f2f;
+}
+
+.BBPRPCal .BBPRPCOuter .BBPRPCInner .BBPRPCISRBtn button:first-child {
+    background-color: #175783;
+}

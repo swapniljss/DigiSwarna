@@ -1,0 +1,159 @@
+.BBPLoginPage {
+    width: 100%;
+}
+
+.BBPLoginPage {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.BBPLoginPage .BBPLPInfo {
+    width: 50%;
+    background-color: #175783;
+    padding: 16px;
+}
+  
+.BBPLoginPage .BBPLPForm {
+    width: 50%;
+    background-color: #fff;
+    padding: 25px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+} 
+
+.BBPLoginPage .BBPLPForm .BBPLPFInner {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+ 
+.BBPLoginPage .BBPLPForm .BBPLPFInner .BBPLPFITitle {
+    font-size: 18px;
+    font-weight: 600;
+    color: #175783;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.BBPLoginPage .BBPLPForm .BBPLPFInner .BBPLPFIInput {
+    margin-bottom: 25px;
+}
+
+.BBPLoginPage .BBPLPForm .BBPLPFInner .BBPLPFIBottom {
+    font-size: 14px;
+    font-weight: 500;
+    color: #000; 
+    text-align: center;
+}
+
+.BBPLoginPage .BBPLPForm .BBPLPFInner .BBPLPFIBottom a {
+    color: #175783;
+}
+
+.BBPLoginPage form.rjsf fieldset {
+    padding: 0;
+    margin: 0;
+} 
+
+.BBPLoginPage .BBPForm form.rjsf .field-object > fieldset .form-group {
+    width: 100%;
+    padding: 0;
+    margin-bottom: 15px;
+}
+
+.BBPLoginPage .BBPForm form.rjsf .field-object > fieldset .form-group label.control-label {
+    font-size: 16px;
+    font-weight: 500;
+    color: #175783;
+    line-height: normal; 
+}
+
+.BBPLoginPage .BBPLPForm .BBPLPFInner .BBPLPFIInput .BBPLPFIIBtn {
+    display: flex;
+    justify-content: center;
+}
+
+.BBPLoginPage .BBPForm form.rjsf .field-object > fieldset .form-group .form-control {
+    border-color: #175783;
+    padding: 15px;
+    border-radius: 4px;
+    font-size: 14px; 
+    color: #175783;
+    outline: 0;
+    letter-spacing: .5px;
+}
+
+.BBPLoginPage .BBPLPInfo .BBPLPIInner .BBPLPILogo {
+    display: flex;
+}
+
+.BBPLoginPage .BBPLPInfo .BBPLPIInner .BBPLPILogo img {
+    width: 200px;
+}
+ 
+.BBPLoginPage .BBPLPInfo .BBPLPIInner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.BBPLoginPage .BBPLPInfo .BBPLPIInner  .BBPLPSlider {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+}
+
+.BBPLPSlider .BBPLPSSlide {
+    text-align: center;
+}
+
+.BBPLPSlider .BBPLPSSlide .BBPLPSSImg {
+    display: flex;
+    justify-content: center;
+}
+
+.BBPLPSlider .BBPLPSSlide .BBPLPSSImg img {
+    width: 400px;
+    height: 400px;
+    object-fit: contain;
+}
+ 
+.BBPLPSlider .BBPLPSSlide .BBPLPSSTitle {
+    color: #fff;
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.BBPLPSlider .BBPLPSSlide .BBPLPSSSubTitle {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: .5px;
+}
+ 
+.BBPLPSlider .BBPLPSSlide .BBPLPSSDots {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.BBPLPSlider .BBPLPSSlide .BBPLPSSDots .BBPLPSSDot {
+    width: 15px;
+    height: 15px;
+    background-color: #ffffff75;
+    margin: 0 7px;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.BBPLPSlider .BBPLPSSlide .BBPLPSSDots .BBPLPSSDot.BBPLPSSDActive {
+    background-color: #fff;
+}

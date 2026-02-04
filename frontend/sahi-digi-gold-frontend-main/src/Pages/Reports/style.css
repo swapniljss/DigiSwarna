@@ -1,0 +1,425 @@
+.BBPReports {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+ 
+.BBPReports .BBPRHead {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: 16px;
+} 
+
+.BBPReports .BBPRHead .BBPRHBtn {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 24px;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.BBPReports .BBPRHead .BBPRHBtn .BBPRHBD {
+    margin-left: 16px;
+    font-weight: normal;
+    font-size: 14px;
+    letter-spacing: 0em;
+    line-height: normal;
+    text-align: left;
+    color: #fff;
+    border-radius: 10px;
+    background-color: #175783;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+    padding: 7px 15px;
+    text-decoration: none;
+    border: 2px solid #175783;
+}
+
+.BBPReports .BBPRHead .BBPRHBtn .BBPRHBD[disabled] {
+    opacity: .5;
+}
+
+.BBPReports .BBPRBody {
+    flex: 1;
+    padding-top: 16px;
+    overflow: auto;
+} 
+
+/*  */
+
+
+.BBPRViewModel {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.BBPRViewModel .BBPRVMHead {
+    border-bottom: 1px solid #ddd; 
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.BBPRViewModel .BBPRVMHead .BBPRVMHTitle { 
+    font-size: 16px;
+    font-weight: 500;
+    color: #000; 
+    padding: 10px 15px;
+    flex: 1;
+    line-height: normal;
+}
+
+.BBPRViewModel .BBPRVMInfo {
+    flex: 1;
+    overflow: auto;
+}
+
+.BBPRViewModel .BBPRVMInfo .BBPVCMDIHead {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 15px;
+    padding-bottom: 0;
+}
+
+.BBPRViewModel .BBPRVMInfo .BBPVCMDIHead .BBPVCMDIHIcon {
+    display: flex;
+}
+
+.BBPRViewModel .BBPRVMInfo .BBPVCMDIHead .BBPVCMDIHIcon img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    object-position: center;
+}
+
+.BBPRViewModel .BBPRVMInfo .BBPVCMDIHead .BBPVCMDIHTitle {
+    padding-left: 15px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.BBPRViewModel .BBPRVMInfo .BBPRVMIRow {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px 0;
+}
+
+.BBPRViewModel .BBPRVMInfo .BBPRVMIRow .BBPRVMIRCol {
+    padding: 5px 15px;
+    width: 50%;
+}
+
+.BBPRViewModel .BBPRVMInfo .BBPRVMIRow .BBPRVMIRCol.BBPVUMDIRCFull {
+    width: 100%;
+}
+
+.BBPRViewModel .BBPRVMInfo .BBPRVMIRow .BBPRVMIRCol .BBPRVMIRCLabel {
+    font-size: 12px;
+    font-weight: 600;
+    color: #000;
+    text-transform: capitalize;
+    line-height: normal;
+    margin-bottom: 5px;
+}
+
+.BBPRViewModel .BBPRVMInfo .BBPRVMIRow .BBPRVMIRCol .BBPVUMDIRCTitle {
+    font-size: 14px;
+    color: #000;
+    line-height: normal;
+    text-transform: capitalize;
+}
+
+.BBPRViewModel .BBPVUMDBtn {
+    padding: 10px 15px;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #ddd;
+} 
+
+/*  */
+
+.BBPBViewReceipt {
+    padding: 20px;
+    padding-bottom: 10px; 
+}
+
+.BBPBViewReceipt .BBPBVRHead {
+    display: flex; 
+    margin-bottom: 20px;
+}
+
+.BBPBViewReceipt .BBPBVRHead .BBPBVRHLogo {
+    flex: 1;
+    display: flex;
+}
+.BBPBViewReceipt .BBPBVRHead .BBPBVRHLogo img {
+    width: 200px;
+    height: auto;
+}
+.BBPBViewReceipt .BBPBVRHead .BBPBVRHText {
+    font-size: 14px;
+    font-weight: 500;
+    color: #000;
+    line-height: normal;
+}
+
+.BBPBViewReceipt .BBPBVRRow {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.BBPBViewReceipt .BBPBVRRow .BBPBVRRCol {
+    width: 50%;
+}
+
+.BBPBViewReceipt .BBPBVRGTitle {
+    font-size: 14px;
+    font-weight: 700;
+    color: #175783;
+    line-height: normal;
+    margin-bottom: 3px;
+}
+
+.BBPBViewReceipt .BBPBVRTitle {
+    font-size: 14px;
+    font-weight: 700;
+    color: #000;
+    line-height: normal;
+    margin-bottom: 3px;
+}
+
+.BBPBViewReceipt .BBPBVROp {
+    font-size: 13px;
+    line-height: normal;
+    color: #666;
+    margin-bottom: 3px;
+}
+
+.BBPBViewReceipt .BBPBVROT {
+    font-size: 12px;
+    font-weight: 400;
+    color: #000;
+    margin-bottom: 3px;
+    line-height: 22px;
+}
+
+.BBPBViewReceipt .BBPBVROT span {
+    display: block;
+    font-weight: 500;
+}
+
+.BBPBViewReceipt .BBPBVRMail {
+    display: flex;
+}
+
+.BBPBViewReceipt .BBPBVRMail a {
+    font-size: 14px;
+    line-height: normal;
+    font-weight: 500;
+    color: #175783;
+}
+
+.BBPBViewReceipt .BBPBVRGTitle span {
+    color: #000;
+    font-weight: 500;
+}
+
+.BBPBViewReceipt .BBPBVRRow .BBPBVRRCol.BBPBVRRCRight {
+    text-align: right;
+}
+
+.BBPBViewReceipt .BBPBVMTitle {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.BBPBViewReceipt .BBPBVRSpace {
+    padding: 3px 0;
+}
+
+.BBPBViewReceipt .BBPBVRTable {
+    padding: 15px 0;
+}
+
+.BBPBViewReceipt .BBPBVRTable .BBPBVRTHead {
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 2px solid #989898;
+}
+ 
+.BBPBViewReceipt .BBPBVRTable .BBPBVRTCol {
+    width: 20%;
+}
+
+.BBPBViewReceipt .BBPBVRTable .BBPBVRTCol:last-child {
+    text-align: right;
+}
+
+.BBPBViewReceipt .BBPBVRTable .BBPBVRTHead .BBPBVRTCol {
+    font-weight: 700;
+    color: #175783;
+    font-size: 14px;
+    padding: 7px;
+    line-height: normal;
+}
+
+.BBPBViewReceipt .BBPBVRTable .BBPBVRTHI {
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #e3e3e3;
+}
+
+.BBPBViewReceipt .BBPBVRTable .BBPBVRTHI .BBPBVRTCol {
+    line-height: normal;
+    font-size: 13px;
+    font-weight: 500;
+    color: #454343;
+    padding: 5px 7px;
+    text-transform: capitalize;
+}
+
+.BBPBViewReceipt .BBPBVRTable .BBPBVRTHI .BBPBVRTCH {
+    font-weight: 700;
+    color: #000;
+}
+
+.BBPBViewReceipt .BBPBVRTable .BBPBVRTFoot {
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 2px solid #ddd;
+    background-color: #ddd;
+}
+
+.BBPBViewReceipt .BBPBVRTable .BBPBVRTFoot .BBPBVRTCol {
+    line-height: normal;
+    font-size: 14px;
+    font-weight: 700;
+    color: #000;
+    padding: 5px 7px;
+}
+
+.BBPBViewReceipt .BBPBVRTC {
+    padding-bottom: 5px;
+}
+
+.BBPBViewReceipt .BBPBVRTC .BBPBVRTCHead {
+    font-size: 14px;
+    font-weight: 700;
+    color: #175783;
+    line-height: normal;
+    margin-bottom: 3px;
+}
+
+.BBPBViewReceipt .BBPBVRTC .BBPBVRTCItem {
+    font-size: 12px;
+    font-weight: 500;
+    color: #000;
+    margin-bottom: 3px;
+    line-height: 18px;
+    padding-left: 15px;
+}
+
+.BBPBViewReceipt .BBPBVRGSTHead {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.BBPBViewReceipt .BBPBVRGLine {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.BBPBViewReceipt .BBPBVRGLink {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    color: #000;
+    line-height: normal;
+}
+
+.BBPBViewReceipt .BBPBVRGLink a {
+    font-size: 13px;
+    line-height: normal;
+    font-weight: 500;
+    color: #175783;
+}
+
+.BBPBViewReceipt + .BBPBVRBtn {
+    display: flex;
+    justify-content: center;
+    padding-top: 0;
+    padding-bottom: 20px;
+}
+
+.BBPRViewModel .BBPRVMInfo .BBPRVMIRow .BBPRVMIRTitle {
+    padding: 5px 15px;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 600;
+    color: #000;
+    text-transform: capitalize;
+    line-height: normal;
+    margin-bottom: 5px;
+}
+
+.BBPRViewModel .BBPRVMInfo .BBPRVMIRow .BBPRPrt {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #f4f7fc;
+    border-top: 1px solid #d6d3d3;
+} 
+
+.BBPRViewModel .BBPRVMInfo .BBPRVMIRow .BBPRPrt .BBPRPInfo {
+    width: 70%;
+    padding: 10px 15px;
+}
+
+.BBPRViewModel .BBPRVMInfo .BBPRVMIRow .BBPRPrt .BBPRPImg {
+    width: 30%;
+    padding: 10px 15px;
+    display: flex;
+}
+
+.BBPRViewModel .BBPRVMInfo .BBPRVMIRow .BBPRPrt .BBPRPImg img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+.BBPRPrt .BBPRPInfo .BBPRPISku {
+    font-size: 13px;
+    font-weight: 500;
+    color: #175783;
+    line-height: normal;
+}
+
+.BBPRPrt .BBPRPInfo .BBPRPIName {
+    font-size: 14px;
+    font-weight: 600;
+    color: #000;
+}
+
+.BBPRPrt .BBPRPInfo .BBPRPIQt,
+.BBPRPrt .BBPRPInfo .BBPRPIPri,
+.BBPRPrt .BBPRPInfo .BBPRPIAmt,
+.BBPRPrt .BBPRPInfo .BBPRPIMt {
+    line-height: 28px;
+    font-size: 13px;
+    color: #000;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.BBPRPrt .BBPRPInfo .BBPRPISku span,
+.BBPRPrt .BBPRPInfo .BBPRPIQt span,
+.BBPRPrt .BBPRPInfo .BBPRPIAmt span,
+.BBPRPrt .BBPRPInfo .BBPRPIPri span,
+.BBPRPrt .BBPRPInfo .BBPRPIMt span {
+    font-weight: 600;
+}

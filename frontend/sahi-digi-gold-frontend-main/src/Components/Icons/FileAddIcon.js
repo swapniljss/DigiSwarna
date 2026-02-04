@@ -1,0 +1,11 @@
+import * as React from 'react';
+import SvgIcon from '@mui/material/SvgIcon';
+
+export default function FileAddIcon(props) {
+    return (
+        <SvgIcon {...props} viewBox="0 0 32 32" fontSize="inherit">
+            <path d="m27.516 8.537a5.09 5.09 0 0 0 -.98-1.415l-4.658-4.658a5.081 5.081 0 0 0 -3.535-1.464h-9.343a5.006 5.006 0 0 0 -5 5v20a5.006 5.006 0 0 0 5 5h14a5.006 5.006 0 0 0 5-5v-15.343a5.032 5.032 0 0 0 -.484-2.12zm-2.93-.537h-2.586a1 1 0 0 1 -1-1v-2.586zm1.414 18a3 3 0 0 1 -3 3h-14a3 3 0 0 1 -3-3v-20a3 3 0 0 1 3-3h9.343a2.953 2.953 0 0 1 .657.08v3.92a3 3 0 0 0 3 3h3.92a2.953 2.953 0 0 1 .08.657z" />
+            <path d="m20 16h-3v-3a1 1 0 0 0 -2 0v3h-3a1 1 0 0 0 0 2h3v3a1 1 0 0 0 2 0v-3h3a1 1 0 0 0 0-2z" />
+        </SvgIcon>
+    );
+}

@@ -1,0 +1,72 @@
+
+.BBPAlertDialog {
+    padding: 30px;
+}
+
+.BBPAlertDialog .BBPADHead {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.BBPAlertDialog .BBPADHead .BBPSDAIcon {
+    display: flex;
+    font-size: 50px;
+}
+ 
+.BBPAlertDialog .BBPADHead .BBPSDATitle {
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 0.07em;
+    text-align: left;
+    color: #2a2a2a;
+    padding-left: 15px;
+}
+
+.BBPAlertDialog .BBPSDASTitle {
+    text-align: center;
+    font-weight: normal;
+    font-size: 14px;
+    letter-spacing: 0.09em;
+    color: #2a2a2a;
+}
+
+.BBPAlertDialog .BBPADBtn {
+    display: flex;
+    justify-content: center; 
+    padding-top: 20px;
+}
+
+.BBPAlertDialog .BBPADBtn button { 
+    margin: 0 15px;
+}
+ 
+.BBPAlertDialog .BBPADBtn button.BBPADBDelete {
+    background-color: #ee2505;
+}
+ 
+@media only screen and (max-width:767px) { 
+
+    .BBPAlertDialog {
+        padding: 15px;
+    }
+
+    .BBPAlertDialog .BBPADHead { 
+        margin-bottom: 20px;
+    }
+
+    .BBPAlertDialog .BBPSDASTitle { 
+        font-size: 16px; 
+    }
+
+    .BBPAlertDialog .BBPADHead .BBPSDAIcon {
+        font-size: 40px;
+    }
+
+    .BBPAlertDialog .BBPADHead .BBPSDATitle { 
+        font-size: 16px; 
+        padding-left: 20px;
+    }
+ 
+}

@@ -1,0 +1,35 @@
+.PageChangeDialog {
+    padding: 20px;
+    text-align: center;
+}
+
+.PageChangeDialog .PCDIcon {
+    display: flex;
+    justify-content: center;
+    font-size: 50px;
+    color: #ee2505;
+}
+
+.PageChangeDialog .PCDTitle {
+    margin: 10px 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+}
+
+.PageChangeDialog .PCDDes {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 22px;
+    color: #434343;
+}
+
+.PageChangeDialog .PCDBtn {
+    display: flex;
+    justify-content: center;
+    padding-top: 15px;
+}
+
+.PageChangeDialog .PCDBtn button { 
+    margin: 0 15px; 
+} 

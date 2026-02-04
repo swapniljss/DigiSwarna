@@ -1,0 +1,83 @@
+.BBPSettingsPage {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.BBPSettingsPage .BBPSPTab {
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 20px 20px 0px 0px;
+    background: #fff;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+}
+
+.BBPSettingsPage .BBPSPTab a.BBPSPTBtn {
+    font-weight: bold;
+    font-size: 12px;
+    letter-spacing: 0em;
+    line-height: 24px;
+    text-align: left;
+    color: #000;
+    text-transform: capitalize;
+    padding: 15px 50px;
+    position: relative;
+    text-decoration: none;
+}
+
+.BBPSettingsPage .BBPSPTab a.BBPSPTBtn.BBPSPTBActive::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 5px;
+    background-color: #175783;
+}
+
+.BBPSettingsPage .BBPSPTabView {
+    flex: 1;
+    overflow: auto;
+}
+
+.BBPSettingsPage .BBPSPTabView .BBPSPTView { 
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.BBPSettingsPage .BBPSPTabView .BBPSPTView .BBPSPTVForm {
+    flex: 1;
+    overflow: auto;
+    padding: 7.5px;
+}
+
+.BBPSettingsPage .BBPSPTabView .BBPSPTView .BBPSPTVBtn {
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+}
+
+.BBPSettingsPage .BBPSPTabView .BBPSPTView  .BBPForm form.rjsf .field-object > fieldset .form-group {
+    width: 33.33%; 
+}
+
+.BBPSettingsPage .BBPSPTabView .BBPSPTView .BBPSPTVForm .BBPSPTVFFLoad {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 15px;
+    row-gap: 15px;
+    padding: 7.5px;
+}
+
+.BBPSettingsPage .BBPSPTabView .BBPSPTView .BBPSPTVForm .BBPSPTVFFLoad .BBPSPTVFFLInner {
+    width: calc(33.33% - 10px);
+}
+ 
+.BBPSettingsPage .BBPSPTabView .BBPSPTView .BBPSPTVErr {
+    text-align: center;
+    font-size: 18px;
+    color: #d32f2f;
+    font-weight: 600;
+}

@@ -1,0 +1,54 @@
+.BBPNoData {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 20px;
+}
+.BBPNoData .BBPNDInner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.BBPNoData .BBPNDInner .BBPNDIImg {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+ 
+.BBPNoData .BBPNDInner .BBPNDIImg > img {
+    width: 250px;
+    height: 250px;
+    object-fit: contain;
+}
+
+.BBPNoData .BBPNDInner .BBPNDITitle {
+    font-size: 24px;
+    line-height: normal;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 10px;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+}
+
+.BBPNoData .BBPNDInner .BBPNDIDes {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 22px;
+    color: #000;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+}
+
+.BBPNoData.small  .BBPNDInner .BBPNDIImg > img {
+    width: 150px;
+    height: 150px;
+}
+.BBPNoData.small .BBPNDInner .BBPNDITitle {
+    font-size: 18px;
+}

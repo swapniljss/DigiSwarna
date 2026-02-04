@@ -1,0 +1,2 @@
+C:\Java\switch-java.bat 21
+java -jar digi-gold-0.0.0.11.jar

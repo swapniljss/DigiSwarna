@@ -1,0 +1,318 @@
+.BBPDevTable {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    box-shadow: 0px 1px 4px rgba(21, 34, 50, 0.08);
+    border-radius: 6px;
+    overflow: auto;
+}
+
+.BBPDevTable .BBPDTInner {
+    flex: 1;
+    overflow: auto;
+    position: relative;
+    background-color: #fff;
+}
+
+.BBPDevTable .BBPDTInner .BBPDTIResponsive {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.BBPDevTable .BBPDTInner .BBPDTIResponsive table.BBPTable {
+    width: 100%;
+    overflow: auto;
+    border-collapse: collapse; 
+}
+
+.BBPDevTable .BBPDTInner .BBPDTIResponsive table.BBPTable thead {
+    position: sticky;
+    top: 0;
+    z-index: 9;
+}
+
+.BBPDevTable .BBPDTInner table thead tr th,
+.BBPDevTable .BBPDTInner table thead tr th:first-child {
+    padding: 0;
+    background-color: #F5F6FA;
+}
+
+.BBPDevTable .BBPDTInner table thead tr th .CellLayout-container .Content-content {
+    flex: 1;
+}
+
+.BBPDevTable .BBPDTInner table thead tr th .CellLayout-container .Content-content span.Title-title {
+    display: block;
+    width: 100%;
+}
+
+.BBPDevTable .BBPDTInner table tbody tr td {
+    padding: 0;
+    border-left: 1px solid #ededed;
+    border-bottom: 1px solid #ededed; 
+} 
+
+
+.BBPDevTable .BBPDTInner table tbody tr td:first-child {
+    padding: 0;
+    border-left: 0;
+} 
+
+.BBPDevTable .BBPDTInner table .BBPDTHead {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    color: #5D5D5D;
+}
+
+.BBPDevTable .BBPDTInner table .BBPDTHead.BBPDTHSort { 
+    cursor: pointer;
+}
+
+.BBPDevTable .BBPDTInner .BBPDTIREmpty table .BBPDTHead.BBPDTHSort {
+    pointer-events: none;
+}
+
+.BBPDevTable .BBPDTInner table .BBPDTHead .BBPDTHText {
+    line-height: normal;
+    font-size: 13px;
+    color: #131523;
+    text-align: left;
+    line-height: normal;
+    font-weight: normal;
+    text-transform: uppercase;
+    flex: 1 1;
+    padding-right: 10px;
+    white-space: nowrap;
+    overflow: hidden; 
+}
+ 
+.BBPDevTable .BBPDTInner table .BBPDTHead .BBPDTHText span {
+    display: block;
+}
+
+.BBPDevTable .BBPDTInner table .BBPDTHead .BBPDTHIcon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 12px;
+    opacity: 0;
+    transition: all ease .3s;
+}
+
+.BBPDevTable .BBPDTInner table .BBPDTHead.BBPDTHSort.BBPDTHSOn .BBPDTHIcon,
+.BBPDevTable .BBPDTInner table .BBPDTHead.BBPDTHSort:hover .BBPDTHIcon { 
+    opacity: 1;
+}
+
+.BBPDevTable .BBPDTInner table .BBPDTSText {
+    padding: 10px 15px;
+    color: #131523;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: normal;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-transform: capitalize;
+}
+
+.BBPDevTable .BBPDTInner table .BBPDTSGroup .BBPDTSGItem {
+    padding: 10px 15px;
+    color: #131523;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: normal;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-transform: capitalize;
+    border-bottom: 1px solid #ddd;
+}
+
+.BBPDevTable .BBPDTInner table .BBPDTSGroup .BBPDTSGItem:last-child {
+    border-bottom: 0;
+}
+
+
+.BBPDevTable .BBPDTInner table .BBPDTIBtns {
+    padding: 5px 15px;
+    color: #131523;
+}
+
+.BBPDevTable .BBPDTInner table .BBPDTIBtns .BBPDTIBIcon {
+    color: #175783;
+    margin: 0 5px;
+    font-size: 16px;
+}
+
+.BBPDevTable .BBPDTInner table .BBPDTIBtns .BBPDTIBDes {
+     opacity: .5;
+}
+
+.BBPDevTable .BBPDTInner .Layout-root,
+.BBPDevTable .BBPDTInner .Layout-root .TableContainer-root,
+.BBPDevTable .BBPDTInner .Layout-root .TableContainer-root > div {
+    height: 100%; 
+}
+
+.BBPDevTable .BBPDTBottom {
+    display: flex;
+    padding: 10px 15px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.BBPDevTable .BBPDTBottom .BBPDTBPag {
+    flex: 1;
+}
+
+.BBPDTPagination ul li button {
+    color: #7E84A3;
+    font-size: 12px;
+    line-height: normal;
+    min-width: 28px;
+    height: 28px;
+}
+
+
+.BBPDTPagination ul li button:hover,
+.BBPDTPagination ul li button.Mui-selected:hover,
+.BBPDTPagination ul li button.Mui-selected {
+    background-color: #175783;
+    color: #fff;
+}
+
+.BBPDTPagination ul li button.Mui-selected {
+    pointer-events: none;
+}
+
+.BBPDevTable .BBPDTInner table tbody tr td.BBPTNDCol {
+    position: unset;
+    border: 0;
+}
+
+.BBPTNDBox {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.BBPDevTable .BBPDTBottom .BBPDTBPNum {
+    font-size: 12px;
+    color: #000;
+    font-weight: 600;
+}
+
+.BBPDevTable .BBPDTInner table .BBPDTImgText {
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+}
+
+.BBPDevTable .BBPDTInner table .BBPDTImgText .BBPDTSITImg {
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+}
+
+.BBPDevTable .BBPDTInner table .BBPDTImgText .BBPDTSITImg img {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+.BBPDevTable .BBPDTInner table .BBPDTImgText .BBPDTSITText {
+    flex: 1;
+    color: #131523;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: normal;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-transform: capitalize;
+    padding-left: 12px;
+}
+
+.BBPDevTable .BBPDTInner table .BBPDTChips {
+    padding: 5px 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.BBPDevTable .BBPDTInner table .BBPDTChips .BBPDTCChip {
+    font-size: 10px;
+    line-height: normal; 
+    border-radius: 8px;
+    color: #fff;
+    padding: 3px 10px;
+    margin: 5px; 
+    min-width: 90px;
+    text-align: center;
+}
+
+.BBPDevTable .BBPDTInner table .BBPDTChips .BBPDTCChip.Failed {
+    background-color: #ee2505;
+} 
+
+.BBPDevTable .BBPDTInner table .BBPDTChips .BBPDTCChip.Canceled {
+    background-color: #d32f2f;
+}
+
+.BBPDevTable .BBPDTInner table .BBPDTChips .BBPDTCChip.Success,
+.BBPDevTable .BBPDTInner table .BBPDTChips .BBPDTCChip.Completed {
+    background-color: #2e7d32;
+}
+
+.BBPDevTable .BBPDTInner table .BBPDTChips .BBPDTCChip.Pending {
+    background-color: #ed6c02;
+}
+.BBPDevTable .BBPDTInner table .BBPDTChips .BBPDTCChip.UnderProcess {
+    background-color: #ffbf00; 
+}
+
+.BBPDevTable .BBPDTInner table  .BBPDTSImg {
+    padding: 0 10px;
+    display: flex;
+}
+
+.BBPDevTable .BBPDTInner table .BBPDTSImg img {
+    width: 38px;
+    height: 38px;
+    object-fit: contain;
+}
+
+.BBPDevTable .BBPDTInner table .BBPDTSText.BBPDTSErr {
+    display: flex;
+    align-items: center;
+    background-color: #fdeded;
+    color: #ef5350;
+}
+
+.BBPDevTable .BBPDTInner table .BBPDTSText.BBPDTSWarn {
+    background-color: #fff4e5;
+    color: #ff9800;
+}
+
+.BBPDevTable .BBPDTInner table .BBPDTSText.BBPDTSErr .BBPDTSEText {
+    flex: 1;
+}
+
+.BBPDevTable .BBPDTInner table .BBPDTSText.BBPDTSErr svg {
+    font-size: 18px;
+    color: #ef5350;
+}

@@ -1,0 +1,386 @@
+.BBPUser {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+ 
+.BBPUser .BBPUHead {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+} 
+
+.BBPUser .BBPUHead .BBPUHBtn {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 24px;
+  }
+
+.BBPUser .BBPUHead .BBPUHBtn a.BBPTableBtn,
+.BBPUser .BBPUHead .BBPUHBtn button.BBPTableBtn {
+    margin-right: 24px;
+}
+
+.BBPUser .BBPUBody {
+    flex: 1;
+    padding-top: 16px;
+    overflow: auto;
+}
+
+.BBPUserAdd {
+    box-shadow: 0px 1px 4px rgba(21, 34, 50, 0.08);
+    border-radius: 6px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.BBPUserAdd .BBPUAHead {
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+}
+ 
+.BBPUserAdd .BBPUAHead .BBPUAHTitle {
+    font-size: 14px;
+    font-weight: 400;
+    color: #000;
+    letter-spacing: .5px;
+}
+
+.BBPUserAdd .BBPUABody {
+    height: 100%;
+    overflow: auto;
+}
+
+.BBPUserAdd .BBPUABody .BBPUABPannel {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.BBPUserAdd .BBPUABody .BBPUABPannel .BBPUABPInner {
+    flex: 1 1;
+    overflow: auto;
+    padding: 10px 0px;
+}
+
+.BBPUABPannel .BBPUABPInner .BBPUABPIFields {
+    padding: 0 10px; 
+    display: flex;
+    flex-wrap: wrap;
+}
+  
+.BBPUABPannel .BBPUABPInner .BBPUABPIFields .BBPCABPIFField {
+    width: calc(25% - 20px);
+    margin: 10px;
+}
+
+.BBPUABPIFields .BBPCABPIFField .BBPBABPIFLabel {
+    font-weight: normal;
+    font-size: 14px;
+    letter-spacing: 0em;
+    line-height: normal;
+    text-align: left;
+    color: #171725;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.BBPUABPIFields .BBPCABPIFField .BBPBABPIFLabel span {
+    color: #ee2505;
+}
+
+.BBPUserAdd .BBPUABody .BBPUABPannel .BBPUABPBtns {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.BBPUserAdd .BBPUABody .BBPUABPannel .BBPUABPBtns button {
+    margin: 0 15px;
+}
+
+.BBPUserAdd .BBPUABody .BBPUABPannel .BBPUABPErr {
+    text-align: center;
+    font-size: 18px;
+    color: #d32f2f;
+    font-weight: 600;
+}
+ 
+.BBPUABPIFields .BBPCABPIFField .BBPBABPIFImg {
+    padding: 12px 25px;
+    font-size: 16px;
+    line-height: 21px;
+    text-transform: inherit;
+    font-weight: 500;
+    color: #171725;
+    border: 1px solid rgba(0, 0, 0, 0.23);
+    justify-content: flex-start;
+    position: relative;
+    background-color: unset;
+    box-shadow: unset;
+}
+
+.BBPUABPIFields .BBPCABPIFField .BBPBABPIFImg span.MuiButton-endIcon svg {
+    font-size: 30px;
+}
+
+.BBPUABPannel .BBPUABPInner .BBPUABPIFields .BBPCABPIFField.BBPBABPIFFU {
+    width: auto;
+}
+
+.BBPUABPannel .BBPUABPInner .BBPUABPIFields .BBPBABPIFFUImg {
+    margin: 10px;
+    width: 100px;
+    height: 87px;
+    border: 1px solid #ddd;
+}
+
+.BBPUABPannel .BBPUABPInner .BBPUABPIFields .BBPBABPIFFUImg img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: contain;
+    object-position: center;
+}
+
+.BBPVUMDialog {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.BBPVUMDialog .BBPVUMDHead {
+    border-bottom: 1px solid #ddd; 
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.BBPVUMDialog .BBPVUMDHead .BBPVUMDHTitle { 
+    font-size: 16px;
+    font-weight: 500;
+    color: #000; 
+    padding: 10px 15px;
+    flex: 1;
+    line-height: normal;
+}
+
+.BBPVUMDialog .BBPVUMDInfo {
+    flex: 1;
+    overflow: auto;
+}
+
+.BBPVUMDialog .BBPVUMDInfo .BBPVCMDIHead {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 15px;
+    padding-bottom: 0;
+}
+
+.BBPVUMDialog .BBPVUMDInfo .BBPVCMDIHead .BBPVCMDIHIcon {
+    display: flex;
+}
+
+.BBPVUMDialog .BBPVUMDInfo .BBPVCMDIHead .BBPVCMDIHIcon img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    object-position: center;
+}
+
+.BBPVUMDialog .BBPVUMDInfo .BBPVCMDIHead .BBPVCMDIHTitle {
+    padding-left: 15px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.BBPVUMDialog .BBPVUMDInfo .BBPVUMDIRow {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.BBPVUMDialog .BBPVUMDInfo .BBPVUMDIRow .BBPVUMDIRCol {
+    padding: 5px 15px;
+    width: 50%;
+}
+
+.BBPVUMDialog .BBPVUMDInfo .BBPVUMDIRow .BBPVUMDIRCol.BBPVUMDIRCFull {
+    width: 100%;
+}
+
+.BBPVUMDialog .BBPVUMDInfo .BBPVUMDIRow .BBPVUMDIRCol .BBPVUMDIRCLabel {
+    font-size: 12px;
+    font-weight: 600;
+    color: #000;
+    text-transform: capitalize;
+    line-height: normal;
+    margin-bottom: 5px;
+}
+
+.BBPVUMDialog .BBPVUMDInfo .BBPVUMDIRow .BBPVUMDIRCol .BBPVUMDIRCTitle {
+    font-size: 14px;
+    color: #000;
+    line-height: normal;
+    text-transform: capitalize;
+}
+
+.BBPVUMDialog .BBPVUMDBtn {
+    padding: 10px 15px;
+    display: flex;
+    justify-content: center;
+} 
+
+.BBPUABPannel .BBPUABPInner .BBPUABPIFields.BBPBABPIRF  .BBPCABPIFField {
+    width: calc(22% - 13px);
+}
+
+.BBPBABPIRF .BBPBABPIFAddRemove {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    padding-top: 30px;
+}
+ 
+.BBPVUMDialog .BBPVUMDInfo .BBPVUMDIRow .BBPVUMDIRCol .BBPVUMDIRCTitle .BBPVUMDIRCTText {
+    margin-top: 5px;
+}
+
+.BBPForm form.rjsf .field-object > fieldset .form-group.BBPUserPer {
+    width: 100%;
+}
+ 
+
+.BBPForm form.rjsf .field-object > fieldset .form-group.BBPUserPer > fieldset > legend {
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+    padding-bottom: 15px;
+    display: block;
+    width: 100%;
+}
+
+.BBPForm form.rjsf .field-object > fieldset .form-group.BBPUserPer > fieldset .field-array {
+    display: flex;
+    align-items: center;
+    margin: 7px 0;
+}
+
+.BBPForm form.rjsf .field-object > fieldset .form-group.BBPUserPer > fieldset .field-array label.control-label {
+    margin-bottom: 0;
+    line-height: normal;
+    font-weight: 500;
+    color: #000;
+    min-width: 125px;
+}
+
+.BBPForm form.rjsf .field-object > fieldset .form-group.BBPUserPer > fieldset .field-array .checkboxes {
+    display: flex;
+    align-items: center;
+}
+
+.BBPForm form.rjsf .field-object > fieldset .form-group.BBPUserPer > fieldset .field-array .checkboxes .checkbox {
+    margin-right: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #175783;
+    line-height: normal;
+}
+
+.BBPForm form.rjsf .field-object > fieldset .form-group.BBPUserPer > fieldset .field-array .checkboxes .checkbox input {
+    margin: 0;
+    margin-right: 10px;
+    width: 15px;
+    height: 15px;
+}
+
+.BBPForm form.rjsf .field-object > fieldset .form-group.BBPUserPer > fieldset .field-array .checkboxes .checkbox label > span {
+    display: flex;
+    align-items: center;
+}
+
+.BBPVUMDialog .BBPVUMDInfo .BBPVUMDIRow .BBPVUMDIRCol.BBPVUMDIRCTitle {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: normal;
+    color: #000;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    margin: 7px 0;
+}
+
+.BBPVUMDialog .BBPVUMDInfo .BBPVUMDIRow .BBPVUMDIRCol .BBPVUMDIRCCheck {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.BBPVUMDialog .BBPVUMDInfo .BBPVUMDIRow .BBPVUMDIRCol .BBPVUMDIRCCheck .BBPVUMDIRCCB {
+    line-height: normal;
+    font-size: 10px;
+    padding: 2px 5px;
+    border-radius: 4px;
+    background-color: #175783;
+    color: #fff;
+    margin-right: 5px;
+}
+ 
+.BBPChangePassword {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.BBPChangePassword .BBPCPHead {
+    border-bottom: 1px solid #ddd; 
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.BBPChangePassword .BBPCPHead .BBPCPHTitle { 
+    font-size: 16px;
+    font-weight: 500;
+    color: #000; 
+    padding: 10px 15px;
+    flex: 1;
+    line-height: normal;
+}
+ 
+.BBPChangePassword .BBPCPBtn {
+    padding: 10px 15px;
+    display: flex;
+    justify-content: center;
+} 
+ 
+.BBPChangePassword .BBPCPBtn button {
+    margin: 0 10px; 
+} 
+
+.BBPChangePassword .BBPCPInfo {
+    padding: 7.5px;
+    border-bottom: 1px solid #ddd;
+}
+
+.BBPChangePassword .BBPCPInfo .BBPForm form.rjsf .field-object > fieldset .form-group {
+    width: 100%;
+}
+
+.BBPChangePassword .BBPCPInfo .BBPForm {
+    max-width: 375px;
+    margin: 0 auto;
+}
+
+.BBPForm form.rjsf .field-object > fieldset .form-group.BBPUpiLg {
+    width: 100%;
+    padding: 7.5px 0;
+}
+
+.BBPForm form.rjsf .field-object > fieldset .form-group.BBPUpiLg > fieldset > legend {
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+    padding-left: 7.5px;
+    display: block;
+    width: 100%;
+}

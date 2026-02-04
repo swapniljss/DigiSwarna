@@ -1,0 +1,12 @@
+.BBPMLogo {
+    display: flex;
+    align-items: center;
+}
+
+.BBPMLogo a {
+    display: flex;
+}
+
+.BBPMLogo a img {
+    width: 120px;
+}

@@ -1,0 +1,92 @@
+.BBPLeftSidebar {
+    width: 269px;
+    border-radius: 6px;
+    background-color: #fff;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+}
+
+.BBPLeftSidebar .BBPLSInner {
+    padding: 16px 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.BBPLeftSidebar .BBPLSInner .BBPLSIMOuter {
+    position: relative;
+}
+
+.BBPLeftSidebar .BBPLSInner .BBPLSIMenu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 12px;
+    line-height: normal;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: #2a2a2a;
+    padding: 12px 20px;
+    position: relative;
+    text-transform: capitalize;
+    transition: all ease .3s;
+    border-radius: 0;
+    text-decoration: none;
+}
+
+
+.BBPLeftSidebar .BBPLSInner .BBPLSIMChild {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 12px;
+    line-height: normal;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: #2a2a2a;
+    padding: 10px 20px;
+    padding-left: 55px;
+    position: relative;
+    text-transform: capitalize;
+    transition: all ease .3s;
+    border-radius: 0;
+    text-decoration: none;
+}
+
+.BBPLeftSidebar .BBPLSInner .BBPLSIMChild:hover,
+    .BBPLeftSidebar .BBPLSInner .BBPLSIMChild.BBPLSICActive {
+	color: #175783;
+}
+
+.BBPLeftSidebar .BBPLSInner .BBPLSIMenu:hover,
+.BBPLeftSidebar .BBPLSInner .BBPLSIMenu.BBPLSIActive {
+    background: #0062ff10;
+    color: #000;
+}
+
+.BBPLeftSidebar .BBPLSInner .BBPLSIMenu:hover::before,
+.BBPLeftSidebar .BBPLSInner .BBPLSIMenu.BBPLSIActive::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    border-radius: 2px;
+    background: #175783;
+    transition: all ease .3s;
+}
+  
+.BBPLeftSidebar .BBPLSInner .BBPLSIMenu svg {
+    font-size: 18px;
+    margin-right: 16px;
+    color: #7e84a3;
+}
+ 
+.BBPLeftSidebar .BBPLSInner .BBPLSIMOuter.BBPLSIMOC a.BBPLSIMenu ~ a.BBPLSIMChild {
+    display: none;
+}
+
+.BBPLeftSidebar .BBPLSInner .BBPLSIMOuter.BBPLSIMOC a.BBPLSIMenu.BBPLSIActive ~ a.BBPLSIMChild {
+    display: block;
+}

@@ -1,0 +1,21 @@
+.SomethingWentWrong {
+    padding: 20px;
+}
+
+.SomethingWentWrong .SWWImg {
+    display: flex;
+    justify-content: center;
+}
+
+.SomethingWentWrong .SWWImg img {
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+}
+
+.SomethingWentWrong .SWWTitle {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    color: #000;
+}

@@ -1,0 +1,193 @@
+.BBPCusTable {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+ 
+.BBPCusTable .BBPCTHead {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}  
+ 
+.BBPCusTable .BBPCTBody {
+    flex: 1;
+    padding-top: 16px;
+    overflow: auto;
+}
+
+.BBPEditCustomer {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.BBPEditCustomer .BBPECHead {
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 20px 20px 0px 0px;
+    background: #fff;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+}
+
+.BBPEditCustomer .BBPECHead .BBPECHTab {
+    flex: 1;
+    display: flex;
+}
+
+.BBPEditCustomer .BBPECHead .BBPECHTab button {
+    font-weight: bold;
+    font-size: 12px;
+    letter-spacing: 0em;
+    line-height: 24px;
+    text-align: left;
+    color: #000;
+    text-transform: capitalize;
+    padding: 15px 50px;
+    position: relative;
+    text-decoration: none;
+    position: relative;
+}
+
+.BBPEditCustomer .BBPECHead .BBPECHTab button.BBPECHTAct::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 5px;
+    background-color: #175783;
+}
+
+.BBPEditCustomer .BBPECBody {
+    flex: 1;
+    padding: 7.5px;
+    overflow: auto;
+}
+ 
+
+.BBPEditCustomer .BBPVCDet .BBPVCDTitle { 
+    line-height: normal;
+    padding: 7.5px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+}
+
+.BBPEditCustomer .BBPVCDet .BBPVCDBtn {
+    display: flex;
+    justify-content: center;
+    column-gap: 15px;
+    padding: 7.5px;
+}
+
+.BBPEditCustomer .BBPVCDet .BBPVCDForm .BBPForm form.rjsf .field-object > fieldset .form-group {
+    width: 33.33%; 
+}
+
+.BBPViewCustomer {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.BBPViewCustomer .BBPVCHead {
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.BBPViewCustomer .BBPVCHead .BBPVCHTitle {
+    font-size: 16px;
+    font-weight: 500;
+    color: #000;
+    padding: 10px 15px;
+    flex: 1 1;
+    line-height: normal;
+}
+
+.BBPViewCustomer .BBPVCBody {
+    flex: 1;
+    overflow: auto;
+    padding: 7.5px;
+}
+
+.BBPViewCustomer .BBPVCBody .BBPVCBItem {
+    border-bottom: 1px solid #b8b8b8;
+}
+
+.BBPViewCustomer .BBPVCBody .BBPVCBItem:last-child {
+    border-bottom: 0;
+}
+
+.BBPViewCustomer .BBPVCBody .BBPVCBItem .BBPVCBITitle {
+    line-height: normal;
+    padding: 7.5px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #000;
+}
+
+.BBPViewCustomer .BBPVCBody .BBPVCBItem .BBPVCBIDet {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.BBPViewCustomer .BBPVCBody .BBPVCBItem .BBPVCBIDet .BBPVCBIDCol {
+    width: 33.33%;
+    padding: 7.5px;
+    padding-top: 0;
+}
+
+.BBPViewCustomer .BBPVCBody .BBPVCBItem .BBPVCBIDet .BBPVCBIDCol .BBPVCBIDCTitle {
+    font-size: 13px;
+    font-weight: 600;
+    color: #000;
+    text-transform: capitalize;
+    line-height: normal;
+    margin-bottom: 5px;
+}
+
+.BBPViewCustomer .BBPVCBody .BBPVCBItem .BBPVCBIDet .BBPVCBIDCol .BBPVCBIDCSTitle {
+    font-size: 14px;
+    color: #000;
+    line-height: normal;
+    text-transform: capitalize;
+}
+
+.BBPViewCustomer .BBPVCBody .BBPVCBItem .BBPVCBIDet .BBPVCBIDCol .BBPVCBIDCImg img {
+    display: block;
+    width: 150px;
+    height: auto;
+}
+
+.BBPEditCustomer .BBPVCDet .BBPVCDForm .BBPVCDFSk {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 15px;
+    row-gap: 15px;
+}
+
+.BBPEditCustomer .BBPVCDet .BBPVCDForm .BBPVCDFSk > div {
+    width: calc(33.33% - 10px);
+}
+
+.BBPEditCustomer .BBPVCDet .BBPVCDMsg {
+    color: #2e7d32;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 7.5px 0;
+}
+ 
+.BBPEditCustomer .BBPVCDet .BBPVCDTable {
+    padding-top: 15px;
+    height: 600px;
+}
+
+.BBPEditCustomer .BBPVCDet .BBPVCDErrMsg {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ee2505;
+}

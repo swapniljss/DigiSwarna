@@ -1,0 +1,84 @@
+
+.BBPSuccessDialog {
+    padding: 30px;
+}
+
+.BBPSuccessDialog .BBPSDHead {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.BBPSuccessDialog .BBPSDHead .BBPSDHIcon {
+    display: flex;
+}
+
+.BBPSuccessDialog .BBPSDHead .BBPSDHIcon svg {
+    font-size: 70px;
+}
+
+.BBPSuccessDialog .BBPSDHead .BBPSDHTitle {
+    font-weight: normal;
+    font-size: 20px;
+    letter-spacing: 0.07em;
+    text-align: left;
+    color: #2a2a2a;
+    padding-left: 24px;
+}
+
+.BBPSuccessDialog .BBPSDHSTitle {
+    text-align: center;
+    font-weight: normal;
+    font-size: 22px;
+    letter-spacing: 0.09em;
+    color: #2a2a2a;
+}
+
+.BBPSuccessDialog .BBPSDBtn {
+    display: flex;
+    justify-content: center; 
+    padding-top: 30px;
+}
+
+.BBPSuccessDialog .BBPSDBtn button {
+    font-weight: normal;
+    font-size: 20px;
+    letter-spacing: 0em;
+    line-height: normal;
+    text-align: left;
+    color: #fff;
+    border-radius: 10px;
+    background: #175783;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+    padding: 15px 60px;
+    margin: 0 15px;
+    min-width: 180px;
+}
+
+
+ 
+@media only screen and (max-width:767px) { 
+
+    .BBPSuccessDialog {
+        padding: 15px;
+    }
+
+    .BBPSuccessDialog .BBPSDHead { 
+        margin-bottom: 20px;
+    }
+
+    .BBPSuccessDialog .BBPSDHSTitle { 
+        font-size: 16px; 
+    }
+
+    .BBPSuccessDialog .BBPSDHead .BBPSDHIcon svg {
+        font-size: 40px;
+    }
+
+    .BBPSuccessDialog .BBPSDHead .BBPSDHTitle { 
+        font-size: 16px; 
+        padding-left: 20px;
+    }
+ 
+}

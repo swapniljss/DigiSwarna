@@ -1,0 +1,271 @@
+.BBPPSDialogRoot .BBPPSDialog {
+    max-width: 700px;
+}
+
+.BBPPaymentSuccessful {
+    padding: 25px;
+}
+
+.BBPPaymentSuccessful .BBPPSHead {
+    display: flex;
+}
+
+.BBPPaymentSuccessful .BBPPSHead .BBPPSHSuccess {
+    display: flex;
+    flex: 1 1;
+    align-items: center;
+    padding-right: 30px;
+}
+
+.BBPPaymentSuccessful .BBPPSHead .BBPPSHSLogo {
+    display: flex;
+}
+
+.BBPPaymentSuccessful .BBPPSHead .BBPPSHSLogo img {
+    width: 65px;
+    height: 65px;
+}
+
+.BBPPaymentSuccessful .BBPPSHead .BBPPSHSuccess .BBPPSHSIcon {
+    display: flex;
+    font-size: 65px;
+}
+
+.BBPPaymentSuccessful .BBPPSHead .BBPPSHSuccess .BBPPSHSTitle {
+    flex: 1;
+    font-weight: normal;
+    font-size: 16px;
+    letter-spacing: 0.07em;
+    text-align: left;
+    color: #2a2a2a;
+    padding-left: 15px;
+}
+
+.BBPPaymentSuccessful .BBPPSBiller {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.BBPPaymentSuccessful .BBPPSBiller .BBPPSBLogo {
+    display: flex;
+}
+
+.BBPPaymentSuccessful .BBPPSBiller .BBPPSBLogo img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.BBPPaymentSuccessful .BBPPSBiller .BBPPSBName {
+    font-size: 15px;
+    letter-spacing: 0.07em;
+    text-align: left;
+    color: #2a2a2a; 
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+.BBPPaymentSuccessful .BBPPSOrderDetail {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-top: 7px;
+}
+
+.BBPPaymentSuccessful .BBPPSOrderDetail .BBPPSODCol {
+    width: calc(50% - 10px);
+    padding: 3px 0;
+    text-align: left;
+}
+ 
+.BBPPaymentSuccessful .BBPPSOrderDetail .BBPPSODCol:nth-child(2n) { 
+    text-align: right;
+}
+
+.BBPPaymentSuccessful .BBPPSOrderDetail .BBPPSODCol .BBPPSODCTitle {
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.07em;
+    color: #2a2a2a;
+    line-height: normal;
+}
+
+.BBPPaymentSuccessful .BBPPSOrderDetail .BBPPSODCol  .BBPPSODCSTitle {
+    font-weight: normal;
+    font-size: 12px;
+    letter-spacing: 0.07em;
+    color: #2a2a2a;
+    line-height: normal;
+    text-transform: capitalize;
+}
+
+.BBPPaymentSuccessful .BBPPSOAmt {
+    padding: 10px 0;
+    margin: 10px 0;
+    border-top: 1px solid #707070;
+    border-bottom: 1px solid #707070;
+}
+
+.BBPPaymentSuccessful .BBPPSOAmt .BBPPSOATitle {
+    font-weight: bold;
+    font-size: 16px;
+    letter-spacing: 0.07em;
+    text-align: left;
+    color: #2a2a2a;
+    text-decoration: underline;
+    line-height: normal;
+    margin-bottom: 5px;
+}
+
+.BBPPaymentSuccessful .BBPPSOAmt .BBPPSOARow {
+    display: flex;
+}
+  
+.BBPPaymentSuccessful .BBPPSOAmt .BBPPSOARow .BBPPSOARTitle {
+    width: auto;
+    padding-right: 15px;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.07em;
+    text-align: left;
+    color: #2a2a2a;
+    line-height: normal;
+}
+
+.BBPPaymentSuccessful .BBPPSOAmt .BBPPSOARow .BBPPSOARAmt {
+    flex: 1 1;
+    text-align: right;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    color: #2a2a2a;
+    line-height: normal;
+}
+
+.BBPPaymentSuccessful .BBPPSOAmt .BBPPSOARow .BBPPSOARAmt .MuiSkeleton-root {
+    margin-left: auto;
+}
+
+.BBPPaymentSuccessful .BBPPSOPBy .BBPPSOPBRow {
+    display: flex;
+}
+
+.BBPPaymentSuccessful .BBPPSOPBy .BBPPSOPBRow .BBPPSOPBRTitle {
+    width: 50%;
+    font-weight: bold;
+    font-size: 16px;
+    letter-spacing: 0.07em;
+    text-align: left;
+    color: #2a2a2a;
+}
+
+.BBPPaymentSuccessful .BBPPSOPBy .BBPPSOPBRow .BBPPSOPBRAmt {
+    width: 50%;
+    font-weight: bold;
+    font-size: 16px;
+    letter-spacing: 0.07em;
+    text-align: right;
+    color: #2a2a2a;
+}
+
+.BBPPaymentSuccessful .BBPPSOPBtn {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+}
+ 
+.BBPPaymentSuccessful .BBPPSOPBtn button {
+    margin: 0 10px;
+}
+
+.BBPPaymentSuccessful .BBPPSBPrms {
+    display: flex;
+    flex-wrap: wrap; 
+}
+
+.BBPPaymentSuccessful .BBPPSBPrms .BBPPSBPItem {
+    width: 25%;
+    padding: 3px 0;
+}
+
+.BBPPaymentSuccessful .BBPPSBPrms .BBPPSBPItem .BBPPSBPITitle {
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.07em;
+    color: #2a2a2a;
+    line-height: normal;
+}
+
+.BBPPaymentSuccessful .BBPPSBPrms .BBPPSBPItem  .BBPPSBPISTitle {
+    font-weight: normal;
+    font-size: 12px;
+    letter-spacing: 0.07em;
+    color: #2a2a2a;
+    line-height: normal;
+    text-transform: capitalize;
+}
+
+@media only screen and (max-width:767px) {
+    .BBPPaymentSuccessful {
+        padding: 15px;
+    }
+    .BBPPaymentSuccessful .BBPPSHead { 
+        align-items: center;
+    }
+    .BBPPaymentSuccessful .BBPPSHead .BBPPSHSuccess { 
+        padding-right: 15px;
+    }
+
+    .BBPPaymentSuccessful .BBPPSHead .BBPPSHSuccess .BBPPSHSIcon { 
+        font-size: 30px;
+    }
+
+    .BBPPaymentSuccessful .BBPPSHead .BBPPSHSuccess .BBPPSHSTitle {
+        font-size: 14px;
+        line-height: normal;
+    }
+
+    .BBPPaymentSuccessful .BBPPSHead .BBPPSHSLogo img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .BBPPaymentSuccessful .BBPPSOrderDetail .BBPPSODCol {
+        width: 100%;
+        padding: 3px 0; 
+    }
+
+    .BBPPaymentSuccessful .BBPPSOrderDetail .BBPPSODCol:nth-child(2n) {
+        text-align: left;
+    }
+
+    .BBPPaymentSuccessful .BBPPSOrderDetail .BBPPSODCol .BBPPSODCTitle { 
+        line-height: normal;
+    }
+
+    .BBPPaymentSuccessful .BBPPSOAmt .BBPPSOARow { 
+        flex-wrap: wrap;
+    }
+
+    .BBPPaymentSuccessful .BBPPSOAmt .BBPPSOARow .BBPPSOARTitle {
+        width: 100%;
+        line-height: normal;
+        padding: 0;
+        font-size: 14px;
+    }
+
+    .BBPPaymentSuccessful .BBPPSOAmt .BBPPSOARow .BBPPSOARAmt {
+        text-align: left;
+        font-size: 12px;
+    }
+
+    .BBPPaymentSuccessful .BBPPSOPBtn button {
+        margin: 0 10px;
+        padding: 10px 20px;
+    }
+
+    .BBPPaymentSuccessful .BBPPSBPrms .BBPPSBPItem {
+        width: 50%; 
+    }
+}

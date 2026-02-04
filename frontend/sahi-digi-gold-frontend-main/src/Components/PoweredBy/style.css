@@ -1,0 +1,22 @@
+
+.BBPBPPoweredBy {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    justify-content: center;
+}
+
+.BBPBPPoweredBy .BBPBPPBTitle {
+    font-size: 14px;
+    padding-right: 15px;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.BBPBPPoweredBy .BBPBPPBLogo {
+    display: flex;
+}
+
+.BBPBPPoweredBy .BBPBPPBLogo img {
+    width: 125px;
+}

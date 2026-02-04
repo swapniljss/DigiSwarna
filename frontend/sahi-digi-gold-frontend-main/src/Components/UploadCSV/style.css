@@ -1,0 +1,313 @@
+.BBPUploadCSVDialog {
+    height: 100%;
+}
+
+.BBPUploadCSVDialog .BBPUCDInner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.BBPUploadCSVDialog .BBPUCDInner .BBPUCDIHead {
+    position: relative;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 15px;
+}
+
+.BBPUploadCSVDialog .BBPUCDInner .BBPUCDIHead .BBPUCDIHTitle {
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    line-height: normal;
+}
+
+.BBPUploadCSVDialog .BBPUCDInner .BBPUCDIHead button {
+    position: absolute;
+    top: 3px;
+    right: 15px;
+    font-size: 24px;
+}
+
+.BBPUploadCSVDialog .BBPUCDInner .BBPUCDIUOut {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+}
+
+.BBPUploadCSVDialog .BBPUCDInner .BBPUCDIUOut .BBPUCDIUOInner {
+    max-width: 1000px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.BBPUploadCSVDialog .BBPUCStepper {
+    padding: 15px 0;
+}
+ 
+.BBPUploadCSVDialog .BBPUCStepper .BBPUCSLComp,
+.BBPUploadCSVDialog .BBPUCStepper .BBPUCSActive .BBPUCSLAc {
+    color: #1976d2;
+}
+
+.BBPUploadCSVDialog .BBPUCView {
+    flex: 1;
+    overflow: auto;
+}
+
+.BBPUploadCSVDialog .BBPUCView .BBPUCStep1 {
+    padding: 15px 0;
+}
+
+.BBPUploadCSVDialog .BBPUCView .BBPUCStep1 .BBPUCSInner {
+    padding: 50px;
+    position: relative;
+}
+
+.BBPUCStep1 .BBPUCSInner .BBPUCDIUpload {
+    padding: 25px;
+    border: 2px dashed #ddd;
+    border-radius: 15px;
+}
+
+.BBPUCStep1 .BBPUCSInner .BBPUCDIUpload .BBPUCDIUIcon {
+    display: flex;
+    justify-content: center;
+    font-size: 88px;
+    color: #ddd;
+}
+
+.BBPUCStep1 .BBPUCSInner .BBPUCDIUpload .BBPUCDIUTitle {
+    text-align: center;
+    font-size: 14px;
+    line-height: normal;
+    color: #000;
+    font-weight: 500;
+}
+
+.BBPUCStep1 .BBPUCSInner .BBPUCDIUpload .BBPUCDIFile .BBPUCDIFInfo {
+    flex: 1;
+}
+
+.BBPUCStep1 .BBPUCSInner .BBPUCDIUpload .BBPUCDIFile {
+    display: flex;
+    align-items: center;
+}
+
+.BBPUCStep1 .BBPUCSInner .BBPUCDIUpload .BBPUCDIFile .BBPUCDIFInfo {
+    flex: 1 1;
+    display: flex;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.BBPUCStep1 .BBPUCSInner .BBPUCDIUpload .BBPUCDIFile .BBPUCDIFInfo .BBPUCDIFISize { 
+    margin-left: 10px;
+    font-weight: 600;
+}
+ 
+.BBPUCStep1 .BBPUCSInner .BBPUCDIUpload .BBPUCDIFile .BBPUCDIRemove {
+    display: flex;
+    cursor: pointer;
+}
+
+.BBPUCStep1 .BBPUCSInner .BBPUCDIUpload.BBPUCDIUError {
+    background-color: #e9a2ad;
+    border-color: #a01919;
+}
+
+.BBPUCStep1 .BBPUCSInner .BBPUCDIUpload.BBPUCDIUSuc {
+    background-color: #8dd7cf;
+    border-color: #53c1b6;
+}
+
+.BBPUploadCSVDialog .BBPUCView .BBPUCStep1 .BBPUCSError {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 48px;
+}
+
+.BBPUploadCSVDialog .BBPUCView .BBPUCStep1 .BBPUCSError .BBPUCSEIcon {
+    display: flex;
+    font-size: 50px;
+    color: #d3455b;
+}
+
+.BBPUploadCSVDialog .BBPUCView .BBPUCStep1 .BBPUCSError .BBPUCSEInfo {
+    flex: 1;
+    padding-left: 15px;
+}
+
+.BBPUploadCSVDialog .BBPUCView .BBPUCStep1 .BBPUCSError .BBPUCSEInfo .BBPUCSEITitle {
+    font-size: 14px;
+    font-weight: 500;
+    color: #000;
+}
+
+.BBPUploadCSVDialog .BBPUCView .BBPUCStep1 .BBPUCSError .BBPUCSEInfo  .BBPUCSEIColums {
+    font-size: 12px;
+    color: #000;
+    line-height: normal;
+}
+
+.BBPUploadCSVDialog .BBPUCDInner .BBPUCDIBtn {
+    position: relative;
+    border-top: 1px solid #ddd;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.BBPUploadCSVDialog .BBPUCDInner .BBPUCDIBtn .BBPUCDIBInner {
+    max-width: 1000px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.BBPUploadCSVDialog .BBPUCDInner .BBPUCDIBtn .BBPUCDIBInner .BBPButton {
+    margin: 0 5px;
+}
+ 
+.BBPUCStep2 .BBPUCSInner .BBPUCSBody .BBPDevTable {
+    border: 1px solid #ededed;
+}
+
+.BBPUploadCSVDialog .BBPUCView .BBPUCSInner .BBPUCSHead {
+    text-align: center;
+}
+
+.BBPUploadCSVDialog .BBPUCView .BBPUCSInner .BBPUCSHead .BBPUCSHTitle {
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.BBPUploadCSVDialog .BBPUCView .BBPUCSInner .BBPUCSHead .BBPUCSHDes {
+    text-align: center;
+    font-size: 12px;
+    color: #000;
+}
+
+.BBPUploadCSVDialog .BBPUCView .BBPUCSInner .BBPUCSHead .BBPUCSHAlert {
+    display: flex;
+    justify-content: center;
+    padding-top: 25px;
+    column-gap: 15px;
+}
+
+.BBPUploadCSVDialog .BBPUCView .BBPUCSInner .BBPUCSHead .BBPUCSHAlert .BBPUCSHAVEr {
+    cursor: pointer;
+    user-select: none;
+}
+
+.BBPUploadCSVDialog .BBPUCView .BBPUCSInner .BBPUCSHead .BBPUCSHOption {
+    display: flex;
+    align-items: center; 
+}
+
+.BBPUploadCSVDialog .BBPUCView .BBPUCSInner .BBPUCSHead .BBPUCSHOption .BBPUCSHOEnt {
+    flex: 1;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+    color: #000;
+}
+
+.BBPUploadCSVDialog .BBPUCView .BBPUCSInner .BBPUCSHead .BBPUCSHOption .BBPUCSHOToggle {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.BBPUploadCSVDialog .BBPUCView .BBPUCStep2 { 
+    height: 100%;
+}
+
+.BBPUploadCSVDialog .BBPUCView .BBPUCStep2 .BBPUCSInner { 
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+  
+.BBPUploadCSVDialog .BBPUCSInner .BBPUCSBody {
+    flex: 1 1;
+    padding: 16px 0;
+    overflow: auto;
+}
+ 
+.BBPUploadCSVDialog .BBPUCSInner .BBPUCSLink {
+    display: flex;
+    justify-content: center;
+}
+
+.BBPUploadCSVDialog .BBPUCSInner .BBPUCSLink a {
+    font-size: 14px;
+    font-weight: 600;
+    color: #175783;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+}
+ 
+.BBPUploadCSVDialog .BBPUCView .BBPUCStep3 .BBPUCSInner {
+    padding: 50px;
+    position: relative;
+}
+
+.BBPUploadCSVDialog .BBPUCSInner .BBPUCSBody .BBPUCSESIcon {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 25px;
+    font-size: 150px;
+}
+
+.BBPUploadCSVDialog .BBPUCSInner .BBPUCSBody .BBPUCSErrSuc {
+    display: flex;
+    column-gap: 25px;
+}
+
+.BBPUploadCSVDialog .BBPUCSInner .BBPUCSBody .BBPUCSErrSuc > div {
+    flex: 1;
+}
+
+.BBPUploadCSVDialog .BBPUCSInner .BBPUCSBody .BBPUCSCBtn {
+    display: flex;
+    justify-content: center;
+    padding-top: 25px;
+}
+
+.BBPUploadCSVDialog .BBPUCStep3L .BBPUCS3Loader {
+    border: 10px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 10px solid #3498db;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+ 
+  /* Safari */
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+
+.BBPUploadCSVDialog .BBPUCStep3L {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.BBPUploadCSVDialog .BBPUCStep3L .BBPUCS3LTitle {
+    padding-top: 25px;
+    font-size: 16px;
+    font-weight: 600;
+}
