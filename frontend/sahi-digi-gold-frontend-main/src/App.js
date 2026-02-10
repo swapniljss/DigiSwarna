@@ -65,12 +65,12 @@ const App = () => {
           link: `/${MENU_SLUG.reports}/sell`,
           show_tab: CheckPermissions('reports_permissions', 'Sell'),
         },
-        {
-          name: 'transfer',
-          title: 'Transfer',
-          link: `/${MENU_SLUG.reports}/transfer`,
-          show_tab: CheckPermissions('reports_permissions', 'Transfer'),
-        },
+        // {
+        //   name: 'transfer',
+        //   title: 'Transfer',
+        //   link: `/${MENU_SLUG.reports}/transfer`,
+        //   show_tab: CheckPermissions('reports_permissions', 'Transfer'),
+        // },
         {
           name: 'redeem',
           title: 'Redeem',

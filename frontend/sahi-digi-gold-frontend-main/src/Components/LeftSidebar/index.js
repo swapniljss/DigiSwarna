@@ -72,6 +72,8 @@ const LeftSidebar = ({ pages }) => {
                             : ''}
                     </Fragment>
                 )}
+                <div className="BBPVersion">v1.1.0 ©2026</div>
+
             </Box>
         </Box>
     );

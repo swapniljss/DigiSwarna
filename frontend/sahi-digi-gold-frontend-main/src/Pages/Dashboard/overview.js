@@ -30,7 +30,7 @@ const Overview = () => {
                     isAmt={true}
                     percentage_text={'Than Last 30 Days'}
                 />
-                <BBPAreaChart
+                {/* <BBPAreaChart
                     apiPrm={'totalTransferCount'}
                     color={"#12e1e3"}
                     name={'totalTransferCount'}
@@ -38,7 +38,7 @@ const Overview = () => {
                     itemKey={'count'}
                     isAmt={false}
                     percentage_text={'Than Last 30 Days'}
-                />
+                /> */}
                 <BBPAreaChart
                     apiPrm={'totalRedeemCount'}
                     color={"#ff9800"}

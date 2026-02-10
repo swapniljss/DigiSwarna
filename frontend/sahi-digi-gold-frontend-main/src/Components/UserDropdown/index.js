@@ -55,13 +55,19 @@ export default function UserDropdown() {
     return (
         <Fragment>
             <Box component="div" className={'BBPUserDropdown'} ref={anchorRef} onClick={handleToggle}>
-                <Box component="div" className={'BBPUDImg'}>
+                {/* <Box component="div" className={'BBPUDImg'}>
                     {auth.image ?
                         <Avatar alt="Remy Sharp" src={`${process.env.REACT_APP_API_BASE_URL}/image/${auth.image}`} sx={{ width: 30, height: 30 }} />
                         :
                         <Avatar sx={{ width: 30, height: 30 }} >{auth.name[0]}</Avatar>
                     }
-                </Box>
+                </Box> */}
+                <Box component="div" className={'BBPUDImg'}>
+  <Avatar sx={{ width: 30, height: 30 }}>
+    {auth?.name?.split(" ")[0]?.charAt(0)?.toUpperCase()}
+  </Avatar>
+</Box>
+
                 <Box component="div" className={'BBPUDName'}>
                     {auth.name}
                 </Box>

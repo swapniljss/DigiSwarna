@@ -384,3 +384,15 @@
     display: block;
     width: 100%;
 }
+
+.BBPDropCap {
+  display: flex;
+  align-items: center;
+}
+
+.BBPDropCapLetter {
+  font-size: 28px;          /* make it big */
+  font-weight: 400;
+  line-height: 1;
+  margin-right: 1px;
+}

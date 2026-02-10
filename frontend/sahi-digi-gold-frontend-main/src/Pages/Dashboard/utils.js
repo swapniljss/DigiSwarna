@@ -50,12 +50,9 @@ export const getStatusChartData = (currentData, lastData) => {
     return allDates;
 }
 
-export const dataByStatus = (arr, amtKey, itemKey) => {
-    let tempData = [];
-    // eslint-disable-next-line 
-    arr.map((item) => {
-        let tempDate = format(new Date(item._id), "yyyy-MM-dd");
-        tempData.push({ date: tempDate, [amtKey]: parseInt(item[itemKey]) });
-    });
-    return tempData;
-}
+export const dataByStatus = (data, keyName, itemKey) => {
+  return data.map((item) => ({
+    date: item._id,
+    [keyName]: Number(item[itemKey] ?? 0)
+  }));
+};

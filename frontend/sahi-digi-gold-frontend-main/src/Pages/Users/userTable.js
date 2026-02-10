@@ -237,10 +237,20 @@ const UserTable = () => {
         if (tempArray) {
             tempArray.map((item) =>
                 tempRowArray.push({
-                    name: (<Box component="div" className="BBPDTImgText">
-                        <Box component="div" className="BBPDTSITImg"><img src={`${process.env.REACT_APP_API_BASE_URL}/image/${item.image}`} alt={item.name} /></Box>
-                        <Box component="div" className="BBPDTSITText">{item.name}</Box>
-                    </Box>),
+                    // name: (<Box component="div" className="BBPDTImgText">
+                    //     <Box component="div" className="BBPDTSITImg"><img src={`${process.env.REACT_APP_API_BASE_URL}/image/${item.image}`} alt={item.name} /></Box>
+                    //     <Box component="div" className="BBPDTSITText">{item.name}</Box>
+                    // </Box>),
+name: (
+  <Box component="div" className="BBPDTSText BBPDropCap">
+    <span className="BBPDropCapLetter">
+      {item.name?.charAt(0)}
+    </span>
+    {item.name?.slice(1)}
+  </Box>
+),
+
+
                     email: (<Box component="div" className="BBPDTSText" style={{ textTransform: 'lowercase' }}>{item.email}</Box>),
                     mobile_number: (<Box component="div" className="BBPDTSText">{item.phone}</Box>),
                     dob: (<Box component="div" className="BBPDTSText">{format(parseISO(item.dob), "dd-MMM-yyyy")}</Box>),

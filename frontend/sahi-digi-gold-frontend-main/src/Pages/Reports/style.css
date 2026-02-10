@@ -1,419 +1,422 @@
 .BBPReports {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
- 
+
 .BBPReports .BBPRHead {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    column-gap: 16px;
-} 
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 16px;
+}
 
 .BBPReports .BBPRHead .BBPRHBtn {
-    display: flex;
-    flex-wrap: wrap;
-    padding-left: 24px;
-    flex: 1;
-    justify-content: flex-end;
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 24px;
+  flex: 1;
+  justify-content: flex-end;
 }
 
 .BBPReports .BBPRHead .BBPRHBtn .BBPRHBD {
-    margin-left: 16px;
-    font-weight: normal;
-    font-size: 14px;
-    letter-spacing: 0em;
-    line-height: normal;
-    text-align: left;
-    color: #fff;
-    border-radius: 10px;
-    background-color: #175783;
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
-    padding: 7px 15px;
-    text-decoration: none;
-    border: 2px solid #175783;
+  margin-left: 16px;
+  font-weight: normal;
+  font-size: 14px;
+  letter-spacing: 0em;
+  line-height: normal;
+  text-align: left;
+  color: #fff;
+  border-radius: 10px;
+  background-color: #175783;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+  padding: 7px 15px;
+  text-decoration: none;
+  border: 2px solid #175783;
 }
 
 .BBPReports .BBPRHead .BBPRHBtn .BBPRHBD[disabled] {
-    opacity: .5;
+  opacity: 0.5;
 }
 
 .BBPReports .BBPRBody {
-    flex: 1;
-    padding-top: 16px;
-    overflow: auto;
-} 
+  flex: 1;
+  padding-top: 16px;
+  overflow: auto;
+}
 
 /*  */
 
-
 .BBPRViewModel {
-    display: flex;
-    flex-direction: column;
-    overflow: auto;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
 }
 
 .BBPRViewModel .BBPRVMHead {
-    border-bottom: 1px solid #ddd; 
-    display: flex;
-    flex-wrap: wrap;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.BBPRViewModel .BBPRVMHead .BBPRVMHTitle { 
-    font-size: 16px;
-    font-weight: 500;
-    color: #000; 
-    padding: 10px 15px;
-    flex: 1;
-    line-height: normal;
+.BBPRViewModel .BBPRVMHead .BBPRVMHTitle {
+  font-size: 16px;
+  font-weight: 500;
+  color: #000;
+  padding: 10px 15px;
+  flex: 1;
+  line-height: normal;
 }
 
 .BBPRViewModel .BBPRVMInfo {
-    flex: 1;
-    overflow: auto;
+  flex: 1;
+  overflow: auto;
 }
 
 .BBPRViewModel .BBPRVMInfo .BBPVCMDIHead {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 15px;
-    padding-bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 15px;
+  padding-bottom: 0;
 }
 
 .BBPRViewModel .BBPRVMInfo .BBPVCMDIHead .BBPVCMDIHIcon {
-    display: flex;
+  display: flex;
 }
 
 .BBPRViewModel .BBPRVMInfo .BBPVCMDIHead .BBPVCMDIHIcon img {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
-    object-position: center;
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  object-position: center;
 }
 
 .BBPRViewModel .BBPRVMInfo .BBPVCMDIHead .BBPVCMDIHTitle {
-    padding-left: 15px;
-    font-size: 16px;
-    font-weight: 600;
+  padding-left: 15px;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .BBPRViewModel .BBPRVMInfo .BBPRVMIRow {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 10px 0;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px 0;
 }
 
 .BBPRViewModel .BBPRVMInfo .BBPRVMIRow .BBPRVMIRCol {
-    padding: 5px 15px;
-    width: 50%;
+  padding: 5px 15px;
+  width: 50%;
 }
 
 .BBPRViewModel .BBPRVMInfo .BBPRVMIRow .BBPRVMIRCol.BBPVUMDIRCFull {
-    width: 100%;
+  width: 100%;
 }
 
 .BBPRViewModel .BBPRVMInfo .BBPRVMIRow .BBPRVMIRCol .BBPRVMIRCLabel {
-    font-size: 12px;
-    font-weight: 600;
-    color: #000;
-    text-transform: capitalize;
-    line-height: normal;
-    margin-bottom: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #000;
+  text-transform: capitalize;
+  line-height: normal;
+  margin-bottom: 5px;
 }
 
 .BBPRViewModel .BBPRVMInfo .BBPRVMIRow .BBPRVMIRCol .BBPVUMDIRCTitle {
-    font-size: 14px;
-    color: #000;
-    line-height: normal;
-    text-transform: capitalize;
+  font-size: 14px;
+  color: #000;
+  line-height: normal;
+  text-transform: capitalize;
 }
 
 .BBPRViewModel .BBPVUMDBtn {
-    padding: 10px 15px;
-    display: flex;
-    justify-content: center;
-    border-top: 1px solid #ddd;
-} 
+  padding: 10px 15px;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid #ddd;
+}
 
 /*  */
 
 .BBPBViewReceipt {
-    padding: 20px;
-    padding-bottom: 10px; 
+  padding: 40px 70px !important;
+  padding-bottom: 30px !important;
 }
 
 .BBPBViewReceipt .BBPBVRHead {
-    display: flex; 
-    margin-bottom: 20px;
+  display: flex;
+  margin-bottom: 20px;
 }
 
 .BBPBViewReceipt .BBPBVRHead .BBPBVRHLogo {
-    flex: 1;
-    display: flex;
+  flex: 1;
+  display: flex;
 }
 .BBPBViewReceipt .BBPBVRHead .BBPBVRHLogo img {
-    width: 200px;
-    height: auto;
+  width: 200px;
+  height: auto;
 }
 .BBPBViewReceipt .BBPBVRHead .BBPBVRHText {
-    font-size: 14px;
-    font-weight: 500;
-    color: #000;
-    line-height: normal;
+  font-size: 14px;
+  font-weight: 500;
+  color: #000;
+  line-height: normal;
 }
 
 .BBPBViewReceipt .BBPBVRRow {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .BBPBViewReceipt .BBPBVRRow .BBPBVRRCol {
-    width: 50%;
+  width: 50%;
 }
 
 .BBPBViewReceipt .BBPBVRGTitle {
-    font-size: 14px;
-    font-weight: 700;
-    color: #175783;
-    line-height: normal;
-    margin-bottom: 3px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #175783;
+  line-height: normal;
+  margin-bottom: 3px;
 }
 
 .BBPBViewReceipt .BBPBVRTitle {
-    font-size: 14px;
-    font-weight: 700;
-    color: #000;
-    line-height: normal;
-    margin-bottom: 3px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #000;
+  line-height: normal;
+  margin-bottom: 3px;
 }
 
 .BBPBViewReceipt .BBPBVROp {
-    font-size: 13px;
-    line-height: normal;
-    color: #666;
-    margin-bottom: 3px;
+  font-size: 13px;
+  line-height: normal;
+  color: #666;
+  margin-bottom: 3px;
 }
 
 .BBPBViewReceipt .BBPBVROT {
-    font-size: 12px;
-    font-weight: 400;
-    color: #000;
-    margin-bottom: 3px;
-    line-height: 22px;
+  font-size: 11px;
+  font-weight: 400;
+  color: gray;
+  margin-bottom: 3px;
+  line-height: 15px;
 }
 
 .BBPBViewReceipt .BBPBVROT span {
-    display: block;
-    font-weight: 500;
+  display: block;
+  font-weight: 500;
 }
 
 .BBPBViewReceipt .BBPBVRMail {
-    display: flex;
+  display: flex;
 }
 
 .BBPBViewReceipt .BBPBVRMail a {
-    font-size: 14px;
-    line-height: normal;
-    font-weight: 500;
-    color: #175783;
+  font-size: 12px;
+  line-height: normal;
+  font-weight: 500;
+  color: #535353;
 }
 
 .BBPBViewReceipt .BBPBVRGTitle span {
-    color: #000;
-    font-weight: 500;
+  color: #000;
+  font-weight: 500;
+    color: #535353;
+
 }
 
 .BBPBViewReceipt .BBPBVRRow .BBPBVRRCol.BBPBVRRCRight {
-    text-align: right;
+  text-align: right;
 }
 
 .BBPBViewReceipt .BBPBVMTitle {
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 15px;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 15px;
 }
 
 .BBPBViewReceipt .BBPBVRSpace {
-    padding: 3px 0;
+  padding: 0px 0;
 }
 
 .BBPBViewReceipt .BBPBVRTable {
-    padding: 15px 0;
+  padding: 15px 0;
 }
 
 .BBPBViewReceipt .BBPBVRTable .BBPBVRTHead {
-    display: flex;
-    flex-wrap: wrap;
-    border-bottom: 2px solid #989898;
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #989898;
 }
- 
+
 .BBPBViewReceipt .BBPBVRTable .BBPBVRTCol {
-    width: 20%;
+  width: 20%;
 }
 
 .BBPBViewReceipt .BBPBVRTable .BBPBVRTCol:last-child {
-    text-align: right;
+  text-align: right;
 }
 
 .BBPBViewReceipt .BBPBVRTable .BBPBVRTHead .BBPBVRTCol {
-    font-weight: 700;
-    color: #175783;
-    font-size: 14px;
-    padding: 7px;
-    line-height: normal;
+  font-weight: 700;
+  color: #175783;
+  font-size: 14px;
+  padding: 7px;
+  line-height: normal;
 }
 
 .BBPBViewReceipt .BBPBVRTable .BBPBVRTHI {
-    display: flex;
-    flex-wrap: wrap;
-    border-bottom: 1px solid #e3e3e3;
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #e3e3e3;
 }
 
 .BBPBViewReceipt .BBPBVRTable .BBPBVRTHI .BBPBVRTCol {
-    line-height: normal;
-    font-size: 13px;
-    font-weight: 500;
-    color: #454343;
-    padding: 5px 7px;
-    text-transform: capitalize;
+  line-height: normal;
+  font-size: 13px;
+  font-weight: 500;
+  color: #454343;
+  padding: 5px 7px;
+  text-transform: capitalize;
 }
 
 .BBPBViewReceipt .BBPBVRTable .BBPBVRTHI .BBPBVRTCH {
-    font-weight: 700;
-    color: #000;
+  font-weight: 700;
+  color: #000;
 }
 
 .BBPBViewReceipt .BBPBVRTable .BBPBVRTFoot {
-    display: flex;
-    flex-wrap: wrap;
-    border-bottom: 2px solid #ddd;
-    background-color: #ddd;
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 2px solid #ddd;
+  background-color: #ddd;
 }
 
 .BBPBViewReceipt .BBPBVRTable .BBPBVRTFoot .BBPBVRTCol {
-    line-height: normal;
-    font-size: 14px;
-    font-weight: 700;
-    color: #000;
-    padding: 5px 7px;
+  line-height: normal;
+  font-size: 13px;
+  font-weight: 700;
+  color: #000;
+  padding: 1px 0px;
 }
 
 .BBPBViewReceipt .BBPBVRTC {
-    padding-bottom: 5px;
+  padding-bottom: 5px;
 }
 
 .BBPBViewReceipt .BBPBVRTC .BBPBVRTCHead {
-    font-size: 14px;
-    font-weight: 700;
-    color: #175783;
-    line-height: normal;
-    margin-bottom: 3px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #175783;
+  line-height: normal;
+  margin-bottom: 3px;
 }
 
 .BBPBViewReceipt .BBPBVRTC .BBPBVRTCItem {
-    font-size: 12px;
-    font-weight: 500;
-    color: #000;
-    margin-bottom: 3px;
-    line-height: 18px;
-    padding-left: 15px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #000;
+  margin-bottom: 3px;
+  line-height: 18px;
+    padding-left: 0;
+  margin-left: 0;
+  text-indent: 0;
 }
 
 .BBPBViewReceipt .BBPBVRGSTHead {
-    font-size: 14px;
-    font-weight: 500;
-    line-height: normal;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: normal;
 }
 
 .BBPBViewReceipt .BBPBVRGLine {
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .BBPBViewReceipt .BBPBVRGLink {
-    text-align: center;
-    font-size: 14px;
-    font-weight: 500;
-    color: #000;
-    line-height: normal;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: #000;
+  line-height: normal;
 }
 
 .BBPBViewReceipt .BBPBVRGLink a {
-    font-size: 13px;
-    line-height: normal;
-    font-weight: 500;
-    color: #175783;
+  font-size: 13px;
+  line-height: normal;
+  font-weight: 500;
+  color: #175783;
 }
 
 .BBPBViewReceipt + .BBPBVRBtn {
-    display: flex;
-    justify-content: center;
-    padding-top: 0;
-    padding-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  padding-top: 0;
+  padding-bottom: 20px;
 }
 
 .BBPRViewModel .BBPRVMInfo .BBPRVMIRow .BBPRVMIRTitle {
-    padding: 5px 15px;
-    width: 100%;
-    font-size: 14px;
-    font-weight: 600;
-    color: #000;
-    text-transform: capitalize;
-    line-height: normal;
-    margin-bottom: 5px;
+  padding: 5px 15px;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 600;
+  color: #000;
+  text-transform: capitalize;
+  line-height: normal;
+  margin-bottom: 5px;
 }
 
 .BBPRViewModel .BBPRVMInfo .BBPRVMIRow .BBPRPrt {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    background-color: #f4f7fc;
-    border-top: 1px solid #d6d3d3;
-} 
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #f4f7fc;
+  border-top: 1px solid #d6d3d3;
+}
 
 .BBPRViewModel .BBPRVMInfo .BBPRVMIRow .BBPRPrt .BBPRPInfo {
-    width: 70%;
-    padding: 10px 15px;
+  width: 70%;
+  padding: 10px 15px;
 }
 
 .BBPRViewModel .BBPRVMInfo .BBPRVMIRow .BBPRPrt .BBPRPImg {
-    width: 30%;
-    padding: 10px 15px;
-    display: flex;
+  width: 30%;
+  padding: 10px 15px;
+  display: flex;
 }
 
 .BBPRViewModel .BBPRVMInfo .BBPRVMIRow .BBPRPrt .BBPRPImg img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: center;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
 }
 
 .BBPRPrt .BBPRPInfo .BBPRPISku {
-    font-size: 13px;
-    font-weight: 500;
-    color: #175783;
-    line-height: normal;
+  font-size: 13px;
+  font-weight: 500;
+  color: #175783;
+  line-height: normal;
 }
 
 .BBPRPrt .BBPRPInfo .BBPRPIName {
-    font-size: 14px;
-    font-weight: 600;
-    color: #000;
+  font-size: 14px;
+  font-weight: 600;
+  color: #000;
 }
 
 .BBPRPrt .BBPRPInfo .BBPRPIQt,
 .BBPRPrt .BBPRPInfo .BBPRPIPri,
 .BBPRPrt .BBPRPInfo .BBPRPIAmt,
 .BBPRPrt .BBPRPInfo .BBPRPIMt {
-    line-height: 28px;
-    font-size: 13px;
-    color: #000;
-    font-weight: 500;
-    text-transform: capitalize;
+  line-height: 28px;
+  font-size: 13px;
+  color: #000;
+  font-weight: 500;
+  text-transform: capitalize;
 }
 
 .BBPRPrt .BBPRPInfo .BBPRPISku span,
@@ -421,5 +424,270 @@
 .BBPRPrt .BBPRPInfo .BBPRPIAmt span,
 .BBPRPrt .BBPRPInfo .BBPRPIPri span,
 .BBPRPrt .BBPRPInfo .BBPRPIMt span {
-    font-weight: 600;
+  font-weight: 600;
+}
+/* added-> */
+.BBPAreaChart .BBPACInfo .BBPACIDet .BBPACIDSubTitle .BBPACIDPer {
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  line-height: normal;
+}
+
+.BBPAreaChart .BBPACInfo .BBPACIDet .BBPACIDTitle {
+  color: #131523;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.BBPAreaChart .BBPACInfo .BBPACIDet .BBPACIDSubTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* equal spacing */
+  margin-top: 5px; /* slightly below amount */
+  width: 100%;
+}
+
+.BBPAreaChart .BBPACInfo {
+  display: flex;
+  align-items: flex-end; /* keeps all cards aligned */
+}
+.BBPAreaChart .BBPACInfo .BBPACIDet {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 6px; /* consistent vertical spacing */
+}
+
+.BBPAreaChart .BBPACInfo .BBPACIChart {
+  width: 50%;
+  height: 90px;
+  padding-left: 12px;
+}
+
+
+.BBPBViewReceipt {
+  padding: 40px 48px;
+  padding-bottom: 30px;
+  background: #fff;
+  line-height: 1.5;
+}
+.BBPBViewReceipt .BBPBVRHead {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 35px;
+}
+
+.BBPBViewReceipt .BBPBVRHead .BBPBVRHLogo img {
+  width: 250px;
+}
+
+.BBPBViewReceipt .BBPBVRRow .BBPBVRRCol {
+  width: 50%;
+  padding-right: 0px;
+}
+
+.BBPBViewReceipt .BBPBVMTitle {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 18px;
+}
+
+.BBPBViewReceipt .BBPBVRGTitle {
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.BBPBViewReceipt .BBPBVROp {
+  font-size: 13px;
+  margin-bottom: 6px;
+  line-height: 1.6;
+}
+
+.BBPBViewReceipt .BBPBVRTable {
+  padding: 0px 0;
+  margin-top: 12px;
+}
+
+.BBPBViewReceipt .BBPBVRTable .BBPBVRTHead .BBPBVRTCol {
+  padding: 1px 0px;
+}
+
+.BBPBViewReceipt .BBPBVRTable .BBPBVRTHI .BBPBVRTCol {
+  padding: 7px 0px;
+}
+
+.BBPBViewReceipt .BBPBVRTable .BBPBVRTFoot {
+  background-color: #f2f3f5;
+}
+
+.BBPBViewReceipt .BBPBVRTC {
+  padding-top: 20px;
+  padding-bottom: 15px;
+}
+
+
+.BBPBViewReceipt .BBPBVRGLink {
+  font-size: 11.5px;
+  margin-top: 15px;
+  line-height: 0.6;
+}
+
+
+.BBPBViewReceipt .BBPBVROp {
+  font-size: 12px;
+  line-height: normal;
+  color: #535353;
+  margin-bottom: 6px;
+  white-space: nowrap;
+}
+.BBPBVRTC {
+  padding-left: 0;
+}
+
+.BBPBViewReceipt .BBPBVRTC {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-top: 11px;
+}
+
+
+.BBPBViewReceipt .BBPBVRTC .BBPBVRTCItem {
+  font-size: 10px;
+  font-weight: 500;
+  color: #000;
+  line-height: 18px;
+
+  /* 🔥 hanging indent fix */
+  padding-left: 18px;     /* space after "4." */
+  text-indent: -18px;     /* pulls "4." to left */
+  margin-bottom: 3px;
+}
+
+/* ===== FIX ONLY DISCLAIMER PARAGRAPH ===== */
+.BBPBViewReceipt .BBPBVRTC:first-of-type .BBPBVRTCItem {
+  padding-left: 0 !important;
+  text-indent: 0 !important;
+  margin-left: 0 !important;
+  display: block;
+  white-space: normal;
+}
+
+
+
+
+/* ===== DISCLAIMER: no indent, no gap on wrapped lines ===== */
+.BBPBViewReceipt .BBPBVRTCDisclaimer .BBPBVRTCItem {
+  padding-left: 0 !important;
+  text-indent: 0 !important;
+  margin-left: 0 !important;
+  white-space: normal;
+}
+/* ===== Authorised Signatory block ===== */
+.BBPBVRSignatory {
+  text-align: center;
+  margin-top: 10px;
+  justify-content: center;
+}
+
+/* Heading */
+.BBPBVRSignTitle {
+  font-size: 13px;
+  font-weight: 700;
+  color: #175783;
+  margin-bottom: 2px; /* 🔥 tight spacing */
+}
+
+/* Company name */
+.BBPBVRSignName {
+  font-size: 13px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 2px;
+}
+
+/* GSTIN / CIN lines */
+.BBPBVRSignLine {
+  font-size: 13px;
+  font-weight: 600;
+  color: #175783;
+  line-height: 1.3;    /* 🔥 removes extra gap */
+  margin: 0;           /* 🔥 no spacing */
+}
+
+.BBPBVRSignLine span {
+  color: #000;
+  font-weight: 600;
+}
+
+/* ===== Authorised Signatory block ===== */
+.BBPBVRSignatory {
+  text-align: left;        /* ⬅ move text to extreme left */
+  margin-top: 10px;
+  margin-left: 0;         /* ⬅ remove any left offset */
+  padding-left: 0;        /* ⬅ ensure no padding */
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.BBPBVRSignatoryWrapper {
+  display: flex;
+  justify-content: space-between; /* 🔥 left & right */
+  align-items: flex-start;
+  width: 100%;
+  margin-top: 0px;
+}
+
+
+
+/* ===== Signatory wrapper ===== */
+.BBPBVRSignatoryWrapper {
+  display: flex;
+  justify-content: space-between; /* left + right blocks */
+  align-items: flex-start;
+  width: 100%;
+  margin-top: 16px;
+}
+
+/* ===== Each signatory block ===== */
+.BBPBVRSignatory {
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;        /* 🔥 horizontal center */
+  text-align: center;         /* 🔥 text center */
+}
+
+/* ===== Title ===== */
+.BBPBVRSignTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: #175783;
+  margin-bottom: 2px;
+}
+
+/* ===== Company name ===== */
+.BBPBVRSignName {
+  font-size: 14px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 2px;
+}
+
+/* ===== GST / CIN lines ===== */
+.BBPBVRSignLine {
+  font-size: 14px;
+  font-weight: 600;
+  color: #175783;
+  line-height: 1.3;
+  margin: 0;
+}
+
+.BBPBVRSignLine span {
+  color: #000;
+  font-weight: 600;
 }

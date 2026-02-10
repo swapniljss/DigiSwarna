@@ -8,8 +8,8 @@ import { customizeValidator } from "@rjsf/validator-ajv6";
 import Form from "@rjsf/core";
 import { useAxiosPrivate } from "../../Hooks/useAxiosPrivate";
 import { useAuth } from "../../Hooks/useAuth";
-import FileUpload from "../../Components/FormFields/FileUploadNew";
-import { dataUrlToFile } from "../../Utils/index";
+// import FileUpload from "../../Components/FormFields/FileUploadNew";
+// import { dataUrlToFile } from "../../Utils/index";
 import Backdrops from "../../Components/Backdrops";
 import PageChangeDialog from "../../Components/PageChangeDialog";
 import SuccessDialog from "../../Components/SuccessDialog";
@@ -82,10 +82,10 @@ const schema = {
       type: "string",
       format: "date",
     },
-    file: {
-      title: "Profile Image",
-      type: "string",
-    },
+    // file: {
+    //   title: "Profile Image",
+    //   type: "string",
+    // },
   },
 };
 
@@ -168,7 +168,7 @@ const GeneralSettings = () => {
   const axiosPrivate = useAxiosPrivate();
   const navigate = useNavigate();
 
-  const [imageKey, setImageKey] = useState("");
+  // const [imageKey, setImageKey] = useState("");
   const [formData, setFormData] = useState({});
   const [loading, setSetLoading] = useState(false);
   const [errorDialog, setErrorDialog] = useState(false);
@@ -201,13 +201,13 @@ const GeneralSettings = () => {
       "ui:widget": "DobWidget",
     },
 
-    file: {
-      "ui:widget": "fileUpload",
-      "ui:options": {
-        accept: ".png, .jpeg, .jpg",
-        imageKey: imageKey,
-      },
-    },
+    // file: {
+    //   "ui:widget": "fileUpload",
+    //   "ui:options": {
+    //     accept: ".png, .jpeg, .jpg",
+    //     imageKey: imageKey,
+    //   },
+    // },
   };
 
   let yourForm;
@@ -226,9 +226,9 @@ const GeneralSettings = () => {
       email: data.email?.toLowerCase(), // normalize email
     };
 
-    if (tempData.file) {
-      tempData.file = dataUrlToFile(tempData.file, "bbp");
-    }
+    // if (tempData.file) {
+    //   tempData.file = dataUrlToFile(tempData.file, "bbp");
+    // }
 
     handleUpdateUser(tempData);
   };
@@ -247,7 +247,7 @@ const GeneralSettings = () => {
           phone: response.data.data.phone,
           dob: response.data.data.dob,
         });
-        setImageKey(response.data.data.image);
+        // setImageKey(response.data.data.image);
       }
 
       setSetLoading(false);
@@ -269,7 +269,8 @@ const GeneralSettings = () => {
           method: "PUT",
           url: "settings",
           data,
-          headers: { "Content-Type": "multipart/form-data" },
+          headers: { "Content-Type": "multipart/form-data" }, 
+          // you can remove this line as img is no longer exist
         });
 
         if (response.data.status === 1) {
@@ -332,7 +333,7 @@ const GeneralSettings = () => {
                 validator={validator}
                 customValidate={customValidate}
                 widgets={{
-                  fileUpload: FileUpload,
+                  // fileUpload: FileUpload,
                   NameWidget,
                   PhoneWidget,
                   DobWidget,

@@ -90,3 +90,13 @@
 .BBPLeftSidebar .BBPLSInner .BBPLSIMOuter.BBPLSIMOC a.BBPLSIMenu.BBPLSIActive ~ a.BBPLSIMChild {
     display: block;
 }
+
+.BBPVersion {
+    position: absolute;
+    bottom: 12px;
+    left: 24px;
+    font-size: 12px;
+    color: #7e84a3;
+    white-space: nowrap;
+    pointer-events: none;
+}

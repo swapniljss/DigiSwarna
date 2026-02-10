@@ -10,7 +10,7 @@ import SuccessDialog from "../../Components/SuccessDialog";
 import { MENU_SLUG } from "../../Constants/constants";
 import Backdrops from "../../Components/Backdrops";
 import PageChangeDialog from "../../Components/PageChangeDialog";
-import FileUpload from "../../Components/FormFields/FileUploadNew";
+// import FileUpload from "../../Components/FormFields/FileUploadNew";
 import SomethingWentWrong from "../../Components/SomethingWentWrong";
 import { dataUrlToFile } from "../../Utils/index";
 
@@ -19,6 +19,7 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import IconButton from "@mui/material/IconButton";
 
 import "./style.css";
+const widgets = {};
 
 const NameWidget = (props) => {
   const handleChange = (e) => {
@@ -193,10 +194,10 @@ const AddUser = () => {
         default: "Yes",
       },
 
-      file: {
-        title: "Profile Image",
-        type: "string",
-      },
+      // file: {
+      //   title: "Profile Image",
+      //   type: "string",
+      // },
       permissions: {
         type: "object",
         title: "User Permissions",
@@ -209,6 +210,7 @@ const AddUser = () => {
               enum: ["View"],
             },
             uniqueItems: true,
+            default: ["View"],
           },
           customers_permissions: {
             type: "array",
@@ -224,7 +226,7 @@ const AddUser = () => {
             title: "Reports",
             items: {
               type: "string",
-              enum: ["Buy", "Sell", "Transfer", "Redeem"],
+              enum: ["Buy", "Sell", "Redeem"],
             },
             uniqueItems: true,
           },
@@ -257,10 +259,10 @@ const AddUser = () => {
   );
   const axiosPrivate = useAxiosPrivate();
 
-  let widgets = {
-    fileUpload: FileUpload,
-  };
-  const [imageKey, setImageKey] = useState("");
+  // let widgets = {
+  //   fileUpload: FileUpload,
+  // };
+  // const [imageKey, setImageKey] = useState("");
 
   const uiSchema = {
     "ui:submitButtonOptions": {
@@ -268,13 +270,13 @@ const AddUser = () => {
         className: "BBPFBtn",
       },
     },
-    file: {
-      "ui:widget": "fileUpload",
-      "ui:options": {
-        accept: ".png, .jpeg, .jpg",
-        imageKey: imageKey,
-      },
-    },
+    // file: {
+    //   "ui:widget": "fileUpload",
+    //   "ui:options": {
+    //     accept: ".png, .jpeg, .jpg",
+    //     imageKey: imageKey,
+    //   },
+    // },
 
     dob: {
       "ui:widget": "DobWidget",
@@ -336,9 +338,9 @@ const AddUser = () => {
     setFormData(formData);
     let tempData = { ...formData };
     tempData.email = tempData.email?.toLowerCase();
-    if (tempData.file) {
-      tempData.file = dataUrlToFile(tempData.file, "bbp");
-    }
+    // if (tempData.file) {
+    //   tempData.file = dataUrlToFile(tempData.file, "bbp");
+    // }
     if (tempData.permissions) {
       tempData.permissions = JSON.stringify(tempData.permissions);
     }
@@ -459,7 +461,7 @@ const AddUser = () => {
             tempData.dob = response.data.data.dob;
             tempData.status = response.data.data.status ? "Yes" : "No";
             tempData.permissions = JSON.parse(response.data.data.permissions);
-            setImageKey(response.data.data.image);
+            // setImageKey(response.data.data.image);
             setFormData(tempData);
             setSetLoading(false);
           } else {

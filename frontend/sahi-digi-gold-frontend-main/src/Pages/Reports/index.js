@@ -7,7 +7,7 @@ import ViewReceipt from "./buyTable/viewReceipt";
 import ViewConvinienceCharge from "./buyTable/viewConvinienceCharge";
 import SellTable from "./sellTable/sellTable";
 import SellViewModel from "./sellTable/viewModel";
-import TransferTable from "./transferTable/transferTable";
+// import TransferTable from "./transferTable/transferTable";
 import RedeemTable from "./redeemTable/redeemTable";
 import RedeemViewModel from "./redeemTable/viewModel";
 import RedeemViewReceipt from "./redeemTable/viewReceipt";
@@ -30,11 +30,11 @@ const Reports = () => {
       component: SellTable,
       enable_route: CheckPermissions("reports_permissions", "Sell"),
     },
-    {
-      path: "/transfer",
-      component: TransferTable,
-      enable_route: CheckPermissions("reports_permissions", "Transfer"),
-    },
+    // {
+    //   path: "/transfer",
+    //   component: TransferTable,
+    //   enable_route: CheckPermissions("reports_permissions", "Transfer"),
+    // },
     {
       path: "/redeem",
       component: RedeemTable,
