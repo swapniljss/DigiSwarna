@@ -131,11 +131,14 @@ function customValidate(formData, errors) {
   }
 
   // PINCODE
-  if (formData.userPincode) {
-    if (!/^\d{6}$/.test(formData.userPincode)) {
-      errors.userPincode.addError("Pincode must be exactly 6 digits");
-    }
-  }
+// PINCODE (India)
+if (
+  !formData.userPincode ||
+  !/^[1-9][0-9]{5}$/.test(formData.userPincode)
+) {
+  errors.userPincode.addError("Enter a valid 6-digit pincode");
+}
+
 
   return errors;
 }
@@ -210,6 +213,7 @@ const BasicDetails = ({ handleClose, customerID }) => {
         defaultValue: selectedCity,
         type: "has-more",
       },
+      
     },
   };
 
@@ -250,32 +254,44 @@ const BasicDetails = ({ handleClose, customerID }) => {
     handleCustomerProfile(tempData);
   };
 
-  const onFormChange = (formData) => {
-    // 🔥 CLEAR OLD ERRORS ON CHANGE
-    if (Object.keys(extraErrors).length > 0) {
-      setExtraErrors({});
-    }
-    let tempData = { ...formData };
-    if (isValidJson(formData.userState)) {
-      let stateObj = JSON.parse(formData.userState);
 
+
+const onFormChange = (formData) => {
+  if (apiSuccess) setApiSuccess(false);
+  if (errorMessage) setErrorMessage("");
+  if (Object.keys(extraErrors).length > 0) {
+    setExtraErrors({});
+  }
+
+  let tempData = { ...formData };
+
+  // ✅ HANDLE STATE CHANGE
+  if (isValidJson(formData.userState)) {
+    let stateObj = JSON.parse(formData.userState);
+
+    if (stateObj.id !== selectedStateId) {
+      // update state
       setSelectedStateId(stateObj.id);
       setSelectedState(stateObj.name);
 
-      // 🔥 IMPORTANT: clear city completely
-      tempData.userCity = undefined;
+      // 🔥 CLEAR CITY COMPLETELY
       setSelectedCity("");
       setSelectedCityId("");
-    }
 
-    if (isValidJson(formData.userCity)) {
-      let cityObj = JSON.parse(formData.userCity);
-      tempData.userCity = formData.userCity;
-      setSelectedCity(cityObj.name);
-      setSelectedCityId(cityObj.id);
+      tempData.userCity = ""; // VERY IMPORTANT
     }
-    setFormData(tempData);
-  };
+  }
+
+  // ✅ HANDLE CITY CHANGE
+  if (isValidJson(formData.userCity)) {
+    let cityObj = JSON.parse(formData.userCity);
+    setSelectedCity(cityObj.name);
+    setSelectedCityId(cityObj.id);
+  }
+
+  setFormData(tempData);
+};
+
 
   const fetchDetails = useCallback(async () => {
     try {
@@ -431,6 +447,7 @@ const BasicDetails = ({ handleClose, customerID }) => {
           ) : (
             <Box component="div" className={"BBPForm"}>
               <Form
+                key={selectedStateId} 
                 schema={schema}
                 uiSchema={uiSchema}
                 formData={formData}

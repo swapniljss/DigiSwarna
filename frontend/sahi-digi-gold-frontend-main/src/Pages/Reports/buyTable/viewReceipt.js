@@ -174,7 +174,7 @@ const ViewReceipt = () => {
               </Box>
               <Box
                 component="div"
-                className={"BBPBVROp"}
+                className={"BBPBVROp no-bold"}
                 style={{ color: "gray", marginBottom: 0 }}
               >
                 (Formerly known as Augmont Precious Metals Private Limited)

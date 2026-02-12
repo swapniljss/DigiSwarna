@@ -270,6 +270,19 @@ const BuyTable = () => {
     });
   };
 
+const normalizeNumber = (value) => {
+  if (
+    value === null ||
+    value === undefined ||
+    value === "" ||
+    value === "Null" ||
+    value === "null"
+  ) {
+    return "0.0000";
+  }
+  return Number(value).toFixed(4);
+};
+
   function generateRows(tempArray) {
     const tempRowArray = [];
     if (tempArray) {
@@ -295,11 +308,13 @@ const BuyTable = () => {
               {item.quantity}
             </Box>
           ),
-          totalAmount: (
-            <Box component="div" className="BBPDTSText">
-              {item.totalAmount}
-            </Box>
-          ),
+totalAmount: (
+  <Box component="div" className="BBPDTSText">
+    {normalizeNumber(item.totalAmount)}
+  </Box>
+),
+
+
           invoiceNumber: (
             <Box component="div" className="BBPDTSText">
               {item.invoiceNumber}
@@ -325,11 +340,13 @@ const BuyTable = () => {
               {item.merchantTransactionId}
             </Box>
           ),
-          goldBalance: (
-            <Box component="div" className="BBPDTSText">
-              {item.goldBalance}
-            </Box>
-          ),
+goldBalance: (
+  <Box component="div" className="BBPDTSText">
+    {normalizeNumber(item.goldBalance)}
+  </Box>
+),
+
+
           paymentMode: (
             <Box component="div" className="BBPDTSText">
               {item.paymentMode}
@@ -345,11 +362,13 @@ const BuyTable = () => {
               {item.ConvinienceCharge ? item.ConvinienceCharge : 0}
             </Box>
           ),
-          silverBalance: (
-            <Box component="div" className="BBPDTSText">
-              {item.silverBalance}
-            </Box>
-          ),
+silverBalance: (
+  <Box component="div" className="BBPDTSText">
+    {normalizeNumber(item.silverBalance)}
+  </Box>
+),
+
+
           action: (
             <Box component="div" className="BBPDTIBtns">
               <Tooltip
@@ -455,19 +474,22 @@ const BuyTable = () => {
                 mobileNumber: item.mobileNumber,
                 userName: item.userName,
                 quantity: item.quantity,
-                totalAmount: item.totalAmount,
+                // totalAmount: item.totalAmount,
+                totalAmount: normalizeNumber(item.totalAmount),
                 invoiceNumber: item.invoiceNumber,
                 metalType: item.metalType,
                 uniqueId: item.uniqueId,
                 transactionId: item.transactionId,
                 merchantTransactionId: item.merchantTransactionId,
-                goldBalance: item.goldBalance,
+                // goldBalance: item.goldBalance,
+                goldBalance: normalizeNumber(item.goldBalance),
                 paymentMode: item.paymentMode,
                 paymentRefID: item.paymentRefID,
                 ConvinienceCharge: item.ConvinienceCharge
                   ? item.ConvinienceCharge
                   : 0,
-                silverBalance: item.silverBalance,
+                // silverBalance: item.silverBalance,
+                silverBalance: normalizeNumber(item.silverBalance),
               })
             );
             delete tempHeader.action;

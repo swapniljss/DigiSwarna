@@ -40,10 +40,27 @@ const DefineRange = ({ buttonTitle, ranges, title, onChange, onReset }) => {
             key: 'selection'
         }
     ]);
+    const MIN_DATE = new Date("2022-10-07");
+const MAX_DATE = new Date();
+
+const clampDate = (date) => {
+    if (!date || isNaN(new Date(date))) return MIN_DATE;
+    if (date < MIN_DATE) return MIN_DATE;
+    if (date > MAX_DATE) return MAX_DATE;
+    return date;
+};
 
     const handleRangePicker = (item) => {
-        setTempDate([item.selection]);
-    };
+    const start = clampDate(new Date(item.selection.startDate));
+    const end = clampDate(new Date(item.selection.endDate));
+
+    setTempDate([{
+        startDate: start,
+        endDate: end,
+        key: 'selection'
+    }]);
+};
+
 
     const handleRangePickerSave = () => {
         setDateState(tempDate);

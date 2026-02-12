@@ -30,6 +30,7 @@ const Overview = () => {
                     isAmt={true}
                     percentage_text={'Than Last 30 Days'}
                 />
+                {/* Transfer block ------------> */}
                 {/* <BBPAreaChart
                     apiPrm={'totalTransferCount'}
                     color={"#12e1e3"}
@@ -39,7 +40,8 @@ const Overview = () => {
                     isAmt={false}
                     percentage_text={'Than Last 30 Days'}
                 /> */}
-                <BBPAreaChart
+                {/* Redeem Block ---------------------> */}
+                {/* <BBPAreaChart
                     apiPrm={'totalRedeemCount'}
                     color={"#ff9800"}
                     name={'totalRedeemCount'}
@@ -47,7 +49,7 @@ const Overview = () => {
                     itemKey={'count'}
                     isAmt={false}
                     percentage_text={'Than Last 30 Days'}
-                />
+                /> */}
             </Box>
         </Fragment>
     );

@@ -155,10 +155,20 @@ const BankDetails = ({ handleClose, customerID }) => {
     );
   };
 
-  const onFormSubmit = (formData) => {
-    setFormData(formData);
+const onFormSubmit = (formData) => {
+  setFormData(formData);
+  setErrorMessage("");
+  setExtraErrors({});
+
+  if (bankId) {
+    // UPDATE existing bank
     handleCustomerBank(formData, bankId);
-  };
+  } else {
+    // CREATE new bank
+    createCustomerBank(formData);
+  }
+};
+
 
   const fetchDetails = useCallback(async () => {
     try {
@@ -215,6 +225,11 @@ const BankDetails = ({ handleClose, customerID }) => {
         url,
         data,
       };
+        console.log("BANK PUT", {
+      customerID,
+      bankId: Id,
+      token: axiosPrivate.defaults.headers?.Authorization,
+    });
       await axiosPrivate(options)
         .then((response) => {
           if (response.data.status === 1) {
@@ -261,6 +276,38 @@ const BankDetails = ({ handleClose, customerID }) => {
     fetchDetails();
     // eslint-disable-next-line
   }, []);
+
+  const createCustomerBank = useCallback(async (data) => {
+  try {
+    setBtnDisable(true);
+
+    let url = `customers/${customerID}/banks`;
+    let options = {
+      method: "POST",
+      url,
+      data,
+    };
+
+    const response = await axiosPrivate(options);
+
+    if (response.data.status === 1) {
+      setApiSuccess(true);
+
+      // Save newly created bankId for future updates
+      const newBank = response.data.data;
+      if (newBank?.userBankId) {
+        setBankId(newBank.userBankId);
+      }
+    } else {
+      setErrorMessage(response.data.message || "Something went wrong");
+    }
+
+    setBtnDisable(false);
+  } catch (err) {
+    setErrorDialog(true);
+  }
+}, []);
+
 
   return (
     <Fragment>

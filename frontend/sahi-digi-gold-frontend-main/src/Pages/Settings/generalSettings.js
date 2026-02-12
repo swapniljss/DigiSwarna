@@ -99,6 +99,12 @@ function customValidate(formData, errors) {
       );
     }
   }
+    // PHONE validation (reject 0000000000 and invalid numbers)
+  if (formData.phone) {
+    if (!/^[6-9]\d{9}$/.test(formData.phone)) {
+      errors.phone.addError("Please enter a valid 10-digit mobile number");
+    }
+  }
 
   // DOB validation (already correct behaviour)
   if (formData.dob) {
@@ -145,6 +151,7 @@ const DobWidget = (props) => {
       props.onChange(corrected);
     }
   };
+  
 
   return (
     <input

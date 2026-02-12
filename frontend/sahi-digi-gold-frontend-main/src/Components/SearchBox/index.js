@@ -18,10 +18,17 @@ const SearchBox = ({ onSearchChange, disabled, placeholder, searchTooltip }) => 
 
     const doSave = useDebounce(doSearch, 500);
 
+    // const handleSearchInput = useCallback(value => {
+    //     setSearchValue(value);
+    //     doSave(value);
+    // }, [doSave]);
+
     const handleSearchInput = useCallback(value => {
-        setSearchValue(value);
-        doSave(value);
-    }, [doSave]);
+    const safeValue = value.replace(/[^\w\s]/g, '');
+    setSearchValue(safeValue);
+    doSave(safeValue);
+}, [doSave]);
+
 
 
     return (

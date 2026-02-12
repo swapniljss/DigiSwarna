@@ -39,10 +39,64 @@ const RangePicker = ({ buttonTitle, ranges, dataStartDate, title, onChange, onRe
             key: 'selection'
         }
     ]);
+    const MIN_DATE = new Date("2022-10-07");
+const MAX_DATE = new Date();
 
-    const handleRangePicker = (item) => {
-        setTempDate([item.selection]);
+const clampDate = (date) => {
+    if (!date || isNaN(new Date(date))) return MIN_DATE;
+    if (date < MIN_DATE) return MIN_DATE;
+    if (date > MAX_DATE) return MAX_DATE;
+    return date;
+};
+
+
+const handleRangePicker = (item) => {
+    let start = new Date(item.selection.startDate);
+    let end = new Date(item.selection.endDate);
+
+    const sanitizeDate = (date) => {
+        if (!date || isNaN(date)) return MIN_DATE;
+
+        let year = date.getFullYear();
+        let month = date.getMonth();
+        let day = date.getDate();
+
+        // ✅ Year strictly 4 digits
+        if (year.toString().length > 4) {
+            year = parseInt(year.toString().slice(0, 4));
+        }
+
+        // ✅ Month clamp 0–11
+        if (month < 0) month = 0;
+        if (month > 11) month = 11;
+
+        // ✅ Day clamp 1–31
+        if (day < 1) day = 1;
+        if (day > 31) day = 31;
+
+        const fixedDate = new Date(year, month, day);
+
+        return clampDate(fixedDate);
     };
+
+    start = sanitizeDate(start);
+    end = sanitizeDate(end);
+
+    // 🔥 FIX ORDER (prevents auto swap by library)
+    if (start > end) {
+        end = start;
+    }
+
+    setTempDate([{
+        startDate: start,
+        endDate: end,
+        key: 'selection'
+    }]);
+};
+
+
+
+
 
     const handleRangePickerSave = () => {
         setDateState(tempDate);
@@ -104,8 +158,14 @@ const RangePicker = ({ buttonTitle, ranges, dataStartDate, title, onChange, onRe
                                         onChange={item => handleRangePicker(item)}
                                         moveRangeOnFirstSelection={false}
                                         ranges={tempDate}
-                                        minDate={dataStartDate ? dataStartDate : new Date()}
-                                        maxDate={new Date()}
+                                        // minDate={MIN_DATE}
+
+                                        // minDate={dataStartDate ? dataStartDate : new Date()}
+                                        // maxDate={new Date()}
+                                        minDate={MIN_DATE}
+maxDate={MAX_DATE}
+// editableDateInputs={false}
+
                                         direction="vertical"
                                         scroll={{ enabled: true }}
                                     />

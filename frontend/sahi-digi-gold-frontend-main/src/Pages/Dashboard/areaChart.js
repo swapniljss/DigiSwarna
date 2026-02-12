@@ -1,5 +1,5 @@
 import React, { Fragment, useCallback, useEffect, useState } from "react";
-import { AreaChart, Area, ResponsiveContainer, Tooltip } from "recharts";
+// import { AreaChart, Area, ResponsiveContainer, Tooltip } from "recharts";
 import { format } from "date-fns";
 import Skeleton from "@mui/material/Skeleton";
 import Box from "@mui/material/Box";
@@ -60,10 +60,10 @@ const CustomTooltip = ({ active, payload, isAmt }) => {
 
 const BBPAreaChart = ({
   apiPrm,
-  color,
-  name,
+  // color,
+  // name,
   title,
-  percentage_text,
+  // percentage_text,
   itemKey,
   isAmt,
 }) => {
@@ -188,17 +188,17 @@ const BBPAreaChart = ({
                       <SouthIcon fontSize="inherit" />
                     )}
                   </Box>
-
-                  <Box component="div" className="BBPACIDPTitle">
+                    {/* last changed 30 days ago -> text  */}
+                  {/* <Box component="div" className="BBPACIDPTitle">
                     {percentage_text}
-                  </Box>
+                  </Box> */}
                 </Fragment>
               )}
             </Box>
           </Box>
 
           {/* RIGHT CHART */}
-          <Box component="div" className="BBPACIChart">
+          {/* <Box component="div" className="BBPACIChart">
             {loading ? (
               <Skeleton variant="rounded" component="div" height={52} />
             ) : (
@@ -236,7 +236,7 @@ const BBPAreaChart = ({
                 </AreaChart>
               </ResponsiveContainer>
             )}
-          </Box>
+          </Box> */}
         </Box>
       </Box>
     </Fragment>

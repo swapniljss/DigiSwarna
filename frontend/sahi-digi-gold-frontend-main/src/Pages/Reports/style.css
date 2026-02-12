@@ -183,7 +183,7 @@
 .BBPBViewReceipt .BBPBVRTitle {
   font-size: 12px;
   font-weight: 700;
-  color: #000;
+  color: #535353;
   line-height: normal;
   margin-bottom: 3px;
 }
@@ -215,13 +215,13 @@
 .BBPBViewReceipt .BBPBVRMail a {
   font-size: 12px;
   line-height: normal;
-  font-weight: 500;
+  font-weight: 700;
   color: #535353;
 }
 
 .BBPBViewReceipt .BBPBVRGTitle span {
   color: #000;
-  font-weight: 500;
+  font-weight: 700;
     color: #535353;
 
 }
@@ -544,7 +544,16 @@
   color: #535353;
   margin-bottom: 6px;
   white-space: nowrap;
+  font-weight: 700;
 }
+
+.BBPBViewReceipt .BBPBVROp:not(.no-bold) {
+  font-weight: 700;
+}
+.BBPBViewReceipt .BBPBVROp.no-bold {
+  font-weight: 400 !important;
+}
+
 .BBPBVRTC {
   padding-left: 0;
 }
@@ -673,8 +682,8 @@
 /* ===== Company name ===== */
 .BBPBVRSignName {
   font-size: 14px;
-  font-weight: 600;
-  color: #000;
+  font-weight: 700;
+  color: #535353;
   margin-bottom: 2px;
 }
 
@@ -688,6 +697,6 @@
 }
 
 .BBPBVRSignLine span {
-  color: #000;
-  font-weight: 600;
+  color: #535353;
+  font-weight: 700;
 }

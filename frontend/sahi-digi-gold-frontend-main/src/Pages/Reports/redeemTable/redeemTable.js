@@ -241,6 +241,22 @@ const RedeemTable = () => {
       state: { background: location },
     });
   };
+  // 🔥 Normalize numeric values safely
+const normalizeNumber = (value) => {
+  if (
+    value === null ||
+    value === undefined ||
+    value === "" ||
+    value === "Null" ||
+    value === "null"
+  ) {
+    return "0.0000";
+  }
+
+  const num = Number(value);
+  return isNaN(num) ? "0.0000" : num.toFixed(4);
+};
+
 
   function generateRows(tempArray) {
     const tempRowArray = [];
@@ -264,7 +280,9 @@ const RedeemTable = () => {
           ),
           goldBalance: (
             <Box component="div" className="BBPDTSText">
-              {item.goldBalance}
+              {/* {item.goldBalance} */}
+              {normalizeNumber(item.goldBalance)}
+
             </Box>
           ),
           paymentMode: (
@@ -279,12 +297,15 @@ const RedeemTable = () => {
           ),
           ConvinienceCharge: (
             <Box component="div" className="BBPDTSText">
-              {item.ConvinienceCharge ? item.ConvinienceCharge : 0}
+              {/* {item.ConvinienceCharge ? item.ConvinienceCharge : 0} */}
+              {normalizeNumber(item.ConvinienceCharge)}
             </Box>
           ),
           silverBalance: (
             <Box component="div" className="BBPDTSText">
-              {item.silverBalance}
+              {/* {item.silverBalance} */}
+              {normalizeNumber(item.silverBalance)}
+
             </Box>
           ),
           orderId: (
@@ -460,13 +481,16 @@ const RedeemTable = () => {
                 date: format(new Date(item.date), "dd-MM-yyyy HH:mm:ss"),
                 mobileNumber: item.mobileNumber,
                 userName: item.userName,
-                goldBalance: item.goldBalance,
+                // goldBalance: item.goldBalance,
+                goldBalance: normalizeNumber(item.goldBalance),
                 paymentMode: item.paymentMode,
                 paymentRefID: item.paymentRefID,
-                ConvinienceCharge: item.ConvinienceCharge
-                  ? item.ConvinienceCharge
-                  : 0,
-                silverBalance: item.silverBalance,
+                // ConvinienceCharge: item.ConvinienceCharge
+                //   ? item.ConvinienceCharge
+                //   : 0,
+                ConvinienceCharge: normalizeNumber(item.ConvinienceCharge),
+                // silverBalance: item.silverBalance,
+                silverBalance: normalizeNumber(item.silverBalance),
                 orderId: item.orderId,
                 merchantTransactionId: item.merchantTransactionId,
                 status: item.status,

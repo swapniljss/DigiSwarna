@@ -205,8 +205,26 @@ const SellTable = () => {
     }
 
     const handlePreviewUser = (id) => {
+
         navigate(`/${MENU_SLUG.reports}/sell/view/${id}`, { state: { background: location } });
     }
+
+const normalizeNumber = (value) => {
+  if (
+    value === null ||
+    value === undefined ||
+    value === "" ||
+    value === "Null" ||
+    value === "null"
+  ) {
+    return "0.0000";
+  }
+
+  const num = Number(value);
+
+  return isNaN(num) ? "0.0000" : num.toFixed(4);
+};
+
 
     function generateRows(tempArray) {
         const tempRowArray = [];
@@ -217,7 +235,13 @@ const SellTable = () => {
                     mobileNumber: (<Box component="div" className="BBPDTSText">{item.mobileNumber}</Box>),
                     userName: (<Box component="div" className="BBPDTSText">{item.userName}</Box>),
                     quantity: (<Box component="div" className="BBPDTSText">{item.quantity}</Box>),
-                    totalAmount: (<Box component="div" className="BBPDTSText">{item.totalAmount}</Box>),
+                    // totalAmount: (<Box component="div" className="BBPDTSText">{item.totalAmount}</Box>),
+                    totalAmount: (
+  <Box component="div" className="BBPDTSText">
+    {normalizeNumber(item.totalAmount)}
+  </Box>
+),
+
                     metalType: (<Box component="div" className="BBPDTSText">{item.metalType}</Box>),
                     uniqueId: (<Box component="div" className="BBPDTSText">{item.uniqueId}</Box>),
                     transactionId: (<Box component="div" className="BBPDTSText">{item.transactionId}</Box>),
@@ -274,7 +298,9 @@ const SellTable = () => {
                             mobileNumber: item.mobileNumber,
                             userName: item.userName,
                             quantity: item.quantity,
-                            totalAmount: item.totalAmount,
+                            // totalAmount: item.totalAmount,
+                            totalAmount: normalizeNumber(item.totalAmount),
+
                             metalType: item.metalType,
                             uniqueId: item.uniqueId,
                             transactionId: item.transactionId,

@@ -243,12 +243,33 @@ const UserTable = () => {
                     // </Box>),
 name: (
   <Box component="div" className="BBPDTSText BBPDropCap">
-    <span className="BBPDropCapLetter">
-      {item.name?.charAt(0)}
-    </span>
-    {item.name?.slice(1)}
+    {(() => {
+      const rawName = item.name && typeof item.name === "string"
+        ? item.name
+        : "";
+
+      const formatted = rawName
+        .toLowerCase()
+        .trim()
+        .split(" ")
+        .filter(Boolean)
+        .map(word =>
+          word.charAt(0).toUpperCase() + word.slice(1)
+        )
+        .join(" ");
+
+      return (
+        <>
+          <span className="BBPDropCapLetter">
+            {formatted.charAt(0)}
+          </span>
+          {formatted.slice(1)}
+        </>
+      );
+    })()}
   </Box>
 ),
+
 
 
                     email: (<Box component="div" className="BBPDTSText" style={{ textTransform: 'lowercase' }}>{item.email}</Box>),
