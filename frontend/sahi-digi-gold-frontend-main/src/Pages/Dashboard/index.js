@@ -28,6 +28,21 @@ const DashboardPage = () => {
                                 name1={'Qty'}
                                 name2={'Amount'}
                             />
+
+                            <LineChart
+    apiName={'dashboard/totalGoldSell'}
+    title={'Total Gold Sell (Amount & Qty)'}
+    name1={'Qty'}
+    name2={'Amount'}
+/>
+
+<LineChart
+    apiName={'dashboard/totalSilverSell'}
+    title={'Total Silver Sell (Amount & Qty)'}
+    name1={'Qty'}
+    name2={'Amount'}
+/>
+
                         </Fragment>
                         : 'No Access'}
                 </Box>

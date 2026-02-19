@@ -302,10 +302,13 @@ const ViewCustomer = () => {
               <Box component="div" className={"BBPVCBITitle"}>
                 Address Details
               </Box>
-              {addressLoading ? (
+              {/* {addressLoading ? ( */}
+              {address.length > 0 ? (
                 <Fragment>
                   {address.map((item, index) => (
-                    <Box component="div" key={index} className={"BBPVCBIDet"}>
+  <Fragment key={index}>
+    <Box component="div" className={"BBPVCBIDet"}>
+
                       <Box component="div" className={"BBPVCBIDCol"}>
                         <Box component="div" className={"BBPVCBIDCTitle"}>
                           Name
@@ -363,75 +366,154 @@ const ViewCustomer = () => {
                         </Box>
                       </Box>
                     </Box>
+                    {index !== address.length - 1 && (
+  <Box
+    component="div"
+    sx={{
+      borderBottom: "1px solid #ddd",
+      margin: "20px 0",
+    }}
+  />
+)}
+</Fragment>
+
                   ))}
                 </Fragment>
               ) : (
-                // Earlier working showss-> black values no data from DB
+                // Earlier working showss-> blank values no data from DB skeleton down ->
+
+                // ) : (
+                //   <Box component="div" className={"BBPVCBIDet"}>
+                //     <Box component="div" className={"BBPVCBIDCol"}>
+                //       <Box component="div" className={"BBPVCBIDCTitle"}>
+                //         Name
+                //       </Box>
+                //       <Box component="div" className={"BBPVCBIDCSTitle"}>
+                //         <Skeleton component="div" variant="rounded" height={21} />
+                //       </Box>
+                //     </Box>
+                //     <Box component="div" className={"BBPVCBIDCol"}>
+                //       <Box component="div" className={"BBPVCBIDCTitle"}>
+                //         Email ID
+                //       </Box>
+                //       <Box component="div" className={"BBPVCBIDCSTitle"}>
+                //         <Skeleton component="div" variant="rounded" height={21} />
+                //       </Box>
+                //     </Box>
+                //     <Box component="div" className={"BBPVCBIDCol"}>
+                //       <Box component="div" className={"BBPVCBIDCTitle"}>
+                //         Address
+                //       </Box>
+                //       <Box component="div" className={"BBPVCBIDCSTitle"}>
+                //         <Skeleton component="div" variant="rounded" height={21} />
+                //       </Box>
+                //     </Box>
+                //     <Box component="div" className={"BBPVCBIDCol"}>
+                //       <Box component="div" className={"BBPVCBIDCTitle"}>
+                //         City
+                //       </Box>
+                //       <Box component="div" className={"BBPVCBIDCSTitle"}>
+                //         <Skeleton component="div" variant="rounded" height={21} />
+                //       </Box>
+                //     </Box>
+                //     <Box component="div" className={"BBPVCBIDCol"}>
+                //       <Box component="div" className={"BBPVCBIDCTitle"}>
+                //         State
+                //       </Box>
+                //       <Box component="div" className={"BBPVCBIDCSTitle"}>
+                //         <Skeleton component="div" variant="rounded" height={21} />
+                //       </Box>
+                //     </Box>
+                //     <Box component="div" className={"BBPVCBIDCol"}>
+                //       <Box component="div" className={"BBPVCBIDCTitle"}>
+                //         Pin Code
+                //       </Box>
+                //       <Box component="div" className={"BBPVCBIDCSTitle"}>
+                //         <Skeleton component="div" variant="rounded" height={21} />
+                //       </Box>
+                //     </Box>
+                //     <Box component="div" className={"BBPVCBIDCol"}>
+                //       <Box component="div" className={"BBPVCBIDCTitle"}>
+                //         Status
+                //       </Box>
+                //       <Box component="div" className={"BBPVCBIDCSTitle"}>
+                //         <Skeleton component="div" variant="rounded" height={21} />
+                //       </Box>
+                //     </Box>
+                //   </Box>
+                //   // <Box component="div" className={"BBPVCBIDet"}>
+                //   //   <Box component="div" className={"BBPVCBIDCol"}>
+                //   //     <Box component="div" className={"BBPVCBIDCSTitle"}>
+                //   //       No address details available
+                //   //     </Box>
+                //   //   </Box>
+                //   // </Box>
+                // )}
+
                 <Box component="div" className={"BBPVCBIDet"}>
                   <Box component="div" className={"BBPVCBIDCol"}>
                     <Box component="div" className={"BBPVCBIDCTitle"}>
                       Name
                     </Box>
                     <Box component="div" className={"BBPVCBIDCSTitle"}>
-                      <Skeleton component="div" variant="rounded" height={21} />
+                      ---
                     </Box>
                   </Box>
+
                   <Box component="div" className={"BBPVCBIDCol"}>
                     <Box component="div" className={"BBPVCBIDCTitle"}>
                       Email ID
                     </Box>
                     <Box component="div" className={"BBPVCBIDCSTitle"}>
-                      <Skeleton component="div" variant="rounded" height={21} />
+                      ---
                     </Box>
                   </Box>
+
                   <Box component="div" className={"BBPVCBIDCol"}>
                     <Box component="div" className={"BBPVCBIDCTitle"}>
                       Address
                     </Box>
                     <Box component="div" className={"BBPVCBIDCSTitle"}>
-                      <Skeleton component="div" variant="rounded" height={21} />
+                      ---
                     </Box>
                   </Box>
+
                   <Box component="div" className={"BBPVCBIDCol"}>
                     <Box component="div" className={"BBPVCBIDCTitle"}>
                       City
                     </Box>
                     <Box component="div" className={"BBPVCBIDCSTitle"}>
-                      <Skeleton component="div" variant="rounded" height={21} />
+                      ---
                     </Box>
                   </Box>
+
                   <Box component="div" className={"BBPVCBIDCol"}>
                     <Box component="div" className={"BBPVCBIDCTitle"}>
                       State
                     </Box>
                     <Box component="div" className={"BBPVCBIDCSTitle"}>
-                      <Skeleton component="div" variant="rounded" height={21} />
+                      ---
                     </Box>
                   </Box>
+
                   <Box component="div" className={"BBPVCBIDCol"}>
                     <Box component="div" className={"BBPVCBIDCTitle"}>
                       Pin Code
                     </Box>
                     <Box component="div" className={"BBPVCBIDCSTitle"}>
-                      <Skeleton component="div" variant="rounded" height={21} />
+                      ---
                     </Box>
                   </Box>
+
                   <Box component="div" className={"BBPVCBIDCol"}>
                     <Box component="div" className={"BBPVCBIDCTitle"}>
                       Status
                     </Box>
                     <Box component="div" className={"BBPVCBIDCSTitle"}>
-                      <Skeleton component="div" variant="rounded" height={21} />
+                      ---
                     </Box>
                   </Box>
                 </Box>
-                // <Box component="div" className={"BBPVCBIDet"}>
-                //   <Box component="div" className={"BBPVCBIDCol"}>
-                //     <Box component="div" className={"BBPVCBIDCSTitle"}>
-                //       No address details available
-                //     </Box>
-                //   </Box>
-                // </Box>
               )}
             </Box>
             <Box component="div" className={"BBPVCBItem"}>
@@ -597,93 +679,154 @@ const ViewCustomer = () => {
               <Box component="div" className={"BBPVCBITitle"}>
                 Bank Details
               </Box>
-              {!bankLoading && bank.length > 0 ? (
+              {/* {!bankLoading && bank.length > 0 ? ( */}
+              {bank.length > 0 ? (
                 <Fragment>
                   {bank.map((item, index) => (
-                    <Box component="div" key={index} className={"BBPVCBIDet"}>
-                      <Box component="div" className={"BBPVCBIDCol"}>
-                        <Box component="div" className={"BBPVCBIDCTitle"}>
-                          Bank Name
+                    <Fragment key={index}>
+                      <Box component="div" className={"BBPVCBIDet"}>
+                        <Box component="div" className={"BBPVCBIDCol"}>
+                          <Box component="div" className={"BBPVCBIDCTitle"}>
+                            Bank Name
+                          </Box>
+                          <Box component="div" className={"BBPVCBIDCSTitle"}>
+                            {item.bankName ? item.bankName : "---"}
+                          </Box>
                         </Box>
-                        <Box component="div" className={"BBPVCBIDCSTitle"}>
-                          {item.bankName ? item.bankName : "---"}
+                        <Box component="div" className={"BBPVCBIDCol"}>
+                          <Box component="div" className={"BBPVCBIDCTitle"}>
+                            IFSC Code
+                          </Box>
+                          <Box component="div" className={"BBPVCBIDCSTitle"}>
+                            {item.ifscCode ? item.ifscCode : "---"}
+                          </Box>
+                        </Box>
+                        <Box component="div" className={"BBPVCBIDCol"}>
+                          <Box component="div" className={"BBPVCBIDCTitle"}>
+                            Account Holder Name
+                          </Box>
+                          <Box component="div" className={"BBPVCBIDCSTitle"}>
+                            {item.accountName ? item.accountName : "---"}
+                          </Box>
+                        </Box>
+                        <Box component="div" className={"BBPVCBIDCol"}>
+                          <Box component="div" className={"BBPVCBIDCTitle"}>
+                            Account Number
+                          </Box>
+                          <Box component="div" className={"BBPVCBIDCSTitle"}>
+                            {item.accountNumber ? item.accountNumber : "---"}
+                          </Box>
+                        </Box>
+                        <Box component="div" className={"BBPVCBIDCol"}>
+                          <Box component="div" className={"BBPVCBIDCTitle"}>
+                            Status
+                          </Box>
+                          <Box component="div" className={"BBPVCBIDCSTitle"}>
+                            {item.status ? item.status : "---"}
+                          </Box>
                         </Box>
                       </Box>
-                      <Box component="div" className={"BBPVCBIDCol"}>
-                        <Box component="div" className={"BBPVCBIDCTitle"}>
-                          IFSC Code
-                        </Box>
-                        <Box component="div" className={"BBPVCBIDCSTitle"}>
-                          {item.ifscCode ? item.ifscCode : "---"}
-                        </Box>
-                      </Box>
-                      <Box component="div" className={"BBPVCBIDCol"}>
-                        <Box component="div" className={"BBPVCBIDCTitle"}>
-                          Account Holder Name
-                        </Box>
-                        <Box component="div" className={"BBPVCBIDCSTitle"}>
-                          {item.accountName ? item.accountName : "---"}
-                        </Box>
-                      </Box>
-                      <Box component="div" className={"BBPVCBIDCol"}>
-                        <Box component="div" className={"BBPVCBIDCTitle"}>
-                          Account Number
-                        </Box>
-                        <Box component="div" className={"BBPVCBIDCSTitle"}>
-                          {item.accountNumber ? item.accountNumber : "---"}
-                        </Box>
-                      </Box>
-                      <Box component="div" className={"BBPVCBIDCol"}>
-                        <Box component="div" className={"BBPVCBIDCTitle"}>
-                          Status
-                        </Box>
-                        <Box component="div" className={"BBPVCBIDCSTitle"}>
-                          {item.status ? item.status : "---"}
-                        </Box>
-                      </Box>
-                    </Box>
+                      {index !== bank.length - 1 && (
+                        <Box
+                          component="div"
+                          sx={{
+                            borderBottom: "1px solid #ddd",
+                            margin: "20px 0",
+                          }}
+                        />
+                      )}
+                    </Fragment>
                   ))}
                 </Fragment>
               ) : (
+                // skeleton below->
+                // ) : (
+                //   <Box component="div" className={"BBPVCBIDet"}>
+                //     <Box component="div" className={"BBPVCBIDCol"}>
+                //       <Box component="div" className={"BBPVCBIDCTitle"}>
+                //         Account Name
+                //       </Box>
+                //       <Box component="div" className={"BBPVCBIDCSTitle"}>
+                //         <Skeleton component="div" variant="rounded" height={21} />
+                //       </Box>
+                //     </Box>
+                //     <Box component="div" className={"BBPVCBIDCol"}>
+                //       <Box component="div" className={"BBPVCBIDCTitle"}>
+                //         Account Number
+                //       </Box>
+                //       <Box component="div" className={"BBPVCBIDCSTitle"}>
+                //         <Skeleton component="div" variant="rounded" height={21} />
+                //       </Box>
+                //     </Box>
+                //     <Box component="div" className={"BBPVCBIDCol"}>
+                //       <Box component="div" className={"BBPVCBIDCTitle"}>
+                //         Bank Name
+                //       </Box>
+                //       <Box component="div" className={"BBPVCBIDCSTitle"}>
+                //         <Skeleton component="div" variant="rounded" height={21} />
+                //       </Box>
+                //     </Box>
+                //     <Box component="div" className={"BBPVCBIDCol"}>
+                //       <Box component="div" className={"BBPVCBIDCTitle"}>
+                //         IFSC Code
+                //       </Box>
+                //       <Box component="div" className={"BBPVCBIDCSTitle"}>
+                //         <Skeleton component="div" variant="rounded" height={21} />
+                //       </Box>
+                //     </Box>
+                //     <Box component="div" className={"BBPVCBIDCol"}>
+                //       <Box component="div" className={"BBPVCBIDCTitle"}>
+                //         Status
+                //       </Box>
+                //       <Box component="div" className={"BBPVCBIDCSTitle"}>
+                //         <Skeleton component="div" variant="rounded" height={21} />
+                //       </Box>
+                //     </Box>
+                //   </Box>
+                // )}
                 <Box component="div" className={"BBPVCBIDet"}>
-                  <Box component="div" className={"BBPVCBIDCol"}>
-                    <Box component="div" className={"BBPVCBIDCTitle"}>
-                      Account Name
-                    </Box>
-                    <Box component="div" className={"BBPVCBIDCSTitle"}>
-                      <Skeleton component="div" variant="rounded" height={21} />
-                    </Box>
-                  </Box>
-                  <Box component="div" className={"BBPVCBIDCol"}>
-                    <Box component="div" className={"BBPVCBIDCTitle"}>
-                      Account Number
-                    </Box>
-                    <Box component="div" className={"BBPVCBIDCSTitle"}>
-                      <Skeleton component="div" variant="rounded" height={21} />
-                    </Box>
-                  </Box>
                   <Box component="div" className={"BBPVCBIDCol"}>
                     <Box component="div" className={"BBPVCBIDCTitle"}>
                       Bank Name
                     </Box>
                     <Box component="div" className={"BBPVCBIDCSTitle"}>
-                      <Skeleton component="div" variant="rounded" height={21} />
+                      ---
                     </Box>
                   </Box>
+
                   <Box component="div" className={"BBPVCBIDCol"}>
                     <Box component="div" className={"BBPVCBIDCTitle"}>
                       IFSC Code
                     </Box>
                     <Box component="div" className={"BBPVCBIDCSTitle"}>
-                      <Skeleton component="div" variant="rounded" height={21} />
+                      ---
                     </Box>
                   </Box>
+
+                  <Box component="div" className={"BBPVCBIDCol"}>
+                    <Box component="div" className={"BBPVCBIDCTitle"}>
+                      Account Holder Name
+                    </Box>
+                    <Box component="div" className={"BBPVCBIDCSTitle"}>
+                      ---
+                    </Box>
+                  </Box>
+
+                  <Box component="div" className={"BBPVCBIDCol"}>
+                    <Box component="div" className={"BBPVCBIDCTitle"}>
+                      Account Number
+                    </Box>
+                    <Box component="div" className={"BBPVCBIDCSTitle"}>
+                      ---
+                    </Box>
+                  </Box>
+
                   <Box component="div" className={"BBPVCBIDCol"}>
                     <Box component="div" className={"BBPVCBIDCTitle"}>
                       Status
                     </Box>
                     <Box component="div" className={"BBPVCBIDCSTitle"}>
-                      <Skeleton component="div" variant="rounded" height={21} />
+                      ---
                     </Box>
                   </Box>
                 </Box>

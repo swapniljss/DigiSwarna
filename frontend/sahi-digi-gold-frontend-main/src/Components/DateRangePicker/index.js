@@ -154,7 +154,7 @@ const handleRangePicker = (item) => {
                             <ClickAwayListener onClickAway={handleClose}>
                                 <Box component="div" className={"BBPRPCInner"}>
                                     <DateRange
-                                      editableDateInputs={true}
+                                      editableDateInputs={false}
                                         onChange={item => handleRangePicker(item)}
                                         moveRangeOnFirstSelection={false}
                                         ranges={tempDate}

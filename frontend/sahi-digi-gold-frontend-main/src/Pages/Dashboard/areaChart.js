@@ -72,7 +72,9 @@ const BBPAreaChart = ({
   const [loading, setLoading] = useState(false);
   const [errorDialog, setErrorDialog] = useState(false);
   const [buyCount, setBuyCount] = useState({ current: 0, last: 0 });
-  const [totalData, setTotalData] = useState([]);
+  // const [totalData, setTotalData] = useState([]);
+  const [showHover, setShowHover] = useState(false);
+
 
   const fetchTotalData = useCallback(async () => {
     try {
@@ -89,29 +91,30 @@ const BBPAreaChart = ({
           if (response.data.status === 1) {
             let tempCount = { ...buyCount };
 
-            let tempCurrentData = dataByStatus(
-              response.data.current,
-              "currentCount",
-              itemKey,
-            );
+           // CURRENT MONTH (1st → Today)
+const today = new Date();
+const firstDayCurrentMonth = new Date(today.getFullYear(), today.getMonth(), 1);
 
-            let tempLastData = dataByStatus(
-              response.data.last,
-              "lastCount",
-              itemKey,
-            );
+tempCount.current = response.data.current.reduce((sum, item) => {
+  const itemDate = new Date(item._id);
+  if (itemDate >= firstDayCurrentMonth && itemDate <= today) {
+    return sum + Number(item.total || 0);
+  }
+  return sum;
+}, 0);
 
-            tempCount.current = tempCurrentData.reduce(
-              (a, v) => a + Number(v.currentCount || 0),
-              0,
-            );
+// LAST MONTH (Full Previous Month)
+const firstDayLastMonth = new Date(today.getFullYear(), today.getMonth() - 1, 1);
+const lastDayLastMonth = new Date(today.getFullYear(), today.getMonth(), 0);
 
-            tempCount.last = tempLastData.reduce(
-              (a, v) => a + Number(v.lastCount || 0),
-              0,
-            );
+tempCount.last = response.data.last.reduce((sum, item) => {
+  const itemDate = new Date(item._id);
+  if (itemDate >= firstDayLastMonth && itemDate <= lastDayLastMonth) {
+    return sum + Number(item.total || 0);
+  }
+  return sum;
+}, 0);
 
-            setTotalData(getStatusChartData(tempCurrentData, tempLastData));
 
             setBuyCount(tempCount);
           } else {
@@ -174,20 +177,59 @@ const BBPAreaChart = ({
                 <Skeleton variant="rounded" width={180} height={20} />
               ) : (
                 <Fragment>
-                  <Box
-                    component="div"
-                    className="BBPACIDPer"
-                    style={{
-                      color: percentageValue >= 0 ? "#3DD598" : "#F0142F",
-                    }}
-                  >
-                    {`${formatPercentage(percentageValue)}%`}
-                    {percentageValue >= 0 ? (
-                      <NorthIcon fontSize="inherit" />
-                    ) : (
-                      <SouthIcon fontSize="inherit" />
-                    )}
-                  </Box>
+               <Box
+  component="div"
+  className="BBPACIDPer"
+  style={{
+    color: percentageValue >= 0 ? "#3DD598" : "#F0142F",
+    position: "relative",
+    cursor: "pointer",
+  }}
+  onMouseEnter={() => setShowHover(true)}
+  onMouseLeave={() => setShowHover(false)}
+>
+  {`${formatPercentage(percentageValue)}%`}
+  {percentageValue >= 0 ? (
+    <NorthIcon fontSize="inherit" />
+  ) : (
+    <SouthIcon fontSize="inherit" />
+  )}
+
+  {showHover && (
+    <Box
+      style={{
+        position: "absolute",
+        top: "25px",
+        left: "0",
+        background: "#fff",
+        padding: "10px",
+        borderRadius: "6px",
+        boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+        zIndex: 100,
+        minWidth: "160px",
+      }}
+    >
+      <Box style={{ fontWeight: 600 }}>
+        {isAmt
+          ? `₹${formatAmount(buyCount.current)}`
+          : buyCount.current}
+      </Box>
+      <Box style={{ fontSize: "12px", color: "#7e84a3" }}>
+        Current Month
+      </Box>
+
+      <Box style={{ marginTop: "8px", fontWeight: 600 }}>
+        {isAmt
+          ? `₹${formatAmount(buyCount.last)}`
+          : buyCount.last}
+      </Box>
+      <Box style={{ fontSize: "12px", color: "#7e84a3" }}>
+        Last Month
+      </Box>
+    </Box>
+  )}
+</Box>
+
                     {/* last changed 30 days ago -> text  */}
                   {/* <Box component="div" className="BBPACIDPTitle">
                     {percentage_text}

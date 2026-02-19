@@ -155,20 +155,19 @@ const BankDetails = ({ handleClose, customerID }) => {
     );
   };
 
-const onFormSubmit = (formData) => {
-  setFormData(formData);
-  setErrorMessage("");
-  setExtraErrors({});
+  const onFormSubmit = (formData) => {
+    setFormData(formData);
+    setErrorMessage("");
+    setExtraErrors({});
 
-  if (bankId) {
-    // UPDATE existing bank
-    handleCustomerBank(formData, bankId);
-  } else {
-    // CREATE new bank
-    createCustomerBank(formData);
-  }
-};
-
+    if (bankId) {
+      // UPDATE existing bank
+      handleCustomerBank(formData, bankId);
+    } else {
+      // CREATE new bank
+      createCustomerBank(formData);
+    }
+  };
 
   const fetchDetails = useCallback(async () => {
     try {
@@ -184,10 +183,13 @@ const onFormSubmit = (formData) => {
 
             if (bankData) {
               setFormData({
-                accountNumber: bankData.accountNumber,
-                accountName: bankData.accountName,
-                ifscCode: bankData.ifscCode,
+                accountNumber:
+                  bankData.accountNumber || bankData.account_number || "",
+                accountName:
+                  bankData.accountName || bankData.account_name || "",
+                ifscCode: bankData.ifscCode || bankData.ifsc_code || "",
               });
+
               setBankId(bankData.userBankId);
               setBtnDisable(false);
             } else {
@@ -225,11 +227,11 @@ const onFormSubmit = (formData) => {
         url,
         data,
       };
-        console.log("BANK PUT", {
-      customerID,
-      bankId: Id,
-      token: axiosPrivate.defaults.headers?.Authorization,
-    });
+      console.log("BANK PUT", {
+        customerID,
+        bankId: Id,
+        token: axiosPrivate.defaults.headers?.Authorization,
+      });
       await axiosPrivate(options)
         .then((response) => {
           if (response.data.status === 1) {
@@ -278,36 +280,35 @@ const onFormSubmit = (formData) => {
   }, []);
 
   const createCustomerBank = useCallback(async (data) => {
-  try {
-    setBtnDisable(true);
+    try {
+      setBtnDisable(true);
 
-    let url = `customers/${customerID}/banks`;
-    let options = {
-      method: "POST",
-      url,
-      data,
-    };
+      let url = `customers/${customerID}/banks`;
+      let options = {
+        method: "POST",
+        url,
+        data,
+      };
 
-    const response = await axiosPrivate(options);
+      const response = await axiosPrivate(options);
 
-    if (response.data.status === 1) {
-      setApiSuccess(true);
+      if (response.data.status === 1) {
+        setApiSuccess(true);
 
-      // Save newly created bankId for future updates
-      const newBank = response.data.data;
-      if (newBank?.userBankId) {
-        setBankId(newBank.userBankId);
+        // Save newly created bankId for future updates
+        const newBank = response.data.data;
+        if (newBank?.userBankId) {
+          setBankId(newBank.userBankId);
+        }
+      } else {
+        setErrorMessage(response.data.message || "Something went wrong");
       }
-    } else {
-      setErrorMessage(response.data.message || "Something went wrong");
+
+      setBtnDisable(false);
+    } catch (err) {
+      setErrorDialog(true);
     }
-
-    setBtnDisable(false);
-  } catch (err) {
-    setErrorDialog(true);
-  }
-}, []);
-
+  }, []);
 
   return (
     <Fragment>

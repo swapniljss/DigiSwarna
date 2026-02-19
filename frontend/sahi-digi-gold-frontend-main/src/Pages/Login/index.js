@@ -51,7 +51,6 @@ const uiSchema = {
 };
 
 /* ------------------ Password Widget ------------------ */
-
 const PasswordWidget = (props) => {
   const [showPassword, setShowPassword] = useState(false);
 

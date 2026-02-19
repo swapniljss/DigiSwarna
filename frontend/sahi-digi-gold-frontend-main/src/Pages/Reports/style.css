@@ -437,7 +437,7 @@
 
 .BBPAreaChart .BBPACInfo .BBPACIDet .BBPACIDTitle {
   color: #131523;
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 600;
   margin-bottom: 5px;
 }
@@ -447,7 +447,7 @@
   align-items: center;
   justify-content: space-between; /* equal spacing */
   margin-top: 5px; /* slightly below amount */
-  width: 100%;
+  /* width: 100%; */
 }
 
 .BBPAreaChart .BBPACInfo {

@@ -129,6 +129,15 @@ function customValidate(formData, errors) {
       );
     }
   }
+    // PHONE VALIDATION (reject 0000000000 and invalid numbers)
+  if (formData.phone) {
+    if (!/^[6-9]\d{9}$/.test(formData.phone)) {
+      errors.phone.addError(
+        "Please enter a valid 10-digit mobile number"
+      );
+    }
+  }
+
 
   // PASSWORD VALIDATION (only while creating user)
   if (formData.password) {

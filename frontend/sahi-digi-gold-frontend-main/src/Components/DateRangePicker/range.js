@@ -119,7 +119,8 @@ const clampDate = (date) => {
                                     <DateRangePicker
                                         onChange={item => handleRangePicker(item)}
                                         months={1}
-                                        maxDate={new Date()}
+                                        minDate={MIN_DATE}
+    maxDate={MAX_DATE}
                                         direction="vertical"
                                         ranges={tempDate}
                                         inputRanges={[]}

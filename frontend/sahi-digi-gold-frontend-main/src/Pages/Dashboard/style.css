@@ -21,9 +21,9 @@
 }
 
 .BBPAreaChart {
-    /* width: calc(25% - 12.5px); */
+    width: calc(25% - 12.5px);
     /* width: calc(33.3333% - 10px); */
-    width: calc(50% - 7.5px);
+    /* width: calc(50% - 7.5px); */
     border-radius: 6px;
     background: #fff;
     box-shadow: 0px 1px 4px rgba(21, 34, 50, 0.08);
@@ -37,13 +37,28 @@
     margin-bottom: 15px;
 }
 
+/* .BBPAreaChart .BBPACInfo {
+    display: flex;
+} */
+
 .BBPAreaChart .BBPACInfo {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
-.BBPAreaChart .BBPACInfo .BBPACIDet {
+/* .BBPAreaChart .BBPACInfo .BBPACIDet {
     width: 50%;
     align-self: flex-end;
+} */
+
+.BBPAreaChart .BBPACInfo .BBPACIDet {
+    width: 100%;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .BBPAreaChart .BBPACInfo .BBPACIDet .BBPACIDTitle {
@@ -257,4 +272,12 @@
     color: #fff;
     background-color: #175783;
     box-shadow: 0px 3px 6px rgb(0 0 0 / 16%);
+}
+.BBPAreaChart .BBPACInfo .BBPACIDet .BBPACIDSubTitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.BBPDashboardPage .BBPAreaChart .BBPACMTitle {
+    text-align: center;
 }
