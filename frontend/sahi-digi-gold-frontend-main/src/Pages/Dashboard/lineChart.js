@@ -32,7 +32,7 @@ const CustomTooltip = ({ active, payload, tooltipDateFormat }) => {
             <strong>
            {item.name === "Amount"
   ? `₹${Number(item.value).toFixed(3)}`
-  : Number(item.value).toFixed(3)}
+  : Number(item.value).toFixed(4)}
 
             </strong>{" "}
             {item.name}
@@ -102,12 +102,12 @@ const BBPLineChart = ({ apiName, title, name1, name2 }) => {
                   date: newDate,
                 total:
   index !== -1
-    ? Number(uniqueDates[index].total.toFixed(3))
+    ? Number(uniqueDates[index].total.toFixed(4))
     : 0,
 
  qty:
   index !== -1
-    ? Number(uniqueDates[index].totalQuantity.toFixed(3))
+    ? Number(uniqueDates[index].totalQuantity.toFixed(4))
     : 0,
 
 
@@ -136,7 +136,7 @@ const BBPLineChart = ({ apiName, title, name1, name2 }) => {
                   date: newDate,
                   total: index !== -1 ? uniqueDates[index].total : 0,
                   qty:
-                    index !== -1 ? Number(uniqueDates[index].quantity || 0) : 0,
+                    index !== -1 ? Number(uniqueDates[index].totalQuantity  || 0) : 0,
                 });
               }
               setChartData({ data: allDates, key: "name", format: "MMM yyyy" });
@@ -155,7 +155,7 @@ const BBPLineChart = ({ apiName, title, name1, name2 }) => {
                   date: newDate,
                   total: index !== -1 ? uniqueDates[index].total : 0,
                   qty:
-                    index !== -1 ? Number(uniqueDates[index].quantity || 0) : 0,
+                    index !== -1 ? Number(uniqueDates[index].totalQuantity  || 0) : 0,
                 });
               }
               setChartData({ data: allDates, key: "name", format: "yyyy" });

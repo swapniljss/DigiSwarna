@@ -450,7 +450,7 @@ silverBalance: (
             (index === 0 ? "?" : "&") +
             key +
             "=" +
-            (key === "limit" ? totalData : apiParams[key]);
+            (key === "limit" ? 100 : apiParams[key]);
         });
       }
       let url = `buy${urlParams}`;

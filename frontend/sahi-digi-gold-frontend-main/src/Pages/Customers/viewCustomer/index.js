@@ -102,7 +102,18 @@ const ViewCustomer = () => {
       await axiosPrivate(options)
         .then((response) => {
           if (response.data.status === 1) {
-            setBank(response.data.data || []);
+            const bankArray = response.data.data || [];
+
+            // 🔥 remove duplicate by accountNumber + ifscCode (keep last)
+            const uniqueBank = Object.values(
+              bankArray.reduce((acc, item) => {
+                const key = `${item.accountNumber}_${item.ifscCode}`;
+                acc[key] = item; // overwrite duplicate
+                return acc;
+              }, {})
+            );
+
+            setBank(uniqueBank);
             setBankLoading(false);
             fetchCustomerAddress();
           } else {
@@ -136,8 +147,22 @@ const ViewCustomer = () => {
             const addr = response.data.data;
 
             // normalize API response to ARRAY
-            setAddress(addr ? (Array.isArray(addr) ? addr : [addr]) : []);
-            setAddressLoading(false);
+            const addressArray = addr
+              ? Array.isArray(addr)
+                ? addr
+                : [addr]
+              : [];
+
+            // 🔥 remove duplicate by address + pincode (keep last)
+            const uniqueAddress = Object.values(
+              addressArray.reduce((acc, item) => {
+                const key = `${item.address}_${item.pincode}`;
+                acc[key] = item; // overwrite duplicate
+                return acc;
+              }, {})
+            );
+
+            setAddress(uniqueAddress); setAddressLoading(false);
           } else {
             setErrorDialog(true);
             console.error("err.res", response.data);
@@ -300,82 +325,82 @@ const ViewCustomer = () => {
             </Box>
             <Box component="div" className={"BBPVCBItem"}>
               <Box component="div" className={"BBPVCBITitle"}>
-                Address Details
+                Address Detailss
               </Box>
               {/* {addressLoading ? ( */}
               {address.length > 0 ? (
                 <Fragment>
                   {address.map((item, index) => (
-  <Fragment key={index}>
-    <Box component="div" className={"BBPVCBIDet"}>
+                    <Fragment key={index}>
+                      <Box component="div" className={"BBPVCBIDet"}>
 
-                      <Box component="div" className={"BBPVCBIDCol"}>
-                        <Box component="div" className={"BBPVCBIDCTitle"}>
-                          Name
+                        <Box component="div" className={"BBPVCBIDCol"}>
+                          <Box component="div" className={"BBPVCBIDCTitle"}>
+                            Name
+                          </Box>
+                          <Box component="div" className={"BBPVCBIDCSTitle"}>
+                            {item.name ? item.name : "---"}
+                          </Box>
                         </Box>
-                        <Box component="div" className={"BBPVCBIDCSTitle"}>
-                          {item.name ? item.name : "---"}
+                        <Box component="div" className={"BBPVCBIDCol"}>
+                          <Box component="div" className={"BBPVCBIDCTitle"}>
+                            Email ID
+                          </Box>
+                          <Box component="div" className={"BBPVCBIDCSTitle"}>
+                            {item.email ? item.email : "---"}
+                          </Box>
+                        </Box>
+                        <Box component="div" className={"BBPVCBIDCol"}>
+                          <Box component="div" className={"BBPVCBIDCTitle"}>
+                            Address
+                          </Box>
+                          <Box component="div" className={"BBPVCBIDCSTitle"}>
+                            {item.address ? item.address : "---"}
+                          </Box>
+                        </Box>
+                        <Box component="div" className={"BBPVCBIDCol"}>
+                          <Box component="div" className={"BBPVCBIDCTitle"}>
+                            City
+                          </Box>
+                          <Box component="div" className={"BBPVCBIDCSTitle"}>
+                            {item.city ? item.city : "---"}
+                          </Box>
+                        </Box>
+                        <Box component="div" className={"BBPVCBIDCol"}>
+                          <Box component="div" className={"BBPVCBIDCTitle"}>
+                            State
+                          </Box>
+                          <Box component="div" className={"BBPVCBIDCSTitle"}>
+                            {item.state ? item.state : "---"}
+                          </Box>
+                        </Box>
+                        <Box component="div" className={"BBPVCBIDCol"}>
+                          <Box component="div" className={"BBPVCBIDCTitle"}>
+                            Pin Code
+                          </Box>
+                          <Box component="div" className={"BBPVCBIDCSTitle"}>
+                            {item.pincode ? item.pincode : "---"}
+                          </Box>
+                        </Box>
+                        <Box component="div" className={"BBPVCBIDCol"}>
+                          <Box component="div" className={"BBPVCBIDCTitle"}>
+                            Status
+                          </Box>
+                          <Box component="div" className={"BBPVCBIDCSTitle"}>
+                            {item.status ? item.status : "---"}
+                          </Box>
                         </Box>
                       </Box>
-                      <Box component="div" className={"BBPVCBIDCol"}>
-                        <Box component="div" className={"BBPVCBIDCTitle"}>
-                          Email ID
-                        </Box>
-                        <Box component="div" className={"BBPVCBIDCSTitle"}>
-                          {item.email ? item.email : "---"}
-                        </Box>
-                      </Box>
-                      <Box component="div" className={"BBPVCBIDCol"}>
-                        <Box component="div" className={"BBPVCBIDCTitle"}>
-                          Address
-                        </Box>
-                        <Box component="div" className={"BBPVCBIDCSTitle"}>
-                          {item.address ? item.address : "---"}
-                        </Box>
-                      </Box>
-                      <Box component="div" className={"BBPVCBIDCol"}>
-                        <Box component="div" className={"BBPVCBIDCTitle"}>
-                          City
-                        </Box>
-                        <Box component="div" className={"BBPVCBIDCSTitle"}>
-                          {item.city ? item.city : "---"}
-                        </Box>
-                      </Box>
-                      <Box component="div" className={"BBPVCBIDCol"}>
-                        <Box component="div" className={"BBPVCBIDCTitle"}>
-                          State
-                        </Box>
-                        <Box component="div" className={"BBPVCBIDCSTitle"}>
-                          {item.state ? item.state : "---"}
-                        </Box>
-                      </Box>
-                      <Box component="div" className={"BBPVCBIDCol"}>
-                        <Box component="div" className={"BBPVCBIDCTitle"}>
-                          Pin Code
-                        </Box>
-                        <Box component="div" className={"BBPVCBIDCSTitle"}>
-                          {item.pincode ? item.pincode : "---"}
-                        </Box>
-                      </Box>
-                      <Box component="div" className={"BBPVCBIDCol"}>
-                        <Box component="div" className={"BBPVCBIDCTitle"}>
-                          Status
-                        </Box>
-                        <Box component="div" className={"BBPVCBIDCSTitle"}>
-                          {item.status ? item.status : "---"}
-                        </Box>
-                      </Box>
-                    </Box>
-                    {index !== address.length - 1 && (
-  <Box
-    component="div"
-    sx={{
-      borderBottom: "1px solid #ddd",
-      margin: "20px 0",
-    }}
-  />
-)}
-</Fragment>
+                      {index !== address.length - 1 && (
+                        <Box
+                          component="div"
+                          sx={{
+                            borderBottom: "1px solid #ddd",
+                            margin: "20px 0",
+                          }}
+                        />
+                      )}
+                    </Fragment>
 
                   ))}
                 </Fragment>

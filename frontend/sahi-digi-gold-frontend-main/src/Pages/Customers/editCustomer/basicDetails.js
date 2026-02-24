@@ -160,6 +160,17 @@ const BasicDetails = ({ handleClose, customerID }) => {
   const [loading, setLoading] = useState(true);
   const [btnDisable, setBtnDisable] = useState(true);
 
+  const isFormIncomplete = () => {
+  return (
+    !formData?.userName ||
+    !formData?.emailId ||
+    !formData?.dateOfBirth ||
+    !formData?.userPincode ||
+    !selectedStateId ||
+    !selectedCityId
+  );
+};
+
   const [selectedState, setSelectedState] = useState("");
   const [selectedStateId, setSelectedStateId] = useState("");
   const [selectedCityId, setSelectedCityId] = useState("");
@@ -432,7 +443,7 @@ const onFormChange = (formData) => {
       <SomethingWentWrong open={errorDialog} setOpen={setErrorDialog} />
       <Box component="div" className={"BBPVCDet"}>
         <Box component="div" className={"BBPVCDTitle"}>
-          Basic Details
+          Basic Detailss
         </Box>
         <Box component="div" className={"BBPVCDForm"}>
           {loading ? (
@@ -498,7 +509,8 @@ const onFormChange = (formData) => {
           <Button
             variant="contained"
             className={"BBPButton"}
-            disabled={btnDisable || !selectedStateId || !selectedCityId}
+            // disabled={btnDisable || !selectedStateId || !selectedCityId}
+            disabled={btnDisable || isFormIncomplete()}
             onClick={onSubmitNew}
           >
             Submit
