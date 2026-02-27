@@ -113,6 +113,12 @@ const schema = {
 };
 
 function customValidate(formData, errors) {
+
+  // ✅ NAME
+  if (!formData.userName || formData.userName.trim().length < 2) {
+    errors.userName.addError("Name must be at least 2 characters");
+  }
+  
   // EMAIL
   if (formData.emailId) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/;
@@ -163,6 +169,7 @@ const BasicDetails = ({ handleClose, customerID }) => {
   const isFormIncomplete = () => {
   return (
     !formData?.userName ||
+    formData?.userName.trim().length < 2 ||   // ✅ name min 2 char
     !formData?.emailId ||
     !formData?.dateOfBirth ||
     !formData?.userPincode ||
@@ -443,7 +450,7 @@ const onFormChange = (formData) => {
       <SomethingWentWrong open={errorDialog} setOpen={setErrorDialog} />
       <Box component="div" className={"BBPVCDet"}>
         <Box component="div" className={"BBPVCDTitle"}>
-          Basic Detailss
+          Basic Details
         </Box>
         <Box component="div" className={"BBPVCDForm"}>
           {loading ? (

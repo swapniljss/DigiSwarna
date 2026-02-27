@@ -209,21 +209,21 @@ const SellTable = () => {
         navigate(`/${MENU_SLUG.reports}/sell/view/${id}`, { state: { background: location } });
     }
 
-const normalizeNumber = (value) => {
-  if (
-    value === null ||
-    value === undefined ||
-    value === "" ||
-    value === "Null" ||
-    value === "null"
-  ) {
-    return "0.0000";
-  }
+    const normalizeNumber = (value) => {
+        if (
+            value === null ||
+            value === undefined ||
+            value === "" ||
+            value === "Null" ||
+            value === "null"
+        ) {
+            return "0.0000";
+        }
 
-  const num = Number(value);
+        const num = Number(value);
 
-  return isNaN(num) ? "0.0000" : num.toFixed(4);
-};
+        return isNaN(num) ? "0.0000" : num.toFixed(4);
+    };
 
 
     function generateRows(tempArray) {
@@ -237,10 +237,10 @@ const normalizeNumber = (value) => {
                     quantity: (<Box component="div" className="BBPDTSText">{item.quantity}</Box>),
                     // totalAmount: (<Box component="div" className="BBPDTSText">{item.totalAmount}</Box>),
                     totalAmount: (
-  <Box component="div" className="BBPDTSText">
-    {normalizeNumber(item.totalAmount)}
-  </Box>
-),
+                        <Box component="div" className="BBPDTSText">
+                            {normalizeNumber(item.totalAmount)}
+                        </Box>
+                    ),
 
                     metalType: (<Box component="div" className="BBPDTSText">{item.metalType}</Box>),
                     uniqueId: (<Box component="div" className="BBPDTSText">{item.uniqueId}</Box>),
@@ -275,10 +275,13 @@ const normalizeNumber = (value) => {
         try {
             setOnDownloadLoading(true);
             let urlParams = '';
+            // if (apiParams) {
+            //     Object.keys(apiParams).forEach(function (key, index) {
+            //         urlParams += (index === 0 ? '?' : '&') + key + '=' + (key === 'limit' ? totalData : apiParams[key]);
+            //     });
+            // }
             if (apiParams) {
-                Object.keys(apiParams).forEach(function (key, index) {
-                    urlParams += (index === 0 ? '?' : '&') + key + '=' + (key === 'limit' ? totalData : apiParams[key]);
-                });
+                urlParams = "?limit=" + totalData;
             }
             let url = `sell${urlParams}`;
             let options = {
@@ -287,8 +290,8 @@ const normalizeNumber = (value) => {
             };
             await axiosPrivate(options).then(response => {
                 if (response.data.status === 1) {
-                    setRowData(response.data.data);
-                    setTotalData(response.data.total);
+                    // setRowData(response.data.data);
+                    // setTotalData(response.data.total);
                     const tempDownloadArr = [];
                     const tempHeader = {};
                     mainColumns.columns.map((item) => tempHeader[item.name] = item.title);

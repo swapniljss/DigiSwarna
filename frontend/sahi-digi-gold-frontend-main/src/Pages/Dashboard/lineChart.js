@@ -15,9 +15,9 @@ import {
 import { useAxiosPrivate } from "../../Hooks/useAxiosPrivate";
 import DateRange from "../../Components/DateRangePicker/range";
 import SomethingWentWrong from "../../Components/SomethingWentWrong";
-import { format, addDays, addMonths } from "date-fns";
+import { format, addDays } from "date-fns";
 import "./style.css";
-
+import { startOfMonth, addMonths, isBefore } from "date-fns";
 const CustomTooltip = ({ active, payload, tooltipDateFormat }) => {
   if (active && payload && payload.length) {
     let date = new Date(payload[0].payload.date);
@@ -30,9 +30,9 @@ const CustomTooltip = ({ active, payload, tooltipDateFormat }) => {
           <Box component="div" className="BBPCList" key={index}>
             <span style={{ backgroundColor: item.stroke }}></span>
             <strong>
-           {item.name === "Amount"
-  ? `₹${Number(item.value).toFixed(3)}`
-  : Number(item.value).toFixed(4)}
+              {item.name === "Amount"
+                ? `₹${Number(item.value).toFixed(3)}`
+                : Number(item.value).toFixed(4)}
 
             </strong>{" "}
             {item.name}
@@ -100,15 +100,15 @@ const BBPLineChart = ({ apiName, title, name1, name2 }) => {
                 allDates.push({
                   name: newMon,
                   date: newDate,
-                total:
-  index !== -1
-    ? Number(uniqueDates[index].total.toFixed(4))
-    : 0,
+                  total:
+                    index !== -1
+                      ? Number(uniqueDates[index].total.toFixed(4))
+                      : 0,
 
- qty:
-  index !== -1
-    ? Number(uniqueDates[index].totalQuantity.toFixed(4))
-    : 0,
+                  qty:
+                    index !== -1
+                      ? Number(uniqueDates[index].totalQuantity.toFixed(4))
+                      : 0,
 
 
                 });
@@ -119,27 +119,40 @@ const BBPLineChart = ({ apiName, title, name1, name2 }) => {
                 format: "dd MMM yyyy",
               });
             } else if (response.data.type === "month") {
+
               let uniqueDates = [...response.data.data];
               let allDates = [];
-              for (
-                day = startDate;
-                day <= addDays(endDate, 1);
-                day.setMonth(day.getMonth() + 1)
-              ) {
-                let newDate = format(day, "yyyy-MM");
-                let newMon = format(day, "MMM-yyyy");
-                const index = uniqueDates.findIndex((object) => {
-                  return object._id === newDate;
-                });
+
+              let currentMonth = startOfMonth(startDate);
+              let lastMonth = startOfMonth(endDate);
+
+              while (!isBefore(lastMonth, currentMonth)) {
+
+                let newDate = format(currentMonth, "yyyy-MM");
+                let newMon = format(currentMonth, "MMM-yyyy");
+
+                const index = uniqueDates.findIndex(
+                  (object) => object._id === newDate
+                );
+
                 allDates.push({
                   name: newMon,
                   date: newDate,
                   total: index !== -1 ? uniqueDates[index].total : 0,
                   qty:
-                    index !== -1 ? Number(uniqueDates[index].totalQuantity  || 0) : 0,
+                    index !== -1
+                      ? Number(uniqueDates[index].totalQuantity || 0)
+                      : 0,
                 });
+
+                currentMonth = addMonths(currentMonth, 1);
               }
-              setChartData({ data: allDates, key: "name", format: "MMM yyyy" });
+
+              setChartData({
+                data: allDates,
+                key: "name",
+                format: "MMM yyyy",
+              });
             } else if (response.data.type === "year") {
               let uniqueDates = [...response.data.data];
               let allDates = [];
@@ -155,7 +168,7 @@ const BBPLineChart = ({ apiName, title, name1, name2 }) => {
                   date: newDate,
                   total: index !== -1 ? uniqueDates[index].total : 0,
                   qty:
-                    index !== -1 ? Number(uniqueDates[index].totalQuantity  || 0) : 0,
+                    index !== -1 ? Number(uniqueDates[index].totalQuantity || 0) : 0,
                 });
               }
               setChartData({ data: allDates, key: "name", format: "yyyy" });
@@ -239,8 +252,15 @@ const BBPLineChart = ({ apiName, title, name1, name2 }) => {
                 }}
               >
                 <CartesianGrid strokeDasharray="1 0" horizontal={false} />
-                <XAxis padding={{ right: 6 }} dataKey={chartData.key} />
-                <YAxis tickMargin={30} yAxisId="1" />
+                <XAxis
+                  dataKey={chartData.key}
+                  padding={{ right: 1 }}
+                  interval={
+                    chartData.format === "dd MMM yyyy"
+                      ? "preserveStartEnd"   // day ke liye auto spacing
+                      : 0                    // month/year ke liye sab show karo
+                  }
+                />                <YAxis tickMargin={30} yAxisId="1" />
                 <YAxis
                   tickMargin={30}
                   padding={{ top: 6 }}

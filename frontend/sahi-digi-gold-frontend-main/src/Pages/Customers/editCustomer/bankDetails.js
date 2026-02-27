@@ -234,38 +234,66 @@ const BankDetails = ({ handleClose, customerID }) => {
       });
       await axiosPrivate(options)
         .then((response) => {
-          if (response.data.status === 1) {
+          const { status, message } = response.data;
+
+          // ✅ SUCCESS
+          if (status === 1) {
             setApiSuccess(true);
-          } else {
-            if (typeof response.data.message === "string") {
-              setErrorMessage(response.data.message);
-            } else {
-              let tempErr = { ...extraErrors };
-              if (response.data.message.accountNumber) {
-                tempErr.accountNumber = {
-                  __errors: [response.data.message.accountNumber[0].message],
-                };
-              }
-              if (response.data.message.accountName) {
-                tempErr.accountName = {
-                  __errors: [response.data.message.accountName[0].message],
-                };
-              }
-              if (response.data.message.ifscCode) {
-                tempErr.ifscCode = {
-                  __errors: [response.data.message.ifscCode[0].message],
-                };
-              }
-              setExtraErrors(tempErr);
-            }
+            return;
           }
-          setBtnDisable(false);
+
+          // ✅ HANDLE STRING ERROR RESPONSE (422 case)
+          if (status === 0 && typeof message === "string") {
+
+            // Check if update limit error exists
+            if (message.includes("The User bank account update limit exceeded")) {
+              setErrorMessage("The User bank account update limit exceeded.");
+              return;
+            }
+
+            // Otherwise show generic message
+            setErrorMessage("Something went wrong.");
+            return;
+          }
+
+          // ✅ HANDLE NORMAL VALIDATION OBJECT
+          if (typeof message === "object") {
+            let tempErr = {};
+
+            if (message.accountNumber) {
+              tempErr.accountNumber = {
+                __errors: [message.accountNumber[0].message],
+              };
+            }
+
+            if (message.accountName) {
+              tempErr.accountName = {
+                __errors: [message.accountName[0].message],
+              };
+            }
+
+            if (message.ifscCode) {
+              tempErr.ifscCode = {
+                __errors: [message.ifscCode[0].message],
+              };
+            }
+
+            setExtraErrors(tempErr);
+            return;
+          }
+
+          // fallback
+          setErrorMessage("Unexpected error occurred.");
+
         })
         .catch((err) => {
           if (err.response) {
             setErrorDialog(true);
             console.error("err.res", err.response.data);
           }
+        })
+        .finally(() => {
+          setBtnDisable(false);
         });
     } catch (error) {
       setErrorDialog(true);
@@ -342,6 +370,18 @@ const BankDetails = ({ handleClose, customerID }) => {
                   AccountNameWidget,
                   IfscWidget,
                 }}
+                onChange={({ formData }) => {
+                  setFormData(formData);
+
+                  if (apiSuccess) {
+                    setApiSuccess(false);
+                  }
+
+                  if (errorMessage) {
+                    setErrorMessage("");
+                  }
+                }}
+
                 onSubmit={({ formData }) => {
                   onFormSubmit(formData);
                 }}

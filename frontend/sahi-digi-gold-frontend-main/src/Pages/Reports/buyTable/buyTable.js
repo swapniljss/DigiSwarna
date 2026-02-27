@@ -444,14 +444,17 @@ silverBalance: (
     try {
       setOnDownloadLoading(true);
       let urlParams = "";
+      // if (apiParams) {
+      //   Object.keys(apiParams).forEach(function (key, index) {
+      //     urlParams +=
+      //       (index === 0 ? "?" : "&") +
+      //       key +
+      //       "=" +
+      //       (key === "limit" ? totalData : apiParams[key]);
+      //   });
+      // }
       if (apiParams) {
-        Object.keys(apiParams).forEach(function (key, index) {
-          urlParams +=
-            (index === 0 ? "?" : "&") +
-            key +
-            "=" +
-            (key === "limit" ? 100 : apiParams[key]);
-        });
+        urlParams = "?limit=" + totalData;
       }
       let url = `buy${urlParams}`;
       let options = {
@@ -461,8 +464,8 @@ silverBalance: (
       await axiosPrivate(options)
         .then((response) => {
           if (response.data.status === 1) {
-            setRowData(response.data.data);
-            setTotalData(response.data.total);
+            // setRowData(response.data.data);
+            // setTotalData(response.data.total);
             const tempDownloadArr = [];
             const tempHeader = {};
             mainColumns.columns.map(

@@ -242,20 +242,20 @@ const RedeemTable = () => {
     });
   };
   // 🔥 Normalize numeric values safely
-const normalizeNumber = (value) => {
-  if (
-    value === null ||
-    value === undefined ||
-    value === "" ||
-    value === "Null" ||
-    value === "null"
-  ) {
-    return "0.0000";
-  }
+  const normalizeNumber = (value) => {
+    if (
+      value === null ||
+      value === undefined ||
+      value === "" ||
+      value === "Null" ||
+      value === "null"
+    ) {
+      return "0.0000";
+    }
 
-  const num = Number(value);
-  return isNaN(num) ? "0.0000" : num.toFixed(4);
-};
+    const num = Number(value);
+    return isNaN(num) ? "0.0000" : num.toFixed(4);
+  };
 
 
   function generateRows(tempArray) {
@@ -452,14 +452,17 @@ const normalizeNumber = (value) => {
     try {
       setOnDownloadLoading(true);
       let urlParams = "";
+      // if (apiParams) {
+      //   Object.keys(apiParams).forEach(function (key, index) {
+      //     urlParams +=
+      //       (index === 0 ? "?" : "&") +
+      //       key +
+      //       "=" +
+      //       (key === "limit" ? totalData : apiParams[key]);
+      //   });
+      // }
       if (apiParams) {
-        Object.keys(apiParams).forEach(function (key, index) {
-          urlParams +=
-            (index === 0 ? "?" : "&") +
-            key +
-            "=" +
-            (key === "limit" ? totalData : apiParams[key]);
-        });
+        urlParams = "?limit=" + totalData;
       }
       let url = `order${urlParams}`;
       let options = {
@@ -469,8 +472,8 @@ const normalizeNumber = (value) => {
       await axiosPrivate(options)
         .then((response) => {
           if (response.data.status === 1) {
-            setRowData(response.data.data);
-            setTotalData(response.data.total);
+            // setRowData(response.data.data);
+            // setTotalData(response.data.total);
             const tempDownloadArr = [];
             const tempHeader = {};
             mainColumns.columns.map(
