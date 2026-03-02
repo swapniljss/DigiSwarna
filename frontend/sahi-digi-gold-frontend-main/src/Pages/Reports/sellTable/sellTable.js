@@ -280,9 +280,21 @@ const SellTable = () => {
             //         urlParams += (index === 0 ? '?' : '&') + key + '=' + (key === 'limit' ? totalData : apiParams[key]);
             //     });
             // }
-            if (apiParams) {
-                urlParams = "?limit=" + totalData;
-            }
+            let downloadParams = { ...apiParams };
+
+            // full filtered data download
+            downloadParams.limit = totalData;
+
+            // pagination remove karo
+            delete downloadParams.page;
+
+            Object.keys(downloadParams).forEach((key, index) => {
+                urlParams +=
+                    (index === 0 ? "?" : "&") +
+                    key +
+                    "=" +
+                    encodeURIComponent(downloadParams[key]);
+            });
             let url = `sell${urlParams}`;
             let options = {
                 method: 'GET',
