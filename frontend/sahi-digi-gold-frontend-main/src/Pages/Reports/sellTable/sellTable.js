@@ -15,6 +15,16 @@ import DateRangePicker from '../../../Components/DateRangePicker';
 import SomethingWentWrong from '../../../Components/SomethingWentWrong';
 import Backdrops from '../../../Components/Backdrops';
 import { MENU_SLUG } from '../../../Constants/constants';
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
+import Dialog from "@mui/material/Dialog";
+import DialogTitle from "@mui/material/DialogTitle";
+import DialogContent from "@mui/material/DialogContent";
+import DialogActions from "@mui/material/DialogActions";
+import TextField from "@mui/material/TextField";
+import Snackbar from "@mui/material/Snackbar";
+import Alert from "@mui/material/Alert";
+
 
 const SellTable = () => {
 
@@ -23,6 +33,16 @@ const SellTable = () => {
     let navigate = useNavigate();
     let location = useLocation();
     const axiosPrivate = useAxiosPrivate();
+
+    const [snackbarOpen, setSnackbarOpen] = useState(false);
+    const [snackbarMessage, setSnackbarMessage] = useState("");
+    const [snackbarSeverity, setSnackbarSeverity] = useState("success");
+
+    const [approvalModal, setApprovalModal] = useState(false);
+    const [approvalType, setApprovalType] = useState(""); // APPROVED / REJECTED
+    const [selectedTransaction, setSelectedTransaction] = useState(null);
+    const [rejectReason, setRejectReason] = useState("");
+    const [showReasonBox, setShowReasonBox] = useState(false);
 
     const [changePage, setChangePage] = useState(false);
     const [errorDialog, setErrorDialog] = useState(false);
@@ -209,22 +229,86 @@ const SellTable = () => {
         navigate(`/${MENU_SLUG.reports}/sell/view/${id}`, { state: { background: location } });
     }
 
-const normalizeNumber = (value) => {
-  if (
-    value === null ||
-    value === undefined ||
-    value === "" ||
-    value === "Null" ||
-    value === "null"
-  ) {
-    return "0.0000";
-  }
+    const normalizeNumber = (value) => {
+        if (
+            value === null ||
+            value === undefined ||
+            value === "" ||
+            value === "Null" ||
+            value === "null"
+        ) {
+            return "0.0000";
+        }
 
-  const num = Number(value);
+        const num = Number(value);
 
-  return isNaN(num) ? "0.0000" : num.toFixed(4);
-};
+        return isNaN(num) ? "0.0000" : num.toFixed(4);
+    };
 
+    const handleApprove = (id) => {
+        setSelectedTransaction(id);
+        setApprovalType("APPROVED");
+        setShowReasonBox(false);
+        setApprovalModal(true);
+    };
+
+    const handleReject = (id) => {
+        setSelectedTransaction(id);
+        setApprovalType("REJECTED");
+        setShowReasonBox(false);
+        setRejectReason("");
+        setApprovalModal(true);
+    };
+
+    const handleSubmitApproval = async () => {
+
+        if (approvalType === "REJECTED" && rejectReason.trim() === "") {
+
+            setSnackbarMessage("Please enter reject reason");
+            setSnackbarSeverity("error");
+            setSnackbarOpen(true);
+
+            return;
+        }
+
+        try {
+
+            const payload = {
+                sellId: selectedTransaction,
+                userId: "ADMIN",
+                status: approvalType,
+                reason: approvalType === "REJECTED" ? rejectReason : ""
+            };
+
+            let options = {
+                method: "POST",
+                url: "sell/admin/approval",
+                data: payload
+            };
+
+            const response = await axiosPrivate(options);
+
+            if (response.data.status === 1) {
+
+                setSnackbarMessage(response.data.message);
+                setSnackbarSeverity("success");
+                setSnackbarOpen(true);
+
+                setApprovalModal(false);
+                fetchTransaction(apiParams);
+
+            } else {
+
+                setSnackbarMessage(response.data.message);
+                setSnackbarSeverity("error");
+                setSnackbarOpen(true);
+            }
+
+        } catch (error) {
+            console.error(error);
+            setErrorDialog(true);
+        }
+    };
 
     function generateRows(tempArray) {
         const tempRowArray = [];
@@ -237,34 +321,86 @@ const normalizeNumber = (value) => {
                     quantity: (<Box component="div" className="BBPDTSText">{item.quantity}</Box>),
                     // totalAmount: (<Box component="div" className="BBPDTSText">{item.totalAmount}</Box>),
                     totalAmount: (
-  <Box component="div" className="BBPDTSText">
-    {normalizeNumber(item.totalAmount)}
-  </Box>
-),
+                        <Box component="div" className="BBPDTSText">
+                            {normalizeNumber(item.totalAmount)}
+                        </Box>
+                    ),
 
                     metalType: (<Box component="div" className="BBPDTSText">{item.metalType}</Box>),
                     uniqueId: (<Box component="div" className="BBPDTSText">{item.uniqueId}</Box>),
                     transactionId: (<Box component="div" className="BBPDTSText">{item.transactionId}</Box>),
                     merchantTransactionId: (<Box component="div" className="BBPDTSText">{item.merchantTransactionId}</Box>),
                     withdrawStatus: (<Box component="div" className="BBPDTChips"><Box component="div" className={"BBPDTCChip " + item.withdrawStatus}>{item.withdrawStatus}</Box></Box>),
-                    action: (<Box component="div" className="BBPDTIBtns">
-                        <Tooltip
-                            placement="top"
-                            classes={{
-                                popper: 'BBPTPopper',
-                                tooltip: 'BBPTooltip'
-                            }}
-                            title={'View Transaction'}
+                    action: (
+                        <Box
+                            component="div"
+                            className="BBPDTIBtns"
+                            sx={{ display: "flex", alignItems: "center", gap: 1 }}
                         >
-                            <IconButton
-                                size="small"
-                                className="BBPDTIBIcon"
-                                onClick={() => handlePreviewUser(item.transactionId)}
-                            >
-                                <RemoveRedEyeOutlinedIcon fontSize="inherit" />
-                            </IconButton>
-                        </Tooltip>
-                    </Box>),
+
+                            {/* VIEW */}
+                            <Tooltip title={'View Transaction'}>
+                                <IconButton
+                                    size="small"
+                                    className="BBPDTIBIcon"
+                                    onClick={() => handlePreviewUser(item.id)}
+                                >
+                                    <RemoveRedEyeOutlinedIcon fontSize="inherit" />
+                                </IconButton>
+                            </Tooltip>
+
+                            {/* APPROVE */}
+                            {(item.approvalStatus === "PENDING" || !item.approvalStatus) && (
+                                <Tooltip title={'Approve'}>
+                                    <IconButton
+                                        size="small"
+                                        className="BBPDTIBIcon"
+                                        onClick={() => handleApprove(item.id)}
+                                    >
+                                        <CheckCircleOutlineIcon fontSize="inherit" />
+                                    </IconButton>
+                                </Tooltip>
+                            )}
+
+                             {( item.approvalStatus === "APPROVED") && (
+                                <Tooltip title={'Approved'}>
+                                    <IconButton
+                                        size="small"
+                                        className="BBPDTIBIcon"
+                                        // onClick={() => handleApprove(item.id)}
+                                    >
+                                        <CheckCircleOutlineIcon fontSize="inherit" sx={{ color: 'green' }} />
+                                    </IconButton>
+                                </Tooltip>
+                            )}
+
+                            {/* REJECT */}
+                            {(item.approvalStatus === "PENDING" || !item.approvalStatus) && (
+                                <Tooltip title={'Reject'}>
+                                    <IconButton
+                                        size="small"
+                                        className="BBPDTIBIcon"
+                                        onClick={() => handleReject(item.id)}
+                                    >
+                                        <CancelOutlinedIcon fontSize="inherit" />
+                                    </IconButton>
+                                </Tooltip>
+                            )}
+
+                             {(item.approvalStatus === "REJECTED") && (
+                                <Tooltip title={'Rejected'}>
+                                    <IconButton
+                                        size="small"
+                                        className="BBPDTIBIcon"
+                                        // onClick={() => handleReject(item.id)}
+                                    >
+                                        <CancelOutlinedIcon fontSize="inherit" sx={{ color: 'red' }} />
+                                    </IconButton>
+                                </Tooltip>
+                            )}
+
+                        </Box>
+                    ),
                 }),
             );
         }
@@ -275,11 +411,26 @@ const normalizeNumber = (value) => {
         try {
             setOnDownloadLoading(true);
             let urlParams = '';
-            if (apiParams) {
-                Object.keys(apiParams).forEach(function (key, index) {
-                    urlParams += (index === 0 ? '?' : '&') + key + '=' + (key === 'limit' ? totalData : apiParams[key]);
-                });
-            }
+            // if (apiParams) {
+            //     Object.keys(apiParams).forEach(function (key, index) {
+            //         urlParams += (index === 0 ? '?' : '&') + key + '=' + (key === 'limit' ? totalData : apiParams[key]);
+            //     });
+            // }
+            let downloadParams = { ...apiParams };
+
+            // full filtered data download
+            downloadParams.limit = totalData;
+
+            // pagination remove karo
+            delete downloadParams.page;
+
+            Object.keys(downloadParams).forEach((key, index) => {
+                urlParams +=
+                    (index === 0 ? "?" : "&") +
+                    key +
+                    "=" +
+                    encodeURIComponent(downloadParams[key]);
+            });
             let url = `sell${urlParams}`;
             let options = {
                 method: 'GET',
@@ -287,8 +438,8 @@ const normalizeNumber = (value) => {
             };
             await axiosPrivate(options).then(response => {
                 if (response.data.status === 1) {
-                    setRowData(response.data.data);
-                    setTotalData(response.data.total);
+                    // setRowData(response.data.data);
+                    // setTotalData(response.data.total);
                     const tempDownloadArr = [];
                     const tempHeader = {};
                     mainColumns.columns.map((item) => tempHeader[item.name] = item.title);
@@ -368,6 +519,7 @@ const normalizeNumber = (value) => {
 
     return (
         <Fragment>
+
             <SomethingWentWrong open={errorDialog} setOpen={setErrorDialog} />
             <PageChangeDialog showDialog={changePage} setShowDialog={setChangePage} />
             <Backdrops
@@ -375,13 +527,93 @@ const normalizeNumber = (value) => {
                 title={'Downloading'}
             />
 
+            {/* APPROVAL / REJECT MODAL */}
+            <Dialog open={approvalModal} onClose={() => setApprovalModal(false)}>
+
+                <DialogTitle>
+                    {approvalType === "APPROVED"
+                        ? "Approve Transaction"
+                        : "Reject Transaction"}
+                </DialogTitle>
+
+                <DialogContent>
+
+                    {!showReasonBox && (
+                        <Box sx={{ mt: 1 }}>
+                            Are you sure you want to {approvalType.toLowerCase()} this transaction?
+                        </Box>
+                    )}
+
+                    {showReasonBox && (
+                        <TextField
+                            fullWidth
+                            label="Reject Reason"
+                            multiline
+                            rows={3}
+                            value={rejectReason}
+                            onChange={(e) => setRejectReason(e.target.value)}
+                            sx={{ mt: 2 }}
+                        />
+                    )}
+
+                </DialogContent>
+
+                <DialogActions>
+
+                    <Button
+                        onClick={() => {
+                            setApprovalModal(false);
+                            setShowReasonBox(false);
+                            setRejectReason("");
+                        }}
+                    >
+                        No
+                    </Button>
+
+                    {!showReasonBox && approvalType === "REJECTED" && (
+                        <Button
+                            variant="contained"
+                            color="error"
+                            onClick={() => setShowReasonBox(true)}
+                        >
+                            Yes
+                        </Button>
+                    )}
+
+                    {!showReasonBox && approvalType === "APPROVED" && (
+                        <Button
+                            variant="contained"
+                            color="success"
+                            onClick={handleSubmitApproval}
+                        >
+                            Yes
+                        </Button>
+                    )}
+
+                    {showReasonBox && (
+                        <Button
+                            variant="contained"
+                            color="error"
+                            onClick={handleSubmitApproval}
+                        >
+                            Submit
+                        </Button>
+                    )}
+
+                </DialogActions>
+
+            </Dialog>
+
+            {/* MAIN PAGE */}
             <Box component='div' className={'BBPReports'}>
+
                 <Box component='div' className={'BBPRHead'}>
                     <SearchBox
                         onSearchChange={handleSearch}
                         placeholder={'Search Transaction'}
                         searchTooltip={'Searching from Mobile Number, Unique ID, Transaction ID, Merchant Transaction ID'}
                     />
+
                     <Box component='div' className={'BBPRHBtn'}>
                         <DateRangePicker
                             title={'Period'}
@@ -390,9 +622,19 @@ const normalizeNumber = (value) => {
                             onChange={handleDateFilter}
                             onReset={handleRestDateFilter}
                         />
-                        <Button variant="contained" className={'BBPRHBD'} onClick={handleCSVDownload} disabled={loading || totalData === 0}>Download</Button>
+
+                        <Button
+                            variant="contained"
+                            className={'BBPRHBD'}
+                            onClick={handleCSVDownload}
+                            disabled={loading || totalData === 0}
+                        >
+                            Download
+                        </Button>
                     </Box>
+
                 </Box>
+
                 <Box component='div' className={'BBPRBody'}>
                     <DevTable
                         rows={generateRows(rowData)}
@@ -405,7 +647,23 @@ const normalizeNumber = (value) => {
                         totalData={totalData}
                     />
                 </Box>
+
             </Box>
+            <Snackbar
+                open={snackbarOpen}
+                autoHideDuration={3000}
+                onClose={() => setSnackbarOpen(false)}
+                anchorOrigin={{ vertical: "top", horizontal: "right" }}
+            >
+                <Alert
+                    onClose={() => setSnackbarOpen(false)}
+                    severity={snackbarSeverity}
+                    variant="filled"
+                >
+                    {snackbarMessage}
+                </Alert>
+            </Snackbar>
+
         </Fragment>
     );
 };

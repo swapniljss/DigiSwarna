@@ -129,7 +129,7 @@ function customValidate(formData, errors) {
       );
     }
   }
-    // PHONE VALIDATION (reject 0000000000 and invalid numbers)
+  // PHONE VALIDATION (reject 0000000000 and invalid numbers)
   if (formData.phone) {
     if (!/^[6-9]\d{9}$/.test(formData.phone)) {
       errors.phone.addError(
@@ -327,6 +327,43 @@ const AddUser = () => {
   };
 
   const [formData, setFormData] = useState({});
+
+  const handleFormChange = ({ formData }) => {
+
+    // ---------- CUSTOMERS PERMISSION ----------
+    const customerPermissions =
+      formData?.permissions?.customers_permissions || [];
+
+    if (
+      customerPermissions.includes("Edit") &&
+      !customerPermissions.includes("View")
+    ) {
+      formData.permissions.customers_permissions = [
+        ...customerPermissions,
+        "View",
+      ];
+    }
+
+
+    // ---------- USERS PERMISSION ----------
+    const userPermissions =
+      formData?.permissions?.users_permissions || [];
+
+    const needViewPermissions = ["Add", "Edit", "Delete", "Change Password"];
+
+    const isAnyActionSelected = needViewPermissions.some((p) =>
+      userPermissions.includes(p)
+    );
+
+    if (isAnyActionSelected && !userPermissions.includes("View")) {
+      formData.permissions.users_permissions = [
+        ...userPermissions,
+        "View",
+      ];
+    }
+
+    setFormData({ ...formData });
+  };
 
   const [errorDialog, setErrorDialog] = useState(false);
 
@@ -580,6 +617,7 @@ const AddUser = () => {
                       onSubmit={({ formData }) => {
                         onFormSubmit(formData);
                       }}
+                      onChange={handleFormChange}
                       ref={(form) => {
                         yourForm = form;
                       }}

@@ -270,18 +270,18 @@ const BuyTable = () => {
     });
   };
 
-const normalizeNumber = (value) => {
-  if (
-    value === null ||
-    value === undefined ||
-    value === "" ||
-    value === "Null" ||
-    value === "null"
-  ) {
-    return "0.0000";
-  }
-  return Number(value).toFixed(4);
-};
+  const normalizeNumber = (value) => {
+    if (
+      value === null ||
+      value === undefined ||
+      value === "" ||
+      value === "Null" ||
+      value === "null"
+    ) {
+      return "0.0000";
+    }
+    return Number(value).toFixed(4);
+  };
 
   function generateRows(tempArray) {
     const tempRowArray = [];
@@ -308,11 +308,11 @@ const normalizeNumber = (value) => {
               {item.quantity}
             </Box>
           ),
-totalAmount: (
-  <Box component="div" className="BBPDTSText">
-    {normalizeNumber(item.totalAmount)}
-  </Box>
-),
+          totalAmount: (
+            <Box component="div" className="BBPDTSText">
+              {normalizeNumber(item.totalAmount)}
+            </Box>
+          ),
 
 
           invoiceNumber: (
@@ -340,11 +340,11 @@ totalAmount: (
               {item.merchantTransactionId}
             </Box>
           ),
-goldBalance: (
-  <Box component="div" className="BBPDTSText">
-    {normalizeNumber(item.goldBalance)}
-  </Box>
-),
+          goldBalance: (
+            <Box component="div" className="BBPDTSText">
+              {normalizeNumber(item.goldBalance)}
+            </Box>
+          ),
 
 
           paymentMode: (
@@ -362,11 +362,11 @@ goldBalance: (
               {item.ConvinienceCharge ? item.ConvinienceCharge : 0}
             </Box>
           ),
-silverBalance: (
-  <Box component="div" className="BBPDTSText">
-    {normalizeNumber(item.silverBalance)}
-  </Box>
-),
+          silverBalance: (
+            <Box component="div" className="BBPDTSText">
+              {normalizeNumber(item.silverBalance)}
+            </Box>
+          ),
 
 
           action: (
@@ -444,15 +444,30 @@ silverBalance: (
     try {
       setOnDownloadLoading(true);
       let urlParams = "";
-      if (apiParams) {
-        Object.keys(apiParams).forEach(function (key, index) {
-          urlParams +=
-            (index === 0 ? "?" : "&") +
-            key +
-            "=" +
-            (key === "limit" ? totalData : apiParams[key]);
-        });
-      }
+      // if (apiParams) {
+      //   Object.keys(apiParams).forEach(function (key, index) {
+      //     urlParams +=
+      //       (index === 0 ? "?" : "&") +
+      //       key +
+      //       "=" +
+      //       (key === "limit" ? totalData : apiParams[key]);
+      //   });
+      // }
+      let downloadParams = { ...apiParams };
+
+      // full filtered data download
+      downloadParams.limit = totalData;
+
+      // pagination remove karo
+      delete downloadParams.page;
+
+      Object.keys(downloadParams).forEach((key, index) => {
+        urlParams +=
+          (index === 0 ? "?" : "&") +
+          key +
+          "=" +
+          encodeURIComponent(downloadParams[key]);
+      });
       let url = `buy${urlParams}`;
       let options = {
         method: "GET",
@@ -461,8 +476,8 @@ silverBalance: (
       await axiosPrivate(options)
         .then((response) => {
           if (response.data.status === 1) {
-            setRowData(response.data.data);
-            setTotalData(response.data.total);
+            // setRowData(response.data.data);
+            // setTotalData(response.data.total);
             const tempDownloadArr = [];
             const tempHeader = {};
             mainColumns.columns.map(

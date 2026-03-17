@@ -113,6 +113,12 @@ const schema = {
 };
 
 function customValidate(formData, errors) {
+
+  // ✅ NAME
+  if (!formData.userName || formData.userName.trim().length < 2) {
+    errors.userName.addError("Name must be at least 2 characters");
+  }
+  
   // EMAIL
   if (formData.emailId) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/;
@@ -159,6 +165,18 @@ const BasicDetails = ({ handleClose, customerID }) => {
   const [errorDialog, setErrorDialog] = useState(false);
   const [loading, setLoading] = useState(true);
   const [btnDisable, setBtnDisable] = useState(true);
+
+  const isFormIncomplete = () => {
+  return (
+    !formData?.userName ||
+    formData?.userName.trim().length < 2 ||   // ✅ name min 2 char
+    !formData?.emailId ||
+    !formData?.dateOfBirth ||
+    !formData?.userPincode ||
+    !selectedStateId ||
+    !selectedCityId
+  );
+};
 
   const [selectedState, setSelectedState] = useState("");
   const [selectedStateId, setSelectedStateId] = useState("");
@@ -498,7 +516,8 @@ const onFormChange = (formData) => {
           <Button
             variant="contained"
             className={"BBPButton"}
-            disabled={btnDisable || !selectedStateId || !selectedCityId}
+            // disabled={btnDisable || !selectedStateId || !selectedCityId}
+            disabled={btnDisable || isFormIncomplete()}
             onClick={onSubmitNew}
           >
             Submit
