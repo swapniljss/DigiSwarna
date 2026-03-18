@@ -24,6 +24,7 @@ import DialogActions from "@mui/material/DialogActions";
 import TextField from "@mui/material/TextField";
 import Snackbar from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
+import { getUserIdFromToken } from '../../../Utils/authHelper';
 
 
 const SellTable = () => {
@@ -245,15 +246,15 @@ const SellTable = () => {
         return isNaN(num) ? "0.0000" : num.toFixed(4);
     };
 
-    const handleApprove = (id) => {
-        setSelectedTransaction(id);
+    const handleApprove = (item) => {
+        setSelectedTransaction(item);
         setApprovalType("APPROVED");
         setShowReasonBox(false);
         setApprovalModal(true);
     };
 
-    const handleReject = (id) => {
-        setSelectedTransaction(id);
+    const handleReject = (item) => {
+        setSelectedTransaction(item);
         setApprovalType("REJECTED");
         setShowReasonBox(false);
         setRejectReason("");
@@ -274,8 +275,8 @@ const SellTable = () => {
         try {
 
             const payload = {
-                sellId: selectedTransaction,
-                userId: "ADMIN",
+                sellId: selectedTransaction.id,
+                userId: getUserIdFromToken(),
                 status: approvalType,
                 reason: approvalType === "REJECTED" ? rejectReason : ""
             };
@@ -355,19 +356,19 @@ const SellTable = () => {
                                     <IconButton
                                         size="small"
                                         className="BBPDTIBIcon"
-                                        onClick={() => handleApprove(item.id)}
+                                        onClick={() => handleApprove(item)}
                                     >
                                         <CheckCircleOutlineIcon fontSize="inherit" />
                                     </IconButton>
                                 </Tooltip>
                             )}
 
-                             {( item.approvalStatus === "APPROVED") && (
+                            {(item.approvalStatus === "APPROVED") && (
                                 <Tooltip title={'Approved'}>
                                     <IconButton
                                         size="small"
                                         className="BBPDTIBIcon"
-                                        // onClick={() => handleApprove(item.id)}
+                                    // onClick={() => handleApprove(item.id)}
                                     >
                                         <CheckCircleOutlineIcon fontSize="inherit" sx={{ color: 'green' }} />
                                     </IconButton>
@@ -380,19 +381,19 @@ const SellTable = () => {
                                     <IconButton
                                         size="small"
                                         className="BBPDTIBIcon"
-                                        onClick={() => handleReject(item.id)}
+                                        onClick={() => handleReject(item)}
                                     >
                                         <CancelOutlinedIcon fontSize="inherit" />
                                     </IconButton>
                                 </Tooltip>
                             )}
 
-                             {(item.approvalStatus === "REJECTED") && (
-                                <Tooltip title={'Rejected'}>
+                            {(item.approvalStatus === "REJECTED") && (
+                                <Tooltip title={`Rejected${item.reason ? `: ${item.reason}` : ""}`}>
                                     <IconButton
                                         size="small"
                                         className="BBPDTIBIcon"
-                                        // onClick={() => handleReject(item.id)}
+                                    // onClick={() => handleReject(item.id)}
                                     >
                                         <CancelOutlinedIcon fontSize="inherit" sx={{ color: 'red' }} />
                                     </IconButton>
@@ -536,10 +537,42 @@ const SellTable = () => {
                         : "Reject Transaction"}
                 </DialogTitle>
 
+                {/* 👇 YAHAN CHANGE KARNA HAI */}
                 <DialogContent>
 
+                    {selectedTransaction && (
+                        <Box sx={{ mb: 2, p: 2, borderRadius: 2, bgcolor: "#f5f5f5" }}>
+
+                            <Box sx={{ display: "flex", justifyContent: "space-between", mb: 1 }}>
+                                <Box><b>Metal:</b> {selectedTransaction.metalType}</Box>
+                                <Box><b>Qty:</b> {selectedTransaction.quantity}</Box>
+                            </Box>
+
+                            <Box sx={{ display: "flex", justifyContent: "space-between", mb: 1 }}>
+                                <Box><b>Rate:</b> ₹{selectedTransaction.rate}</Box>
+                                <Box><b>Total:</b> ₹{selectedTransaction.totalAmount}</Box>
+                            </Box>
+
+                            <Box sx={{ mb: 1 }}>
+                                <b>Pre Tax:</b> ₹{selectedTransaction.preTaxAmount}
+                            </Box>
+
+                            <Box sx={{ borderTop: "1px solid #ddd", pt: 1, mt: 1 }}>
+                                <Box><b>Gold Balance:</b> {selectedTransaction.goldBalance}</Box>
+                                <Box><b>Silver Balance:</b> {selectedTransaction.silverBalance}</Box>
+                            </Box>
+
+                            <Box sx={{ borderTop: "1px solid #ddd", pt: 1, mt: 1 }}>
+                                <Box><b>Account Name:</b> {selectedTransaction.accountName}</Box>
+                                <Box><b>Account No:</b> {selectedTransaction.accountNumber}</Box>
+                                <Box><b>IFSC:</b> {selectedTransaction.ifscCode}</Box>
+                            </Box>
+
+                        </Box>
+                    )}
+
                     {!showReasonBox && (
-                        <Box sx={{ mt: 1 }}>
+                        <Box>
                             Are you sure you want to {approvalType.toLowerCase()} this transaction?
                         </Box>
                     )}
@@ -558,43 +591,80 @@ const SellTable = () => {
 
                 </DialogContent>
 
-                <DialogActions>
+                <DialogActions
+                    sx={{
+                        justifyContent: "center",
+                        gap: 2,
+                        pb: 2
+                    }}
+                >
 
+                    {/* CANCEL */}
                     <Button
                         onClick={() => {
                             setApprovalModal(false);
                             setShowReasonBox(false);
                             setRejectReason("");
                         }}
+                        variant="outlined"
+                        sx={{
+                            borderRadius: "30px",
+                            px: 4,
+                            py: 1.2
+                        }}
                     >
-                        No
+                        Cancel
                     </Button>
 
+                    {/* REJECT FLOW */}
                     {!showReasonBox && approvalType === "REJECTED" && (
                         <Button
                             variant="contained"
                             color="error"
                             onClick={() => setShowReasonBox(true)}
+                            sx={{ borderRadius: "30px", px: 4, py: 1.2 }}
                         >
                             Yes
                         </Button>
                     )}
 
+                    {/* APPROVE FLOW */}
                     {!showReasonBox && approvalType === "APPROVED" && (
                         <Button
                             variant="contained"
-                            color="success"
                             onClick={handleSubmitApproval}
+                            sx={{
+                                backgroundColor: "#1f5d7a",
+                                borderRadius: "30px",
+                                px: 4,
+                                py: 1.2,
+                                fontWeight: "bold",
+                                boxShadow: "0 4px 10px rgba(0,0,0,0.2)",
+                                "&:hover": {
+                                    backgroundColor: "#17485f"
+                                }
+                            }}
                         >
-                            Yes
+                            Submit
                         </Button>
                     )}
 
+                    {/* FINAL REJECT SUBMIT */}
                     {showReasonBox && (
                         <Button
                             variant="contained"
-                            color="error"
                             onClick={handleSubmitApproval}
+                            sx={{
+                                backgroundColor: "#1f5d7a",
+                                borderRadius: "30px",
+                                px: 4,
+                                py: 1.2,
+                                fontWeight: "bold",
+                                boxShadow: "0 4px 10px rgba(0,0,0,0.2)",
+                                "&:hover": {
+                                    backgroundColor: "#17485f"
+                                }
+                            }}
                         >
                             Submit
                         </Button>

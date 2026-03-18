@@ -30,7 +30,7 @@ const schema = {
     password: {
       title: "Password",
       type: "string",
-       minLength: 8
+      minLength: 8
     },
   },
 };
@@ -140,6 +140,9 @@ const Login = () => {
         if (response.data.status === 1) {
           const tempToken = response.data.token.replace("Bearer", "");
           const decoded = jwt_decode(tempToken);
+
+          // ✅ SAVE TOKEN HERE
+          localStorage.setItem("token", response.data.token);
 
           setAuth({
             name: decoded.name,
